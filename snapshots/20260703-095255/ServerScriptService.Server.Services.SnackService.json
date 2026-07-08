@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:55.709Z",
+  "script": {
+    "id": "i2064",
+    "name": "SnackService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SnackService"
+  },
+  "sourceHash": "sha256:755dfc5f5067df134ea8ee2951fa81d46471fd94525d1407e0abdc0d554f377f",
+  "sourceLength": 40932,
+  "lineCount": 1092,
+  "backupPath": "snapshots\\20260703-095255\\ServerScriptService.Server.Services.SnackService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 1092,
+    "newLineCount": 1121,
+    "changedLineCount": 723,
+    "oldLength": 40932,
+    "newLength": 41960
+  },
+  "newSourceHash": "sha256:caf9ef01915dfa9b9e07ab1bbd38cb08174f9dfd90013d8f86ed81fa9d6f8643"
+}

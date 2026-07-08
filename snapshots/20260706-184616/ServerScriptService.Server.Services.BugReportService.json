@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:46:16.448Z",
+  "script": {
+    "id": "i2386",
+    "name": "BugReportService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.BugReportService"
+  },
+  "sourceHash": "sha256:af1473d1dddf7ca8e21b108a4995c7f01ac699232ac5dad5d86f47f02615e1ee",
+  "sourceLength": 13456,
+  "lineCount": 289,
+  "backupPath": "snapshots\\20260706-184616\\ServerScriptService.Server.Services.BugReportService.lua",
+  "kind": "patch",
+  "summary": "Patch active path BugReportService screenshot spot look targets",
+  "diff": {
+    "oldLineCount": 289,
+    "newLineCount": 305,
+    "changedLineCount": 300,
+    "oldLength": 13456,
+    "newLength": 13956
+  },
+  "newSourceHash": "sha256:2c0172f550e2178eb5ceb38ccb4575c80622c13e700b8bd7dcfdbc6277a960ea"
+}

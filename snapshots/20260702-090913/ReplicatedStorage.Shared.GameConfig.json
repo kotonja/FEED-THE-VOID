@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T13:09:13.811Z",
+  "script": {
+    "id": "i1759",
+    "name": "GameConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.GameConfig"
+  },
+  "sourceHash": "sha256:052a8bc79cfa6edf024ae8625de790500ed1f665fd7c462c65ac77d15f23f825",
+  "sourceLength": 4873,
+  "lineCount": 185,
+  "backupPath": "snapshots\\20260702-090913\\ReplicatedStorage.Shared.GameConfig.lua",
+  "kind": "patch",
+  "summary": "Phase 6 config and optional sound keys",
+  "diff": {
+    "oldLineCount": 185,
+    "newLineCount": 189,
+    "changedLineCount": 95,
+    "oldLength": 4873,
+    "newLength": 4955
+  },
+  "newSourceHash": "sha256:304dc29ce700141f626e11631ceb17ac772c7f35121c74f9ee793236e01257e3"
+}

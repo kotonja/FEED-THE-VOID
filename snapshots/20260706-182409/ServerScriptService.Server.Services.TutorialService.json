@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:24:09.255Z",
+  "script": {
+    "id": "i2181",
+    "name": "TutorialService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.TutorialService"
+  },
+  "sourceHash": "sha256:874008babf55faa5ced6bbead546bc1f0f46f978e257dcf648efddc0d40ce661",
+  "sourceLength": 3629,
+  "lineCount": 106,
+  "backupPath": "snapshots\\20260706-182409\\ServerScriptService.Server.Services.TutorialService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:7b9eb1d7186dc82bf9053949ebd6f4c66d17a64c4f760d520ccdd56bd150b438",
+  "diff": {
+    "oldLineCount": 106,
+    "newLineCount": 109,
+    "changedLineCount": 51,
+    "oldLength": 3629,
+    "newLength": 3797
+  }
+}

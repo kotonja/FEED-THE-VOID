@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:41:07.434Z",
+  "script": {
+    "id": "i2196",
+    "name": "HealthCheckService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.HealthCheckService"
+  },
+  "sourceHash": "sha256:729b7d553034426a8399dcc938a84c3e25bce9322ddace1696814a9c130a0323",
+  "sourceLength": 17350,
+  "lineCount": 331,
+  "backupPath": "snapshots\\20260707-104107\\ServerScriptService.Server.Services.HealthCheckService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 14 Imported Assets Overlay",
+  "newSourceHash": "sha256:c9f682632396e2bc7a2ded204cc0b6f83a6707e6d12b415e53a78c803806551d",
+  "diff": {
+    "oldLineCount": 331,
+    "newLineCount": 350,
+    "changedLineCount": 283,
+    "oldLength": 17350,
+    "newLength": 18906
+  }
+}

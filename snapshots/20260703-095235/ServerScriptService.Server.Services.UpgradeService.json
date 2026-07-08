@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:35.714Z",
+  "script": {
+    "id": "i2067",
+    "name": "UpgradeService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.UpgradeService"
+  },
+  "sourceHash": "sha256:3a4928cc19ca5d3625e2d7c37b7771b7a527e82b3671dd36abe6270590afe89a",
+  "sourceLength": 4930,
+  "lineCount": 133,
+  "backupPath": "snapshots\\20260703-095235\\ServerScriptService.Server.Services.UpgradeService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 133,
+    "newLineCount": 134,
+    "changedLineCount": 8,
+    "oldLength": 4930,
+    "newLength": 4999
+  },
+  "newSourceHash": "sha256:d10fea8ce717b8b9c33214d87fa960cacf10c52e881fc026c0f380a138b29a86"
+}

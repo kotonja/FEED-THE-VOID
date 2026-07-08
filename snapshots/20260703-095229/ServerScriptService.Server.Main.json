@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:29.699Z",
+  "script": {
+    "id": "i2041",
+    "name": "Main",
+    "className": "Script",
+    "path": "ServerScriptService.Server.Main"
+  },
+  "sourceHash": "sha256:b4be43cb1f8e904a9d287e2a9a73c6cd8baa5bfa195ddd5a48c0c8e2bf398f8b",
+  "sourceLength": 12095,
+  "lineCount": 330,
+  "backupPath": "snapshots\\20260703-095229\\ServerScriptService.Server.Main.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 330,
+    "newLineCount": 364,
+    "changedLineCount": 327,
+    "oldLength": 12095,
+    "newLength": 13554
+  },
+  "newSourceHash": "sha256:589325b83bf33932d58f26d510c1682af83dcabbba337b29af992226a03dd9e9"
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:24:17.173Z",
+  "script": {
+    "id": "i2193",
+    "name": "EffectsController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.EffectsController"
+  },
+  "sourceHash": "sha256:168032d715b02937a6fcd98d315e0027dfa80dd6fd22646a150abc60cd4d9e25",
+  "sourceLength": 51569,
+  "lineCount": 1578,
+  "backupPath": "snapshots\\20260706-182417\\StarterPlayer.StarterPlayerScripts.Controllers.EffectsController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:ef6be2aa96f1e52e6f3c71cfe08860210c72b67dc5e969b6f427f13a145bea19",
+  "diff": {
+    "oldLineCount": 1578,
+    "newLineCount": 1613,
+    "changedLineCount": 324,
+    "oldLength": 51569,
+    "newLength": 53003
+  }
+}

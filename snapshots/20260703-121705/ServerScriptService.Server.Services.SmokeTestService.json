@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:17:05.743Z",
+  "script": {
+    "id": "i8144",
+    "name": "SmokeTestService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SmokeTestService"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260703-121705\\ServerScriptService.Server.Services.SmokeTestService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 10 Private Test Freeze Overlay",
+  "newSourceHash": "sha256:d8e403462227c70f45fa5a2f6a54560cb1e5f6c78c861f4e0218284ca62faf14",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 254,
+    "changedLineCount": 255,
+    "oldLength": 0,
+    "newLength": 9709
+  }
+}

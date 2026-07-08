@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:17:39.914Z",
+  "script": {
+    "id": "i2079",
+    "name": "SoundController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.SoundController"
+  },
+  "sourceHash": "sha256:d339bb9aea7f448c87333419a4d34cabab24b62219b0a8b9be86acea2fcdf103",
+  "sourceLength": 1448,
+  "lineCount": 48,
+  "backupPath": "snapshots\\20260703-111739\\StarterPlayer.StarterPlayerScripts.Controllers.SoundController.lua",
+  "kind": "patch",
+  "summary": "Restore live sound controller after Phase 9 hardening apply",
+  "diff": {
+    "oldLineCount": 48,
+    "newLineCount": 90,
+    "changedLineCount": 81,
+    "oldLength": 1448,
+    "newLength": 2310
+  },
+  "newSourceHash": "sha256:d66dbbfc8693e15d7f58c93c53cbaef8015de30380668ced750e43c1a5ae83c3"
+}

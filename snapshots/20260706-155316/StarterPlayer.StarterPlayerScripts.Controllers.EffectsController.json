@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T19:53:16.357Z",
+  "script": {
+    "id": "i2070",
+    "name": "EffectsController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.EffectsController"
+  },
+  "sourceHash": "sha256:07c5e76d2f08d04e8abfb88aa16ce769d41f1ad2f499edf263946d20b13c55de",
+  "sourceLength": 35255,
+  "lineCount": 1093,
+  "backupPath": "snapshots\\20260706-155316\\StarterPlayer.StarterPlayerScripts.Controllers.EffectsController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 12 VFX Overlay",
+  "newSourceHash": "sha256:a4a5812ebbdb74ebed29761c9f95b25ec6e4512d530a64d574704a1cb76b239a",
+  "diff": {
+    "oldLineCount": 1093,
+    "newLineCount": 1537,
+    "changedLineCount": 1515,
+    "oldLength": 35255,
+    "newLength": 50320
+  }
+}

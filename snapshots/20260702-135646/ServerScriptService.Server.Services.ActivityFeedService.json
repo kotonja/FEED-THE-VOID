@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:56:46.945Z",
+  "script": {
+    "id": "i1949",
+    "name": "ActivityFeedService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.ActivityFeedService"
+  },
+  "sourceHash": "sha256:c3016c6a240a94353076c297a64d6e773fabd346ef7d83b36a57fcd8366a36b1",
+  "sourceLength": 2519,
+  "lineCount": 70,
+  "backupPath": "snapshots\\20260702-135646\\ServerScriptService.Server.Services.ActivityFeedService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 70,
+    "newLineCount": 89,
+    "changedLineCount": 46,
+    "oldLength": 2519,
+    "newLength": 3787
+  },
+  "newSourceHash": "sha256:ff23b1011ebce30b977506c281332d9e7bdee60b3631a39ea052eef9886d068a"
+}

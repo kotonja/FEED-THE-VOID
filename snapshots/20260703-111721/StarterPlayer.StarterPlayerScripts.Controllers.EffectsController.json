@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:17:21.128Z",
+  "script": {
+    "id": "i2075",
+    "name": "EffectsController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.EffectsController"
+  },
+  "sourceHash": "sha256:2d48acd1f22d16a226201844b9bec60690c3091b5fa689a6cffd006f792b1e65",
+  "sourceLength": 4506,
+  "lineCount": 158,
+  "backupPath": "snapshots\\20260703-111721\\StarterPlayer.StarterPlayerScripts.Controllers.EffectsController.lua",
+  "kind": "patch",
+  "summary": "Restore live Phase 6 effects controller after Phase 9 hardening apply",
+  "diff": {
+    "oldLineCount": 158,
+    "newLineCount": 1093,
+    "changedLineCount": 1088,
+    "oldLength": 4506,
+    "newLength": 35255
+  },
+  "newSourceHash": "sha256:07c5e76d2f08d04e8abfb88aa16ce769d41f1ad2f499edf263946d20b13c55de"
+}

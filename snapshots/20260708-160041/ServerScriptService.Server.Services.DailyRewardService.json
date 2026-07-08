@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:00:41.471Z",
+  "script": {
+    "id": "i2452",
+    "name": "DailyRewardService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.DailyRewardService"
+  },
+  "sourceHash": "sha256:84dbd47aa1b23bc0468d331df6ff25bad91f6eec880797ffb4529477f34855de",
+  "sourceLength": 5021,
+  "lineCount": 154,
+  "backupPath": "snapshots\\20260708-160041\\ServerScriptService.Server.Services.DailyRewardService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:84dbd47aa1b23bc0468d331df6ff25bad91f6eec880797ffb4529477f34855de",
+  "diff": {
+    "oldLineCount": 154,
+    "newLineCount": 154,
+    "changedLineCount": 0,
+    "oldLength": 5021,
+    "newLength": 5021
+  }
+}

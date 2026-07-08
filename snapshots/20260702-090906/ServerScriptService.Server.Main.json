@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T13:09:06.089Z",
+  "script": {
+    "id": "i1921",
+    "name": "Main",
+    "className": "Script",
+    "path": "ServerScriptService.Server.Main"
+  },
+  "sourceHash": "sha256:295b7927073485b5e6318c8962da1714a1b7ba0860d5aaa4fde88dfffd4afc35",
+  "sourceLength": 10074,
+  "lineCount": 287,
+  "backupPath": "snapshots\\20260702-090906\\ServerScriptService.Server.Main.lua",
+  "kind": "patch",
+  "summary": "Phase 6 PlayEffect cosmetic remote",
+  "diff": {
+    "oldLineCount": 287,
+    "newLineCount": 298,
+    "changedLineCount": 292,
+    "oldLength": 10074,
+    "newLength": 10354
+  },
+  "newSourceHash": "sha256:3705a879b7acc5458e4b00d4631f3c6bb4e77f845578413e99e72c6967c32832"
+}

@@ -1,0 +1,6169 @@
+{
+  "name": "FEED THE VOID Phase 1 Playable Skeleton",
+  "mode": "supervised",
+  "description": "Creates Phase 1 real world/UI instances plus modular server/client code for the core playable loop.",
+  "steps": [
+    {
+      "type": "ensureFolder",
+      "path": "ReplicatedStorage.Remotes"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ReplicatedStorage.Shared"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ServerScriptService.Server"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ServerScriptService.Server.Services"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "Workspace.GameWorld"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "Workspace.GameWorld.Plots"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "Workspace.GameWorld.CentralVoid"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "Workspace.GameWorld.ActiveSnacks"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "Workspace.GameWorld.ActiveVoidmites"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "Workspace.GameWorld.EventObjects"
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestPlantSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestHarvestSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestSellSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestFeedVoid"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestDisplaySnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestClearVoidmite"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestBuySeed"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestRebirth"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.NotifyClient"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.SyncPlayerData"
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.GameConfig",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/GameConfig.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.SnackConfig",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/SnackConfig.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.MutationConfig",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/MutationConfig.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.EventConfig",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/EventConfig.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.FormatNumbers",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/FormatNumbers.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Main",
+      "className": "Script",
+      "sourceFile": "src/server/Main.server.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.ProfileServiceWrapper",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/ProfileServiceWrapper.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.PlotService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/PlotService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.SnackService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/SnackService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.InventoryService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/InventoryService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.EconomyService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/EconomyService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.VoidService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/VoidService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.VoidmiteService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/VoidmiteService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.EventService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/EventService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.ShopService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/ShopService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.RebirthService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/RebirthService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.VisitRewardService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/VisitRewardService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.AnalyticsService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/AnalyticsService.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.ClientMain",
+      "className": "LocalScript",
+      "sourceFile": "src/client/ClientMain.client.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/UIController.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.PromptController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/PromptController.lua"
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.NotificationController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/NotificationController.lua"
+    },
+    {
+      "type": "setLighting",
+      "path": "Lighting",
+      "properties": {
+        "ClockTime": 17.5,
+        "Brightness": 2.5,
+        "Ambient": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 62,
+          "g": 52,
+          "b": 78
+        },
+        "OutdoorAmbient": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 82,
+          "b": 105
+        }
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.VoidLabFloor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 190,
+          "y": 1,
+          "z": 190
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 42,
+          "g": 45,
+          "b": 55
+        },
+        "Material": "Slate"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.CentralVoid.VoidCore",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Shape": "Ball",
+        "Size": {
+          "__type": "Vector3",
+          "x": 18,
+          "y": 18,
+          "z": 18
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 11,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 22,
+          "g": 8,
+          "b": 34
+        },
+        "Material": "Neon"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.CentralVoid.Mouth",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 10,
+          "y": 2,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 7,
+          "z": -8.9
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 5,
+          "g": 2,
+          "b": 8
+        },
+        "Material": "SmoothPlastic"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.CentralVoid.LeftEye",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Shape": "Ball",
+        "Size": {
+          "__type": "Vector3",
+          "x": 2.2,
+          "y": 2.2,
+          "z": 2.2
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -4,
+          "y": 14,
+          "z": -7
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 190,
+          "g": 65,
+          "b": 255
+        },
+        "Material": "Neon"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.CentralVoid.RightEye",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Shape": "Ball",
+        "Size": {
+          "__type": "Vector3",
+          "x": 2.2,
+          "y": 2.2,
+          "z": 2.2
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 4,
+          "y": 14,
+          "z": -7
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 88,
+          "g": 225,
+          "b": 255
+        },
+        "Material": "Neon"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.CentralVoid.FeedStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 10,
+          "y": 1,
+          "z": 10
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0.75,
+          "z": -20
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 112,
+          "g": 64,
+          "b": 165
+        },
+        "Material": "Neon"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.CentralVoid.FeedStation.FeedPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Feed First Snack",
+        "ObjectText": "THE VOID",
+        "HoldDuration": 0.25,
+        "MaxActivationDistance": 12
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.CentralVoid.VoidCore.VoidGlow",
+      "className": "PointLight",
+      "properties": {
+        "Brightness": 3,
+        "Range": 45,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 156,
+          "g": 65,
+          "b": 255
+        },
+        "Shadows": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.CentralVoid.VoidCore.VoidBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 280,
+          "yScale": 0,
+          "yOffset": 100
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 14,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.CentralVoid.VoidCore.VoidBillboard.TitleLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "THE VOID",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 244,
+          "g": 232,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.CentralVoid.VoidCore.VoidBillboard.MeterBack",
+      "className": "Frame",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 30,
+          "g": 18,
+          "b": 44
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.9,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 18
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.05,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 52
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.CentralVoid.VoidCore.VoidBillboard.MeterBack.MeterFill",
+      "className": "Frame",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 190,
+          "g": 65,
+          "b": 255
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.CentralVoid.VoidCore.VoidBillboard.HungerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 26
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 72
+        },
+        "Text": "THE VOID - 0/100",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 230,
+          "g": 230,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "createModel",
+      "path": "Workspace.GameWorld.Plots.Plot1",
+      "attributes": {
+        "PlotId": 1,
+        "OwnerUserId": 0
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Platform",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 32,
+          "y": 1,
+          "z": 26
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 58,
+          "y": 0.7,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 62,
+          "g": 50,
+          "b": 74
+        },
+        "Material": "Concrete"
+      },
+      "attributes": {
+        "PlotId": 1
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.PlotSpawn",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 1,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 58,
+          "y": 2,
+          "z": 8
+        },
+        "Transparency": 0.35,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 90,
+          "g": 230,
+          "b": 180
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 1
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.OwnerSign",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 12,
+          "y": 5,
+          "z": 0.8
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 58,
+          "y": 4,
+          "z": 14
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 35,
+          "g": 38,
+          "b": 50
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 1
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.OwnerSign.OwnerBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 220,
+          "yScale": 0,
+          "yOffset": 60
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 4,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.OwnerSign.OwnerBillboard.OwnerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Text": "EMPTY PLOT",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 248,
+          "b": 220
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.DisplayShelf",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 20,
+          "y": 2,
+          "z": 4
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 58,
+          "y": 2.1,
+          "z": -10
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 65,
+          "b": 120
+        },
+        "Material": "WoodPlanks"
+      },
+      "attributes": {
+        "PlotId": 1
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.DisplayShelf.DisplayPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Display First Snack",
+        "ObjectText": "Display Shelf",
+        "HoldDuration": 0.25,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.SellStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 46,
+          "y": 2.4,
+          "z": -9
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 74,
+          "g": 184,
+          "b": 95
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 1
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.SellStation.SellPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Sell First Snack",
+        "ObjectText": "Sell Station",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.SeedShopStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 70,
+          "y": 2.4,
+          "z": -9
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 245,
+          "g": 180,
+          "b": 65
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 1
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.SeedShopStation.BuySeedPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Buy Cookie Seed",
+        "ObjectText": "Seed Shop",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate1",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 51,
+          "y": 1.45,
+          "z": 2
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 1,
+        "PlateIndex": 1,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate1.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 1",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate2",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 58,
+          "y": 1.45,
+          "z": 2
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 1,
+        "PlateIndex": 2,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate2.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 2",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate3",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 65,
+          "y": 1.45,
+          "z": 2
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 1,
+        "PlateIndex": 3,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate3.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 3",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate4",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 51,
+          "y": 1.45,
+          "z": -4
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 1,
+        "PlateIndex": 4,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate4.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 4",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate5",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 58,
+          "y": 1.45,
+          "z": -4
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 1,
+        "PlateIndex": 5,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate5.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 5",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate6",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 65,
+          "y": 1.45,
+          "z": -4
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 1,
+        "PlateIndex": 6,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate6.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 6",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createModel",
+      "path": "Workspace.GameWorld.Plots.Plot2",
+      "attributes": {
+        "PlotId": 2,
+        "OwnerUserId": 0
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Platform",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 32,
+          "y": 1,
+          "z": 26
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881976,
+          "y": 0.7,
+          "z": 41.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 48,
+          "g": 68,
+          "b": 75
+        },
+        "Material": "Concrete"
+      },
+      "attributes": {
+        "PlotId": 2
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.PlotSpawn",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 1,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881976,
+          "y": 2,
+          "z": 49.012193308819754
+        },
+        "Transparency": 0.35,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 90,
+          "g": 230,
+          "b": 180
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 2
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.OwnerSign",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 12,
+          "y": 5,
+          "z": 0.8
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881976,
+          "y": 4,
+          "z": 55.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 35,
+          "g": 38,
+          "b": 50
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 2
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.OwnerSign.OwnerBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 220,
+          "yScale": 0,
+          "yOffset": 60
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 4,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.OwnerSign.OwnerBillboard.OwnerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Text": "EMPTY PLOT",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 248,
+          "b": 220
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.DisplayShelf",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 20,
+          "y": 2,
+          "z": 4
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881976,
+          "y": 2.1,
+          "z": 31.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 65,
+          "b": 120
+        },
+        "Material": "WoodPlanks"
+      },
+      "attributes": {
+        "PlotId": 2
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.DisplayShelf.DisplayPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Display First Snack",
+        "ObjectText": "Display Shelf",
+        "HoldDuration": 0.25,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.SellStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 29.01219330881976,
+          "y": 2.4,
+          "z": 32.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 74,
+          "g": 184,
+          "b": 95
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 2
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.SellStation.SellPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Sell First Snack",
+        "ObjectText": "Sell Station",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.SeedShopStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 53.01219330881976,
+          "y": 2.4,
+          "z": 32.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 245,
+          "g": 180,
+          "b": 65
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 2
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.SeedShopStation.BuySeedPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Buy Cookie Seed",
+        "ObjectText": "Seed Shop",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate1",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 34.01219330881976,
+          "y": 1.45,
+          "z": 43.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 2,
+        "PlateIndex": 1,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate1.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 1",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate2",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881976,
+          "y": 1.45,
+          "z": 43.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 2,
+        "PlateIndex": 2,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate2.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 2",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate3",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 48.01219330881976,
+          "y": 1.45,
+          "z": 43.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 2,
+        "PlateIndex": 3,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate3.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 3",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate4",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 34.01219330881976,
+          "y": 1.45,
+          "z": 37.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 2,
+        "PlateIndex": 4,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate4.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 4",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate5",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881976,
+          "y": 1.45,
+          "z": 37.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 2,
+        "PlateIndex": 5,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate5.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 5",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate6",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 48.01219330881976,
+          "y": 1.45,
+          "z": 37.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 2,
+        "PlateIndex": 6,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate6.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 6",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createModel",
+      "path": "Workspace.GameWorld.Plots.Plot3",
+      "attributes": {
+        "PlotId": 3,
+        "OwnerUserId": 0
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Platform",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 32,
+          "y": 1,
+          "z": 26
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 3.5514757175273244e-15,
+          "y": 0.7,
+          "z": 58
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 62,
+          "g": 50,
+          "b": 74
+        },
+        "Material": "Concrete"
+      },
+      "attributes": {
+        "PlotId": 3
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.PlotSpawn",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 1,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 3.5514757175273244e-15,
+          "y": 2,
+          "z": 66
+        },
+        "Transparency": 0.35,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 90,
+          "g": 230,
+          "b": 180
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 3
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.OwnerSign",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 12,
+          "y": 5,
+          "z": 0.8
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 3.5514757175273244e-15,
+          "y": 4,
+          "z": 72
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 35,
+          "g": 38,
+          "b": 50
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 3
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.OwnerSign.OwnerBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 220,
+          "yScale": 0,
+          "yOffset": 60
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 4,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.OwnerSign.OwnerBillboard.OwnerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Text": "EMPTY PLOT",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 248,
+          "b": 220
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.DisplayShelf",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 20,
+          "y": 2,
+          "z": 4
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 3.5514757175273244e-15,
+          "y": 2.1,
+          "z": 48
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 65,
+          "b": 120
+        },
+        "Material": "WoodPlanks"
+      },
+      "attributes": {
+        "PlotId": 3
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.DisplayShelf.DisplayPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Display First Snack",
+        "ObjectText": "Display Shelf",
+        "HoldDuration": 0.25,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.SellStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -11.999999999999996,
+          "y": 2.4,
+          "z": 49
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 74,
+          "g": 184,
+          "b": 95
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 3
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.SellStation.SellPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Sell First Snack",
+        "ObjectText": "Sell Station",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.SeedShopStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 12.000000000000004,
+          "y": 2.4,
+          "z": 49
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 245,
+          "g": 180,
+          "b": 65
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 3
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.SeedShopStation.BuySeedPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Buy Cookie Seed",
+        "ObjectText": "Seed Shop",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate1",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -6.9999999999999964,
+          "y": 1.45,
+          "z": 60
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 3,
+        "PlateIndex": 1,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate1.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 1",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate2",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 3.5514757175273244e-15,
+          "y": 1.45,
+          "z": 60
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 3,
+        "PlateIndex": 2,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate2.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 2",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate3",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 7.0000000000000036,
+          "y": 1.45,
+          "z": 60
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 3,
+        "PlateIndex": 3,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate3.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 3",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate4",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -6.9999999999999964,
+          "y": 1.45,
+          "z": 54
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 3,
+        "PlateIndex": 4,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate4.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 4",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate5",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 3.5514757175273244e-15,
+          "y": 1.45,
+          "z": 54
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 3,
+        "PlateIndex": 5,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate5.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 5",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate6",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 7.0000000000000036,
+          "y": 1.45,
+          "z": 54
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 3,
+        "PlateIndex": 6,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate6.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 6",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createModel",
+      "path": "Workspace.GameWorld.Plots.Plot4",
+      "attributes": {
+        "PlotId": 4,
+        "OwnerUserId": 0
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Platform",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 32,
+          "y": 1,
+          "z": 26
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.012193308819754,
+          "y": 0.7,
+          "z": 41.01219330881976
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 48,
+          "g": 68,
+          "b": 75
+        },
+        "Material": "Concrete"
+      },
+      "attributes": {
+        "PlotId": 4
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.PlotSpawn",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 1,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.012193308819754,
+          "y": 2,
+          "z": 49.01219330881976
+        },
+        "Transparency": 0.35,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 90,
+          "g": 230,
+          "b": 180
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 4
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.OwnerSign",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 12,
+          "y": 5,
+          "z": 0.8
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.012193308819754,
+          "y": 4,
+          "z": 55.01219330881976
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 35,
+          "g": 38,
+          "b": 50
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 4
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.OwnerSign.OwnerBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 220,
+          "yScale": 0,
+          "yOffset": 60
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 4,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.OwnerSign.OwnerBillboard.OwnerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Text": "EMPTY PLOT",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 248,
+          "b": 220
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.DisplayShelf",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 20,
+          "y": 2,
+          "z": 4
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.012193308819754,
+          "y": 2.1,
+          "z": 31.01219330881976
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 65,
+          "b": 120
+        },
+        "Material": "WoodPlanks"
+      },
+      "attributes": {
+        "PlotId": 4
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.DisplayShelf.DisplayPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Display First Snack",
+        "ObjectText": "Display Shelf",
+        "HoldDuration": 0.25,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.SellStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -53.012193308819754,
+          "y": 2.4,
+          "z": 32.01219330881976
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 74,
+          "g": 184,
+          "b": 95
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 4
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.SellStation.SellPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Sell First Snack",
+        "ObjectText": "Sell Station",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.SeedShopStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -29.012193308819754,
+          "y": 2.4,
+          "z": 32.01219330881976
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 245,
+          "g": 180,
+          "b": 65
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 4
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.SeedShopStation.BuySeedPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Buy Cookie Seed",
+        "ObjectText": "Seed Shop",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate1",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -48.012193308819754,
+          "y": 1.45,
+          "z": 43.01219330881976
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 4,
+        "PlateIndex": 1,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate1.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 1",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate2",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.012193308819754,
+          "y": 1.45,
+          "z": 43.01219330881976
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 4,
+        "PlateIndex": 2,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate2.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 2",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate3",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -34.012193308819754,
+          "y": 1.45,
+          "z": 43.01219330881976
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 4,
+        "PlateIndex": 3,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate3.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 3",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate4",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -48.012193308819754,
+          "y": 1.45,
+          "z": 37.01219330881976
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 4,
+        "PlateIndex": 4,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate4.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 4",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate5",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.012193308819754,
+          "y": 1.45,
+          "z": 37.01219330881976
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 4,
+        "PlateIndex": 5,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate5.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 5",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate6",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -34.012193308819754,
+          "y": 1.45,
+          "z": 37.01219330881976
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 4,
+        "PlateIndex": 6,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate6.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 6",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createModel",
+      "path": "Workspace.GameWorld.Plots.Plot5",
+      "attributes": {
+        "PlotId": 5,
+        "OwnerUserId": 0
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Platform",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 32,
+          "y": 1,
+          "z": 26
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -58,
+          "y": 0.7,
+          "z": 7.102951435054649e-15
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 62,
+          "g": 50,
+          "b": 74
+        },
+        "Material": "Concrete"
+      },
+      "attributes": {
+        "PlotId": 5
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.PlotSpawn",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 1,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -58,
+          "y": 2,
+          "z": 8.000000000000007
+        },
+        "Transparency": 0.35,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 90,
+          "g": 230,
+          "b": 180
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 5
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.OwnerSign",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 12,
+          "y": 5,
+          "z": 0.8
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -58,
+          "y": 4,
+          "z": 14.000000000000007
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 35,
+          "g": 38,
+          "b": 50
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 5
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.OwnerSign.OwnerBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 220,
+          "yScale": 0,
+          "yOffset": 60
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 4,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.OwnerSign.OwnerBillboard.OwnerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Text": "EMPTY PLOT",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 248,
+          "b": 220
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.DisplayShelf",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 20,
+          "y": 2,
+          "z": 4
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -58,
+          "y": 2.1,
+          "z": -9.999999999999993
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 65,
+          "b": 120
+        },
+        "Material": "WoodPlanks"
+      },
+      "attributes": {
+        "PlotId": 5
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.DisplayShelf.DisplayPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Display First Snack",
+        "ObjectText": "Display Shelf",
+        "HoldDuration": 0.25,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.SellStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -70,
+          "y": 2.4,
+          "z": -8.999999999999993
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 74,
+          "g": 184,
+          "b": 95
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 5
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.SellStation.SellPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Sell First Snack",
+        "ObjectText": "Sell Station",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.SeedShopStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -46,
+          "y": 2.4,
+          "z": -8.999999999999993
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 245,
+          "g": 180,
+          "b": 65
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 5
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.SeedShopStation.BuySeedPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Buy Cookie Seed",
+        "ObjectText": "Seed Shop",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate1",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -65,
+          "y": 1.45,
+          "z": 2.000000000000007
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 5,
+        "PlateIndex": 1,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate1.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 1",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate2",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -58,
+          "y": 1.45,
+          "z": 2.000000000000007
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 5,
+        "PlateIndex": 2,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate2.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 2",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate3",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -51,
+          "y": 1.45,
+          "z": 2.000000000000007
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 5,
+        "PlateIndex": 3,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate3.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 3",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate4",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -65,
+          "y": 1.45,
+          "z": -3.999999999999993
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 5,
+        "PlateIndex": 4,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate4.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 4",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate5",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -58,
+          "y": 1.45,
+          "z": -3.999999999999993
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 5,
+        "PlateIndex": 5,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate5.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 5",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate6",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -51,
+          "y": 1.45,
+          "z": -3.999999999999993
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 5,
+        "PlateIndex": 6,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate6.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 6",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createModel",
+      "path": "Workspace.GameWorld.Plots.Plot6",
+      "attributes": {
+        "PlotId": 6,
+        "OwnerUserId": 0
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Platform",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 32,
+          "y": 1,
+          "z": 26
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.01219330881977,
+          "y": 0.7,
+          "z": -41.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 48,
+          "g": 68,
+          "b": 75
+        },
+        "Material": "Concrete"
+      },
+      "attributes": {
+        "PlotId": 6
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.PlotSpawn",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 1,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.01219330881977,
+          "y": 2,
+          "z": -33.012193308819754
+        },
+        "Transparency": 0.35,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 90,
+          "g": 230,
+          "b": 180
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 6
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.OwnerSign",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 12,
+          "y": 5,
+          "z": 0.8
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.01219330881977,
+          "y": 4,
+          "z": -27.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 35,
+          "g": 38,
+          "b": 50
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 6
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.OwnerSign.OwnerBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 220,
+          "yScale": 0,
+          "yOffset": 60
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 4,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.OwnerSign.OwnerBillboard.OwnerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Text": "EMPTY PLOT",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 248,
+          "b": 220
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.DisplayShelf",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 20,
+          "y": 2,
+          "z": 4
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.01219330881977,
+          "y": 2.1,
+          "z": -51.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 65,
+          "b": 120
+        },
+        "Material": "WoodPlanks"
+      },
+      "attributes": {
+        "PlotId": 6
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.DisplayShelf.DisplayPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Display First Snack",
+        "ObjectText": "Display Shelf",
+        "HoldDuration": 0.25,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.SellStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -53.01219330881977,
+          "y": 2.4,
+          "z": -50.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 74,
+          "g": 184,
+          "b": 95
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 6
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.SellStation.SellPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Sell First Snack",
+        "ObjectText": "Sell Station",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.SeedShopStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -29.012193308819768,
+          "y": 2.4,
+          "z": -50.012193308819754
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 245,
+          "g": 180,
+          "b": 65
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 6
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.SeedShopStation.BuySeedPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Buy Cookie Seed",
+        "ObjectText": "Seed Shop",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate1",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -48.01219330881977,
+          "y": 1.45,
+          "z": -39.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 6,
+        "PlateIndex": 1,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate1.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 1",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate2",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.01219330881977,
+          "y": 1.45,
+          "z": -39.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 6,
+        "PlateIndex": 2,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate2.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 2",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate3",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -34.01219330881977,
+          "y": 1.45,
+          "z": -39.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 6,
+        "PlateIndex": 3,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate3.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 3",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate4",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -48.01219330881977,
+          "y": 1.45,
+          "z": -45.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 6,
+        "PlateIndex": 4,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate4.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 4",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate5",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -41.01219330881977,
+          "y": 1.45,
+          "z": -45.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 6,
+        "PlateIndex": 5,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate5.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 5",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate6",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -34.01219330881977,
+          "y": 1.45,
+          "z": -45.012193308819754
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 6,
+        "PlateIndex": 6,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate6.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 6",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createModel",
+      "path": "Workspace.GameWorld.Plots.Plot7",
+      "attributes": {
+        "PlotId": 7,
+        "OwnerUserId": 0
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Platform",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 32,
+          "y": 1,
+          "z": 26
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -1.0654427152581972e-14,
+          "y": 0.7,
+          "z": -58
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 62,
+          "g": 50,
+          "b": 74
+        },
+        "Material": "Concrete"
+      },
+      "attributes": {
+        "PlotId": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.PlotSpawn",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 1,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -1.0654427152581972e-14,
+          "y": 2,
+          "z": -50
+        },
+        "Transparency": 0.35,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 90,
+          "g": 230,
+          "b": 180
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.OwnerSign",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 12,
+          "y": 5,
+          "z": 0.8
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -1.0654427152581972e-14,
+          "y": 4,
+          "z": -44
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 35,
+          "g": 38,
+          "b": 50
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 7
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.OwnerSign.OwnerBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 220,
+          "yScale": 0,
+          "yOffset": 60
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 4,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.OwnerSign.OwnerBillboard.OwnerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Text": "EMPTY PLOT",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 248,
+          "b": 220
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.DisplayShelf",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 20,
+          "y": 2,
+          "z": 4
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -1.0654427152581972e-14,
+          "y": 2.1,
+          "z": -68
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 65,
+          "b": 120
+        },
+        "Material": "WoodPlanks"
+      },
+      "attributes": {
+        "PlotId": 7
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.DisplayShelf.DisplayPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Display First Snack",
+        "ObjectText": "Display Shelf",
+        "HoldDuration": 0.25,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.SellStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -12.00000000000001,
+          "y": 2.4,
+          "z": -67
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 74,
+          "g": 184,
+          "b": 95
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 7
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.SellStation.SellPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Sell First Snack",
+        "ObjectText": "Sell Station",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.SeedShopStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 11.99999999999999,
+          "y": 2.4,
+          "z": -67
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 245,
+          "g": 180,
+          "b": 65
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 7
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.SeedShopStation.BuySeedPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Buy Cookie Seed",
+        "ObjectText": "Seed Shop",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate1",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -7.000000000000011,
+          "y": 1.45,
+          "z": -56
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 7,
+        "PlateIndex": 1,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate1.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 1",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate2",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -1.0654427152581972e-14,
+          "y": 1.45,
+          "z": -56
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 7,
+        "PlateIndex": 2,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate2.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 2",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate3",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 6.999999999999989,
+          "y": 1.45,
+          "z": -56
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 7,
+        "PlateIndex": 3,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate3.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 3",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate4",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -7.000000000000011,
+          "y": 1.45,
+          "z": -62
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 7,
+        "PlateIndex": 4,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate4.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 4",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate5",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -1.0654427152581972e-14,
+          "y": 1.45,
+          "z": -62
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 7,
+        "PlateIndex": 5,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate5.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 5",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate6",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 6.999999999999989,
+          "y": 1.45,
+          "z": -62
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 7,
+        "PlateIndex": 6,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate6.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 6",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createModel",
+      "path": "Workspace.GameWorld.Plots.Plot8",
+      "attributes": {
+        "PlotId": 8,
+        "OwnerUserId": 0
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Platform",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 32,
+          "y": 1,
+          "z": 26
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881975,
+          "y": 0.7,
+          "z": -41.01219330881977
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 48,
+          "g": 68,
+          "b": 75
+        },
+        "Material": "Concrete"
+      },
+      "attributes": {
+        "PlotId": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.PlotSpawn",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 1,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881975,
+          "y": 2,
+          "z": -33.01219330881977
+        },
+        "Transparency": 0.35,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 90,
+          "g": 230,
+          "b": 180
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.OwnerSign",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 12,
+          "y": 5,
+          "z": 0.8
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881975,
+          "y": 4,
+          "z": -27.012193308819768
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 35,
+          "g": 38,
+          "b": 50
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 8
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.OwnerSign.OwnerBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 220,
+          "yScale": 0,
+          "yOffset": 60
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 4,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.OwnerSign.OwnerBillboard.OwnerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Text": "EMPTY PLOT",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 248,
+          "b": 220
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.DisplayShelf",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 20,
+          "y": 2,
+          "z": 4
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881975,
+          "y": 2.1,
+          "z": -51.01219330881977
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 65,
+          "b": 120
+        },
+        "Material": "WoodPlanks"
+      },
+      "attributes": {
+        "PlotId": 8
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.DisplayShelf.DisplayPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Display First Snack",
+        "ObjectText": "Display Shelf",
+        "HoldDuration": 0.25,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.SellStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 29.012193308819747,
+          "y": 2.4,
+          "z": -50.01219330881977
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 74,
+          "g": 184,
+          "b": 95
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 8
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.SellStation.SellPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Sell First Snack",
+        "ObjectText": "Sell Station",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.SeedShopStation",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Size": {
+          "__type": "Vector3",
+          "x": 5,
+          "y": 3,
+          "z": 5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 53.01219330881975,
+          "y": 2.4,
+          "z": -50.01219330881977
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 245,
+          "g": 180,
+          "b": 65
+        },
+        "Material": "Neon"
+      },
+      "attributes": {
+        "PlotId": 8
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.SeedShopStation.BuySeedPrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Buy Cookie Seed",
+        "ObjectText": "Seed Shop",
+        "HoldDuration": 0.2,
+        "MaxActivationDistance": 10
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate1",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 34.01219330881975,
+          "y": 1.45,
+          "z": -39.01219330881977
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 8,
+        "PlateIndex": 1,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate1.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 1",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate2",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881975,
+          "y": 1.45,
+          "z": -39.01219330881977
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 8,
+        "PlateIndex": 2,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate2.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 2",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate3",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 48.01219330881975,
+          "y": 1.45,
+          "z": -39.01219330881977
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 8,
+        "PlateIndex": 3,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate3.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 3",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate4",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 34.01219330881975,
+          "y": 1.45,
+          "z": -45.01219330881977
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 8,
+        "PlateIndex": 4,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate4.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 4",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate5",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 41.01219330881975,
+          "y": 1.45,
+          "z": -45.01219330881977
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 8,
+        "PlateIndex": 5,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate5.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 5",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate6",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Shape": "Cylinder",
+        "Size": {
+          "__type": "Vector3",
+          "x": 4.5,
+          "y": 0.45,
+          "z": 4.5
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": 48.01219330881975,
+          "y": 1.45,
+          "z": -45.01219330881977
+        },
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 210,
+          "g": 214,
+          "b": 225
+        },
+        "Material": "SmoothPlastic"
+      },
+      "attributes": {
+        "PlotId": 8,
+        "PlateIndex": 6,
+        "Occupied": false,
+        "GrowthStage": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate6.PlatePrompt",
+      "className": "ProximityPrompt",
+      "properties": {
+        "ActionText": "Plant Cookie Rock",
+        "ObjectText": "Plate 6",
+        "HoldDuration": 0.15,
+        "MaxActivationDistance": 9
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI",
+      "className": "ScreenGui",
+      "properties": {
+        "ResetOnSpawn": false,
+        "Enabled": true,
+        "IgnoreGuiInset": false,
+        "DisplayOrder": 10
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.TopStats",
+      "className": "Frame",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 24,
+          "g": 27,
+          "b": 34
+        },
+        "BackgroundTransparency": 0.12,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 86
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 12
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.TopStats.CoinsLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.24,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "Coins: 100",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 235,
+          "b": 160
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.TopStats.TokensLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.25,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.25,
+          "xOffset": 8,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "Void Tokens: 0",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 192,
+          "g": 165,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.TopStats.HungerLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.42,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.52,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "Void Hunger: 0/100",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 240,
+          "g": 242,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.TopStats.HungerBarBack",
+      "className": "Frame",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 48,
+          "g": 36,
+          "b": 62
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 20
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 54
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.TopStats.HungerBarBack.HungerBarFill",
+      "className": "Frame",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 177,
+          "g": 75,
+          "b": 255
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.Notifications",
+      "className": "Frame",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.46,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 54
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.27,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 104
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.Notifications.NotificationText",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 32,
+          "b": 42
+        },
+        "BackgroundTransparency": 0.1,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel",
+      "className": "Frame",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.08,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 320,
+          "yScale": 0,
+          "yOffset": 220
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -236
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.InventoryTitle",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 28
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 6
+        },
+        "Text": "INVENTORY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 235,
+          "b": 160
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.InventoryList",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 24
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Text": "Inventory: 0 snacks",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 230,
+          "g": 235,
+          "b": 245
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "Gotham"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.FirstItemLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 24
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 68
+        },
+        "Text": "Selected: none",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 230,
+          "g": 235,
+          "b": 245
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "Gotham"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.SeedsLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 24
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 96
+        },
+        "Text": "Seeds: CookieRock: 3",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 230,
+          "g": 235,
+          "b": 245
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "Gotham"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.DisplayedLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 24
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 124
+        },
+        "Text": "Displayed: 0",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 230,
+          "g": 235,
+          "b": 245
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "Gotham"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.SellButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 165,
+          "b": 92
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "SELL",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.FeedButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 130,
+          "g": 74,
+          "b": 190
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 114,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "FEED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.DisplayButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 68,
+          "g": 128,
+          "b": 190
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 218,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "DISPLAY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel",
+      "className": "Frame",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.08,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 288,
+          "yScale": 0,
+          "yOffset": 220
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -300,
+          "yScale": 1,
+          "yOffset": -236
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.ShopTitle",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "SEED SHOP",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.CookieButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 185,
+          "g": 164,
+          "b": 132
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 48
+        },
+        "Text": "Cookie Rock - 10",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.JellyButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 200,
+          "b": 225
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Text": "Jelly Cube - 25",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.MeteorButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 220,
+          "g": 92,
+          "b": 76
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 136
+        },
+        "Text": "Meteor Muffin - 100",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.RebirthButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 65,
+          "b": 160
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 180
+        },
+        "Text": "REBIRTH - 5000",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.ActionHints",
+      "className": "Frame",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 430,
+          "yScale": 0,
+          "yOffset": 62
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -215,
+          "yScale": 1,
+          "yOffset": -74
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.ActionHints.HintText",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 24,
+          "g": 27,
+          "b": 34
+        },
+        "BackgroundTransparency": 0.18,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Text": "Use ProximityPrompts on plates, shelves, stations, and Voidmites. Buttons act on your first inventory snack.",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 230,
+          "g": 235,
+          "b": 245
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "Gotham"
+      }
+    }
+  ]
+}

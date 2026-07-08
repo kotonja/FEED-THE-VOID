@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T19:58:51.521Z",
+  "script": {
+    "id": "i2020",
+    "name": "AssetReferences",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.AssetReferences"
+  },
+  "sourceHash": "sha256:d598cb45bc551d157ee9fa2812a4f315441634668c779c0c4ac3946d0fce6192",
+  "sourceLength": 3621,
+  "lineCount": 119,
+  "backupPath": "snapshots\\20260706-155851\\ReplicatedStorage.Shared.AssetReferences.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 12 VFX Overlay",
+  "newSourceHash": "sha256:d598cb45bc551d157ee9fa2812a4f315441634668c779c0c4ac3946d0fce6192",
+  "diff": {
+    "oldLineCount": 119,
+    "newLineCount": 119,
+    "changedLineCount": 0,
+    "oldLength": 3621,
+    "newLength": 3621
+  }
+}

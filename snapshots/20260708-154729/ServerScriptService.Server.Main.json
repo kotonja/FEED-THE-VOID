@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T19:47:29.561Z",
+  "script": {
+    "id": "i3017",
+    "name": "Main",
+    "className": "Script",
+    "path": "ServerScriptService.Server.Main"
+  },
+  "sourceHash": "sha256:0a4607fa0bd51da08c68488649d2cb0b8b31b076c3b3494bbbda0e57354c0ed3",
+  "sourceLength": 28836,
+  "lineCount": 717,
+  "backupPath": "snapshots\\20260708-154729\\ServerScriptService.Server.Main.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:ed92cf1637e04ad89f71f281f66f78b74c6e7caf6c8aeb0272d7013f0de865aa",
+  "diff": {
+    "oldLineCount": 717,
+    "newLineCount": 725,
+    "changedLineCount": 143,
+    "oldLength": 28836,
+    "newLength": 29129
+  }
+}

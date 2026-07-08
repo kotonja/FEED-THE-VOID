@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:00:30.871Z",
+  "script": {
+    "id": "i2448",
+    "name": "AssetOrganizerService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.AssetOrganizerService"
+  },
+  "sourceHash": "sha256:a8821f276106b98043e101a7ad60ee94a71e04f31a11fb3230902455c9ce5874",
+  "sourceLength": 4511,
+  "lineCount": 169,
+  "backupPath": "snapshots\\20260708-160030\\ServerScriptService.Server.Services.AssetOrganizerService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:a8821f276106b98043e101a7ad60ee94a71e04f31a11fb3230902455c9ce5874",
+  "diff": {
+    "oldLineCount": 169,
+    "newLineCount": 169,
+    "changedLineCount": 0,
+    "oldLength": 4511,
+    "newLength": 4511
+  }
+}

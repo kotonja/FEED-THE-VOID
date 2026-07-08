@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T19:47:20.039Z",
+  "script": {
+    "id": "i3005",
+    "name": "FTWAssetManifest",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.FTWAssetManifest"
+  },
+  "sourceHash": "sha256:986573fa3e0c7cc68d2e5c80a44939a49e83306354facb79ecb79eefc473b8b4",
+  "sourceLength": 5245,
+  "lineCount": 44,
+  "backupPath": "snapshots\\20260708-154720\\ReplicatedStorage.Shared.FTWAssetManifest.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:b6ff8e1c9fbf5836fad2cb2ed438f8ff2cd031d90454754aac51dca9abbd6a2f",
+  "diff": {
+    "oldLineCount": 44,
+    "newLineCount": 44,
+    "changedLineCount": 2,
+    "oldLength": 5245,
+    "newLength": 5258
+  }
+}

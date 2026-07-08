@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:40:56.758Z",
+  "script": {
+    "id": "i2181",
+    "name": "VFXConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.VFXConfig"
+  },
+  "sourceHash": "sha256:6024ca3f825603b19636759918419314511670ef7589de560226803773352930",
+  "sourceLength": 3271,
+  "lineCount": 152,
+  "backupPath": "snapshots\\20260707-104056\\ReplicatedStorage.Shared.VFXConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 14 Imported Assets Overlay",
+  "newSourceHash": "sha256:6024ca3f825603b19636759918419314511670ef7589de560226803773352930",
+  "diff": {
+    "oldLineCount": 152,
+    "newLineCount": 152,
+    "changedLineCount": 0,
+    "oldLength": 3271,
+    "newLength": 3271
+  }
+}

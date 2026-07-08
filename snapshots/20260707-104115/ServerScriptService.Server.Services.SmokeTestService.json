@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:41:15.960Z",
+  "script": {
+    "id": "i2209",
+    "name": "SmokeTestService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SmokeTestService"
+  },
+  "sourceHash": "sha256:ef3901cf77bb6ad2ccd60bbaca961e958203775ab4923a3e2bad414db04f9f51",
+  "sourceLength": 16500,
+  "lineCount": 334,
+  "backupPath": "snapshots\\20260707-104115\\ServerScriptService.Server.Services.SmokeTestService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 14 Imported Assets Overlay",
+  "newSourceHash": "sha256:935e94880a70f9008a49427ae266f59cdce8a62db47332e3547157be9aea9169",
+  "diff": {
+    "oldLineCount": 334,
+    "newLineCount": 350,
+    "changedLineCount": 281,
+    "oldLength": 16500,
+    "newLength": 17761
+  }
+}

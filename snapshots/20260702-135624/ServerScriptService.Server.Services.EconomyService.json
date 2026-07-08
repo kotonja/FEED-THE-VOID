@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:56:24.083Z",
+  "script": {
+    "id": "i1927",
+    "name": "EconomyService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.EconomyService"
+  },
+  "sourceHash": "sha256:3d76330538c894bbd52677d9189b36a52937e7792aa179c9a3a0ed77b67b6b1a",
+  "sourceLength": 8330,
+  "lineCount": 211,
+  "backupPath": "snapshots\\20260702-135624\\ServerScriptService.Server.Services.EconomyService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 211,
+    "newLineCount": 244,
+    "changedLineCount": 181,
+    "oldLength": 8330,
+    "newLength": 9855
+  },
+  "newSourceHash": "sha256:fcc383a5336a2985b5697265a1a205aac080b4cd97ea2059b4070b58b9d66cce"
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:46.236Z",
+  "script": {
+    "id": "i2054",
+    "name": "MapService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.MapService"
+  },
+  "sourceHash": "sha256:530515634397c20b5c7f33506eaefdbcd631608c26fa933965c29d4eb6fb7c95",
+  "sourceLength": 2950,
+  "lineCount": 107,
+  "backupPath": "snapshots\\20260703-095246\\ServerScriptService.Server.Services.MapService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 107,
+    "newLineCount": 101,
+    "changedLineCount": 79,
+    "oldLength": 2950,
+    "newLength": 2767
+  },
+  "newSourceHash": "sha256:601a0959d3a8f79433f05fae115fbda08d4f68fac6a2ed855988a26d03ffd98c"
+}

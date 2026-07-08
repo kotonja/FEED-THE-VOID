@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:37.548Z",
+  "script": {
+    "id": "i2060",
+    "name": "QuestService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.QuestService"
+  },
+  "sourceHash": "sha256:b5022057454e1be540afc6395003117f6cbefad6b657469d7f4e93ab30292161",
+  "sourceLength": 6770,
+  "lineCount": 181,
+  "backupPath": "snapshots\\20260703-095237\\ServerScriptService.Server.Services.QuestService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 181,
+    "newLineCount": 184,
+    "changedLineCount": 10,
+    "oldLength": 6770,
+    "newLength": 6911
+  },
+  "newSourceHash": "sha256:11d8f65db0700ffeb1b16116e399478b99dbfd7dab5ac0fd5ff4d0894c61d781"
+}

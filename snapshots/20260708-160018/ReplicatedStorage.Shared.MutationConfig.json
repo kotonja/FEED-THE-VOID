@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:00:18.880Z",
+  "script": {
+    "id": "i2434",
+    "name": "MutationConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.MutationConfig"
+  },
+  "sourceHash": "sha256:499e26efbce84ca17f335b71331e8f031d629e639bbf829e56537d0c50904acb",
+  "sourceLength": 1685,
+  "lineCount": 84,
+  "backupPath": "snapshots\\20260708-160018\\ReplicatedStorage.Shared.MutationConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:499e26efbce84ca17f335b71331e8f031d629e639bbf829e56537d0c50904acb",
+  "diff": {
+    "oldLineCount": 84,
+    "newLineCount": 84,
+    "changedLineCount": 0,
+    "oldLength": 1685,
+    "newLength": 1685
+  }
+}

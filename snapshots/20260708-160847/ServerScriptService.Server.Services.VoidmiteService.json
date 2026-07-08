@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:08:47.298Z",
+  "script": {
+    "id": "i3054",
+    "name": "VoidmiteService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.VoidmiteService"
+  },
+  "sourceHash": "sha256:20cb8438b9a5b735dcd75c86659050c02a25d1be318fd8f124d5ac2f803c7de3",
+  "sourceLength": 10165,
+  "lineCount": 286,
+  "backupPath": "snapshots\\20260708-160847\\ServerScriptService.Server.Services.VoidmiteService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:20cb8438b9a5b735dcd75c86659050c02a25d1be318fd8f124d5ac2f803c7de3",
+  "diff": {
+    "oldLineCount": 286,
+    "newLineCount": 286,
+    "changedLineCount": 0,
+    "oldLength": 10165,
+    "newLength": 10165
+  }
+}

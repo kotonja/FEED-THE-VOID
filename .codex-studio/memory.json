@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "places": {
+    "place:70399201955399": {
+      "version": 1,
+      "goals": [],
+      "stylePreferences": [],
+      "protectedPaths": [],
+      "knownIssues": [],
+      "recentDecisions": [],
+      "recentReports": [],
+      "userNotes": [],
+      "cameraBookmarks": [],
+      "styleNotes": [],
+      "directorRounds": [],
+      "directorDecisions": [],
+      "builderRounds": [],
+      "verificationReports": [],
+      "playtestQaSessions": [],
+      "playtestQaReports": [],
+      "dashboardReports": [],
+      "sessionRoutes": [],
+      "sessionHistory": [],
+      "activeMode": "auto",
+      "lastDetectedAt": "2026-07-06T20:02:25.891Z",
+      "lastDetection": {
+        "at": "2026-07-06T20:02:24Z",
+        "selectedConfidence": 100,
+        "selectedScore": 1,
+        "place": {
+          "jobId": "2d2a76dc-10ed-4b85-8ac2-798419a464a1",
+          "placeId": 70399201955399,
+          "name": "FEED THE VOID",
+          "gameId": 10429266396
+        },
+        "selected": {
+          "name": "Universal Roblox Project",
+          "scenarioCount": 0,
+          "id": "universal",
+          "genre": "general",
+          "description": ""
+        },
+        "profiles": [
+          {
+            "profile": {
+              "name": "Universal Roblox Project",
+              "scenarioCount": 0,
+              "id": "universal",
+              "genre": "general",
+              "description": ""
+            },
+            "score": 1,
+            "maxScore": 1,
+            "confidence": 100,
+            "missing": [],
+            "matched": []
+          }
+        ]
+      }
+    }
+  }
+}

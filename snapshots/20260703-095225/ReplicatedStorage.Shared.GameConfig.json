@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:25.326Z",
+  "script": {
+    "id": "i2035",
+    "name": "GameConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.GameConfig"
+  },
+  "sourceHash": "sha256:aa77c4f7cde120796b5afe67388ae224d877d22bdf8c005e37ce483955e9ff7c",
+  "sourceLength": 6616,
+  "lineCount": 220,
+  "backupPath": "snapshots\\20260703-095225\\ReplicatedStorage.Shared.GameConfig.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 220,
+    "newLineCount": 232,
+    "changedLineCount": 213,
+    "oldLength": 6616,
+    "newLength": 6923
+  },
+  "newSourceHash": "sha256:f3d24e8ba95959ffebd7e1a8d1c4880d894ecefd2b12855f7a8f884dcd74405c"
+}

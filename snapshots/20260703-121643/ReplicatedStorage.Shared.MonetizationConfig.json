@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:16:43.205Z",
+  "script": {
+    "id": "i2016",
+    "name": "MonetizationConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.MonetizationConfig"
+  },
+  "sourceHash": "sha256:d46c5d716e9d51555214adadb342d88bf720f46913550db568165a76a33bf00c",
+  "sourceLength": 354,
+  "lineCount": 12,
+  "backupPath": "snapshots\\20260703-121643\\ReplicatedStorage.Shared.MonetizationConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 10 Private Test Freeze Overlay",
+  "newSourceHash": "sha256:d46c5d716e9d51555214adadb342d88bf720f46913550db568165a76a33bf00c",
+  "diff": {
+    "oldLineCount": 12,
+    "newLineCount": 12,
+    "changedLineCount": 0,
+    "oldLength": 354,
+    "newLength": 354
+  }
+}

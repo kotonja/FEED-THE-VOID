@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:24:13.763Z",
+  "script": {
+    "id": "i2188",
+    "name": "CooldownUtil",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Util.CooldownUtil"
+  },
+  "sourceHash": "sha256:6fcedea90d79895a776483926cd2a21ed9eac1d07e48b8e650f8de7743e47939",
+  "sourceLength": 756,
+  "lineCount": 33,
+  "backupPath": "snapshots\\20260706-182413\\ServerScriptService.Server.Util.CooldownUtil.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:6fcedea90d79895a776483926cd2a21ed9eac1d07e48b8e650f8de7743e47939",
+  "diff": {
+    "oldLineCount": 33,
+    "newLineCount": 33,
+    "changedLineCount": 0,
+    "oldLength": 756,
+    "newLength": 756
+  }
+}

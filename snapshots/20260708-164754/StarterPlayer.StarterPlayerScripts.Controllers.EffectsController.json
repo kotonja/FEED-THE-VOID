@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:47:54.394Z",
+  "script": {
+    "id": "i3060",
+    "name": "EffectsController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.EffectsController"
+  },
+  "sourceHash": "sha256:ef6be2aa96f1e52e6f3c71cfe08860210c72b67dc5e969b6f427f13a145bea19",
+  "sourceLength": 53003,
+  "lineCount": 1613,
+  "backupPath": "snapshots\\20260708-164754\\StarterPlayer.StarterPlayerScripts.Controllers.EffectsController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 16 Spectacle Overlay",
+  "newSourceHash": "sha256:a77858f874708d87cedbde857dc1c28458b2f12a2471b6c7c3be3e45302dec2e",
+  "diff": {
+    "oldLineCount": 1613,
+    "newLineCount": 1713,
+    "changedLineCount": 701,
+    "oldLength": 53003,
+    "newLength": 56869
+  }
+}

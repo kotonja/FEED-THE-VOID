@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T19:55:40.731Z",
+  "script": {
+    "id": "i2412",
+    "name": "PhantomSnackService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.PhantomSnackService"
+  },
+  "sourceHash": "sha256:e0a6e52f54d377e3d0a9c3f14ea95546243fa22892ac5e49f761604536701610",
+  "sourceLength": 8581,
+  "lineCount": 261,
+  "backupPath": "snapshots\\20260708-155540\\ServerScriptService.Server.Services.PhantomSnackService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:e0a6e52f54d377e3d0a9c3f14ea95546243fa22892ac5e49f761604536701610",
+  "diff": {
+    "oldLineCount": 261,
+    "newLineCount": 261,
+    "changedLineCount": 0,
+    "oldLength": 8581,
+    "newLength": 8581
+  }
+}

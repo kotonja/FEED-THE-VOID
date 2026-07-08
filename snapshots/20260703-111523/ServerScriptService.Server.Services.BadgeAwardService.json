@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:23.335Z",
+  "script": {
+    "id": "i2045",
+    "name": "BadgeAwardService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.BadgeAwardService"
+  },
+  "sourceHash": "sha256:8f6a454018e08a263710ca680ad3cc34034ca0e34b9e6120ad295d15612c7625",
+  "sourceLength": 1785,
+  "lineCount": 61,
+  "backupPath": "snapshots\\20260703-111523\\ServerScriptService.Server.Services.BadgeAwardService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:8f6a454018e08a263710ca680ad3cc34034ca0e34b9e6120ad295d15612c7625",
+  "diff": {
+    "oldLineCount": 61,
+    "newLineCount": 61,
+    "changedLineCount": 0,
+    "oldLength": 1785,
+    "newLength": 1785
+  }
+}

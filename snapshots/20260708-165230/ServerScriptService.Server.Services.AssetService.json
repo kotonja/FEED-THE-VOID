@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:52:30.195Z",
+  "script": {
+    "id": "i3021",
+    "name": "AssetService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.AssetService"
+  },
+  "sourceHash": "sha256:72160260248a9b0172402287c990bfc0bd2ad180a76a5cb504a5101a00ac5924",
+  "sourceLength": 22352,
+  "lineCount": 674,
+  "backupPath": "snapshots\\20260708-165230\\ServerScriptService.Server.Services.AssetService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 16 Spectacle Overlay",
+  "newSourceHash": "sha256:72160260248a9b0172402287c990bfc0bd2ad180a76a5cb504a5101a00ac5924",
+  "diff": {
+    "oldLineCount": 674,
+    "newLineCount": 674,
+    "changedLineCount": 0,
+    "oldLength": 22352,
+    "newLength": 22352
+  }
+}

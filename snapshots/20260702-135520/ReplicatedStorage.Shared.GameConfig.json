@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:55:20.147Z",
+  "script": {
+    "id": "i1759",
+    "name": "GameConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.GameConfig"
+  },
+  "sourceHash": "sha256:f864cd7087aa69811f870372566d30765df885af40b22bbe73c731f3c804082c",
+  "sourceLength": 5008,
+  "lineCount": 189,
+  "backupPath": "snapshots\\20260702-135520\\ReplicatedStorage.Shared.GameConfig.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 189,
+    "newLineCount": 220,
+    "changedLineCount": 206,
+    "oldLength": 5008,
+    "newLength": 6616
+  },
+  "newSourceHash": "sha256:aa77c4f7cde120796b5afe67388ae224d877d22bdf8c005e37ce483955e9ff7c"
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:55:39.009Z",
+  "script": {
+    "id": "i1921",
+    "name": "Main",
+    "className": "Script",
+    "path": "ServerScriptService.Server.Main"
+  },
+  "sourceHash": "sha256:6217c4d34c999d5437fb7c7c15afcf4ea2d4a4e61199e911341d5fb57a48ccb9",
+  "sourceLength": 10353,
+  "lineCount": 298,
+  "backupPath": "snapshots\\20260702-135539\\ServerScriptService.Server.Main.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 298,
+    "newLineCount": 330,
+    "changedLineCount": 323,
+    "oldLength": 10353,
+    "newLength": 12095
+  },
+  "newSourceHash": "sha256:b4be43cb1f8e904a9d287e2a9a73c6cd8baa5bfa195ddd5a48c0c8e2bf398f8b"
+}

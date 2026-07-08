@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:27:39.868Z",
+  "script": {
+    "id": "i2144",
+    "name": "GameConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.GameConfig"
+  },
+  "sourceHash": "sha256:82a434f98019ace7cad14c254e8970ed6c6eb701abaa7571eaf86ed702b81108",
+  "sourceLength": 8377,
+  "lineCount": 295,
+  "backupPath": "snapshots\\20260706-182739\\ReplicatedStorage.Shared.GameConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:82a434f98019ace7cad14c254e8970ed6c6eb701abaa7571eaf86ed702b81108",
+  "diff": {
+    "oldLineCount": 295,
+    "newLineCount": 295,
+    "changedLineCount": 0,
+    "oldLength": 8377,
+    "newLength": 8377
+  }
+}

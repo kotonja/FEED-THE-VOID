@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T19:55:38.034Z",
+  "script": {
+    "id": "i2410",
+    "name": "MapService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.MapService"
+  },
+  "sourceHash": "sha256:4a7d477693afad916597d4a21b4e3feba7b0adacb50602ec90342c6cd10e7c1b",
+  "sourceLength": 2633,
+  "lineCount": 91,
+  "backupPath": "snapshots\\20260708-155538\\ServerScriptService.Server.Services.MapService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:4a7d477693afad916597d4a21b4e3feba7b0adacb50602ec90342c6cd10e7c1b",
+  "diff": {
+    "oldLineCount": 91,
+    "newLineCount": 91,
+    "changedLineCount": 0,
+    "oldLength": 2633,
+    "newLength": 2633
+  }
+}

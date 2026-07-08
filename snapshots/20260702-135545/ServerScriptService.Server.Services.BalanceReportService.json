@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:55:45.124Z",
+  "script": {
+    "id": "i6196",
+    "name": "BalanceReportService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.BalanceReportService"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260702-135545\\ServerScriptService.Server.Services.BalanceReportService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 72,
+    "changedLineCount": 73,
+    "oldLength": 0,
+    "newLength": 2910
+  },
+  "newSourceHash": "sha256:7443c7570e7e0e56e4edc62c01cece45903f98be3c5c12f71fbbe0f236df7479"
+}

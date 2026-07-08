@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T16:07:53.515Z",
+  "script": {
+    "id": "i1925",
+    "name": "SnackService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SnackService"
+  },
+  "sourceHash": "sha256:1db25e64a66374614deb9cd9f9564a47592c300203d637d68a65b2e53f60dc77",
+  "sourceLength": 33629,
+  "lineCount": 893,
+  "backupPath": "snapshots\\20260702-120753\\ServerScriptService.Server.Services.SnackService.lua",
+  "kind": "codePatchSet",
+  "summary": "prefer visible grow plate surface for snack anchor",
+  "diff": {
+    "oldLineCount": 893,
+    "newLineCount": 941,
+    "changedLineCount": 861,
+    "oldLength": 33629,
+    "newLength": 34786
+  },
+  "newSourceHash": "sha256:76476c4b7717d2a7432a106f21d6c83e74187190b15bf09ea2f3b34bda6f9b8e"
+}

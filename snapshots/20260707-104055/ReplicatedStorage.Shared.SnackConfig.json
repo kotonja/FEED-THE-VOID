@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:40:55.226Z",
+  "script": {
+    "id": "i2179",
+    "name": "SnackConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.SnackConfig"
+  },
+  "sourceHash": "sha256:90ab3b82bde3ac8a5b51ee4cb8fc1fbdc441d41d352c58a1c577b896f0f056de",
+  "sourceLength": 6127,
+  "lineCount": 260,
+  "backupPath": "snapshots\\20260707-104055\\ReplicatedStorage.Shared.SnackConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 14 Imported Assets Overlay",
+  "newSourceHash": "sha256:e0190fa92616f7ceb9a8a430df619f7887db5d6a414e2b7b7d7e3bb11db37db1",
+  "diff": {
+    "oldLineCount": 260,
+    "newLineCount": 269,
+    "changedLineCount": 179,
+    "oldLength": 6127,
+    "newLength": 6445
+  }
+}

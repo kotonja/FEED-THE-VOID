@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:12:59.133Z",
+  "script": {
+    "id": "i2061",
+    "name": "RebirthService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.RebirthService"
+  },
+  "sourceHash": "sha256:8c3d551b4b48c46af17006323bc20b5b389e50e7bca2e649790628a3f70eb0a5",
+  "sourceLength": 2327,
+  "lineCount": 67,
+  "backupPath": "snapshots\\20260703-121259\\ServerScriptService.Server.Services.RebirthService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 10 Private Test Freeze Overlay",
+  "newSourceHash": "sha256:978c70ed51dbf4dfb23e931e193326d102526aefe0eb0d89da3f346350430e07",
+  "diff": {
+    "oldLineCount": 67,
+    "newLineCount": 71,
+    "changedLineCount": 52,
+    "oldLength": 2327,
+    "newLength": 2496
+  }
+}

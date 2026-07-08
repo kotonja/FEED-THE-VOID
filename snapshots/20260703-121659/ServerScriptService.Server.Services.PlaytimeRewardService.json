@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:16:59.196Z",
+  "script": {
+    "id": "i2057",
+    "name": "PlaytimeRewardService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.PlaytimeRewardService"
+  },
+  "sourceHash": "sha256:6c8ce5ba91b1fe2e23516fd2daf4b044ebe5fbfcfc33ed5dcc01f2686d7932ba",
+  "sourceLength": 4286,
+  "lineCount": 133,
+  "backupPath": "snapshots\\20260703-121659\\ServerScriptService.Server.Services.PlaytimeRewardService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 10 Private Test Freeze Overlay",
+  "newSourceHash": "sha256:6c8ce5ba91b1fe2e23516fd2daf4b044ebe5fbfcfc33ed5dcc01f2686d7932ba",
+  "diff": {
+    "oldLineCount": 133,
+    "newLineCount": 133,
+    "changedLineCount": 0,
+    "oldLength": 4286,
+    "newLength": 4286
+  }
+}

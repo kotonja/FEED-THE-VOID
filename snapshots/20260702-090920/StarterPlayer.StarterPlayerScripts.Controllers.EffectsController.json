@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T13:09:20.751Z",
+  "script": {
+    "id": "i4508",
+    "name": "EffectsController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.EffectsController"
+  },
+  "sourceHash": "sha256:2d48acd1f22d16a226201844b9bec60690c3091b5fa689a6cffd006f792b1e65",
+  "sourceLength": 4506,
+  "lineCount": 158,
+  "backupPath": "snapshots\\20260702-090920\\StarterPlayer.StarterPlayerScripts.Controllers.EffectsController.lua",
+  "kind": "patch",
+  "summary": "Phase 6 PDS texture-driven VFX controller",
+  "diff": {
+    "oldLineCount": 158,
+    "newLineCount": 758,
+    "changedLineCount": 757,
+    "oldLength": 4506,
+    "newLength": 23399
+  },
+  "newSourceHash": "sha256:d742b0b582ea987a3bda9c5d30526533897e7893d96277e49cd8d63178493b0b"
+}

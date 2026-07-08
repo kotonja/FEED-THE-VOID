@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:33.780Z",
+  "script": {
+    "id": "i2066",
+    "name": "TutorialService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.TutorialService"
+  },
+  "sourceHash": "sha256:1f8fd24170722d4aa910a3b14d5a0e0679c5f33c998ca474a9f4142b1e2de497",
+  "sourceLength": 2432,
+  "lineCount": 73,
+  "backupPath": "snapshots\\20260703-095233\\ServerScriptService.Server.Services.TutorialService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 73,
+    "newLineCount": 106,
+    "changedLineCount": 102,
+    "oldLength": 2432,
+    "newLength": 3629
+  },
+  "newSourceHash": "sha256:874008babf55faa5ced6bbead546bc1f0f46f978e257dcf648efddc0d40ce661"
+}

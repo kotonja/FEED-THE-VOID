@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:08:17.585Z",
+  "script": {
+    "id": "i3041",
+    "name": "RebirthService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.RebirthService"
+  },
+  "sourceHash": "sha256:1eb2428621ff82d435fe4878d0911f96701e522d2cbdb0275cfb8f8e0cc0ebd6",
+  "sourceLength": 3089,
+  "lineCount": 82,
+  "backupPath": "snapshots\\20260708-160817\\ServerScriptService.Server.Services.RebirthService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:1eb2428621ff82d435fe4878d0911f96701e522d2cbdb0275cfb8f8e0cc0ebd6",
+  "diff": {
+    "oldLineCount": 82,
+    "newLineCount": 82,
+    "changedLineCount": 0,
+    "oldLength": 3089,
+    "newLength": 3089
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:00:15.906Z",
+  "script": {
+    "id": "i2432",
+    "name": "LaunchPageConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.LaunchPageConfig"
+  },
+  "sourceHash": "sha256:136c86e50c1a61d2169fec8208a599afb44535d96c3357f5c8f0e5b9f0257375",
+  "sourceLength": 1057,
+  "lineCount": 44,
+  "backupPath": "snapshots\\20260708-160015\\ReplicatedStorage.Shared.LaunchPageConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:136c86e50c1a61d2169fec8208a599afb44535d96c3357f5c8f0e5b9f0257375",
+  "diff": {
+    "oldLineCount": 44,
+    "newLineCount": 44,
+    "changedLineCount": 0,
+    "oldLength": 1057,
+    "newLength": 1057
+  }
+}

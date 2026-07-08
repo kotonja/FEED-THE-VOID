@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:31.318Z",
+  "script": {
+    "id": "i2057",
+    "name": "PlaytimeRewardService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.PlaytimeRewardService"
+  },
+  "sourceHash": "sha256:25552bc594996c7748e3fbc085ae203e4c2de6f06a3ee11ab524d03d630f9268",
+  "sourceLength": 3734,
+  "lineCount": 112,
+  "backupPath": "snapshots\\20260703-111531\\ServerScriptService.Server.Services.PlaytimeRewardService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:4b6051fcd0464e99ff0d3d23bc99cfba5cb4a928ef63e2a9f754e65e44f8516f",
+  "diff": {
+    "oldLineCount": 112,
+    "newLineCount": 112,
+    "changedLineCount": 1,
+    "oldLength": 3734,
+    "newLength": 3826
+  }
+}

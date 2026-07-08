@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:27:59.966Z",
+  "script": {
+    "id": "i2166",
+    "name": "InventoryService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.InventoryService"
+  },
+  "sourceHash": "sha256:3b3ffc886a45812606eef410cb3449b289b6be468307c3e21eb168183cf14b90",
+  "sourceLength": 6261,
+  "lineCount": 191,
+  "backupPath": "snapshots\\20260706-182759\\ServerScriptService.Server.Services.InventoryService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:3b3ffc886a45812606eef410cb3449b289b6be468307c3e21eb168183cf14b90",
+  "diff": {
+    "oldLineCount": 191,
+    "newLineCount": 191,
+    "changedLineCount": 0,
+    "oldLength": 6261,
+    "newLength": 6261
+  }
+}

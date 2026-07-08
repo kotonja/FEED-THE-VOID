@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T19:52:28.417Z",
+  "script": {
+    "id": "i2025",
+    "name": "GameConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.GameConfig"
+  },
+  "sourceHash": "sha256:03fc32747df784549abdc1723aa3332b411c97d2da5c503798572e6162d114b8",
+  "sourceLength": 8043,
+  "lineCount": 275,
+  "backupPath": "snapshots\\20260706-155228\\ReplicatedStorage.Shared.GameConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 12 VFX Overlay",
+  "newSourceHash": "sha256:ca490a79db58fe71ba35375e9fc293165012fd5092acb9710fd8182a13a3458b",
+  "diff": {
+    "oldLineCount": 275,
+    "newLineCount": 275,
+    "changedLineCount": 3,
+    "oldLength": 8043,
+    "newLength": 8037
+  }
+}

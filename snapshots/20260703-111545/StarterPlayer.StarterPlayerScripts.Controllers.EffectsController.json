@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:45.839Z",
+  "script": {
+    "id": "i2075",
+    "name": "EffectsController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.EffectsController"
+  },
+  "sourceHash": "sha256:07c5e76d2f08d04e8abfb88aa16ce769d41f1ad2f499edf263946d20b13c55de",
+  "sourceLength": 35255,
+  "lineCount": 1093,
+  "backupPath": "snapshots\\20260703-111545\\StarterPlayer.StarterPlayerScripts.Controllers.EffectsController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:2d48acd1f22d16a226201844b9bec60690c3091b5fa689a6cffd006f792b1e65",
+  "diff": {
+    "oldLineCount": 1093,
+    "newLineCount": 158,
+    "changedLineCount": 1088,
+    "oldLength": 35255,
+    "newLength": 4506
+  }
+}

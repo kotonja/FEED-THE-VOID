@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T19:55:03.746Z",
+  "script": {
+    "id": "i2395",
+    "name": "EventConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.EventConfig"
+  },
+  "sourceHash": "sha256:be2dd151d8ea1a16d8f512b38883a6390a26dd3bb86e0e2f217b97effbaf098c",
+  "sourceLength": 1063,
+  "lineCount": 49,
+  "backupPath": "snapshots\\20260708-155503\\ReplicatedStorage.Shared.EventConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:be2dd151d8ea1a16d8f512b38883a6390a26dd3bb86e0e2f217b97effbaf098c",
+  "diff": {
+    "oldLineCount": 49,
+    "newLineCount": 49,
+    "changedLineCount": 0,
+    "oldLength": 1063,
+    "newLength": 1063
+  }
+}

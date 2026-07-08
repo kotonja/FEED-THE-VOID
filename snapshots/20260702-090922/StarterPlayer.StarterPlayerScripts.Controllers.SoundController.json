@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T13:09:22.991Z",
+  "script": {
+    "id": "i4509",
+    "name": "SoundController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.SoundController"
+  },
+  "sourceHash": "sha256:d339bb9aea7f448c87333419a4d34cabab24b62219b0a8b9be86acea2fcdf103",
+  "sourceLength": 1448,
+  "lineCount": 48,
+  "backupPath": "snapshots\\20260702-090922\\StarterPlayer.StarterPlayerScripts.Controllers.SoundController.lua",
+  "kind": "patch",
+  "summary": "Phase 6 optional sound hook controller",
+  "diff": {
+    "oldLineCount": 48,
+    "newLineCount": 69,
+    "changedLineCount": 61,
+    "oldLength": 1448,
+    "newLength": 1777
+  },
+  "newSourceHash": "sha256:b333718b408fec49f1f5602727ab2dbb19b9866792180d44dcf241233f273623"
+}

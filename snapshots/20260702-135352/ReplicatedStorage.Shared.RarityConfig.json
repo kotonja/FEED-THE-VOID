@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:53:52.508Z",
+  "script": {
+    "id": "i6195",
+    "name": "RarityConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.RarityConfig"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260702-135352\\ReplicatedStorage.Shared.RarityConfig.lua",
+  "kind": "patch",
+  "summary": "Phase 7 rarity config smoke patch",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 76,
+    "changedLineCount": 77,
+    "oldLength": 0,
+    "newLength": 1806
+  },
+  "newSourceHash": "sha256:79218bb767e6829d6884106def0388b4ac18d46ea0b290c52eff45bc06ac4619"
+}

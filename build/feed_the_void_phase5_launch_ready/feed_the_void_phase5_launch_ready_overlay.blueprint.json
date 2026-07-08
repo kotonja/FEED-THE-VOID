@@ -1,0 +1,2539 @@
+{
+  "name": "FEED THE VOID Phase 5 Launch-Ready Overlay",
+  "mode": "supervised",
+  "description": "Adds launch-readiness hardening, full imported asset key support, health checks, shared validation/cooldowns, activity feed, data migration, low-detail settings, and bound event pickup remotes without rebuilding Workspace.GameWorld.",
+  "steps": [
+    {
+      "type": "ensureFolder",
+      "path": "ReplicatedStorage.Shared"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ReplicatedStorage.Remotes"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ServerScriptService.Server"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ServerScriptService.Server.Services"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ServerScriptService.Server.Util"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "StarterPlayer.StarterPlayerScripts"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestPlantSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestHarvestSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestSellSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestFeedVoid"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestDisplaySnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestClearVoidmite"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestBuySeed"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestBuyUpgrade"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestRebirth"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestSkipTutorial"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestDebugCommand"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestClaimPlaytimeReward"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestClaimDailyReward"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestCatchPhantomSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestUpdateSettings"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestCollectEventPickup"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.NotifyClient"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.SyncPlayerData"
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.AssetImportGuide",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.AssetImportGuide",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/AssetImportGuide.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.AssetReferences",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.AssetReferences",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/AssetReferences.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.EventConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.EventConfig",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/EventConfig.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.FTWAssetManifest",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.FTWAssetManifest",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/FTWAssetManifest.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.FormatNumbers",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.FormatNumbers",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/FormatNumbers.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.GameConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.GameConfig",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/GameConfig.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.MonetizationConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.MonetizationConfig",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/MonetizationConfig.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.MutationConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.MutationConfig",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/MutationConfig.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.SnackConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ReplicatedStorage.Shared.SnackConfig",
+      "className": "ModuleScript",
+      "sourceFile": "src/shared/SnackConfig.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Main",
+      "className": "Script",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Main",
+      "className": "Script",
+      "sourceFile": "src/server/Main.server.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.ActivityFeedService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.ActivityFeedService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/ActivityFeedService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.AnalyticsService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.AnalyticsService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/AnalyticsService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.AssetService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.AssetService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/AssetService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.BadgeAwardService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.BadgeAwardService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/BadgeAwardService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.CollectionService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.CollectionService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/CollectionService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.DailyRewardService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.DailyRewardService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/DailyRewardService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.EconomyService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.EconomyService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/EconomyService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.EventService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.EventService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/EventService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.HealthCheckService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.HealthCheckService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/HealthCheckService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.InventoryService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.InventoryService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/InventoryService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.MapService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.MapService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/MapService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.OnboardingService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.OnboardingService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/OnboardingService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.PhantomSnackService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.PhantomSnackService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/PhantomSnackService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.PlaytimeRewardService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.PlaytimeRewardService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/PlaytimeRewardService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.PlotService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.PlotService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/PlotService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.ProfileServiceWrapper",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.ProfileServiceWrapper",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/ProfileServiceWrapper.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.QuestService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.QuestService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/QuestService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.RebirthService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.RebirthService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/RebirthService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.SettingsService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.SettingsService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/SettingsService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.ShopService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.ShopService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/ShopService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.SnackService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.SnackService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/SnackService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.StatsService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.StatsService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/StatsService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.TutorialService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.TutorialService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/TutorialService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.UpgradeService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.UpgradeService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/UpgradeService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.ValidationService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.ValidationService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/ValidationService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.VisitRewardService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.VisitRewardService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/VisitRewardService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.VoidService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.VoidService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/VoidService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.VoidmiteService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Services.VoidmiteService",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Services/VoidmiteService.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Util.CooldownUtil",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Util.CooldownUtil",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Util/CooldownUtil.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Util.ValidationUtil",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "ServerScriptService.Server.Util.ValidationUtil",
+      "className": "ModuleScript",
+      "sourceFile": "src/server/Util/ValidationUtil.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.ClientMain",
+      "className": "LocalScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.ClientMain",
+      "className": "LocalScript",
+      "sourceFile": "src/client/ClientMain.client.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.EffectsController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.EffectsController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/EffectsController.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.NotificationController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.NotificationController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/NotificationController.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.PromptController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.PromptController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/PromptController.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.SoundController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.SoundController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/SoundController.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/UIController.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.VFXController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.VFXController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/VFXController.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.NextGoalPanel",
+      "className": "Frame",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 42,
+          "g": 32,
+          "b": 58
+        },
+        "BackgroundTransparency": 0.08,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 370,
+          "yScale": 0,
+          "yOffset": 50
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -185,
+          "yScale": 1,
+          "yOffset": -136
+        },
+        "Visible": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.NextGoalPanel",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 42,
+          "g": 32,
+          "b": 58
+        },
+        "BackgroundTransparency": 0.08,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 370,
+          "yScale": 0,
+          "yOffset": 50
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -185,
+          "yScale": 1,
+          "yOffset": -136
+        },
+        "Visible": true
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.NextGoalPanel.NextGoalText",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -18,
+          "yScale": 1,
+          "yOffset": -10
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 9,
+          "yScale": 0,
+          "yOffset": 5
+        },
+        "Text": "Next Goal: Grow a snack",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 246,
+          "b": 210
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.NextGoalPanel.NextGoalText",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -18,
+          "yScale": 1,
+          "yOffset": -10
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 9,
+          "yScale": 0,
+          "yOffset": 5
+        },
+        "Text": "Next Goal: Grow a snack",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 246,
+          "b": 210
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.QuickActions",
+      "className": "Frame",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 176,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -188,
+          "yScale": 0,
+          "yOffset": 108
+        },
+        "Visible": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.QuickActions",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 176,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -188,
+          "yScale": 0,
+          "yOffset": 108
+        },
+        "Visible": true
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.QuickActions.PlaytimeButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 86,
+          "g": 154,
+          "b": 215
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "TIME",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.QuickActions.PlaytimeButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 86,
+          "g": 154,
+          "b": 215
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "TIME",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.QuickActions.DailyButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 105,
+          "g": 190,
+          "b": 112
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 58,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "DAILY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.QuickActions.DailyButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 105,
+          "g": 190,
+          "b": 112
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 58,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "DAILY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.QuickActions.SettingsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 82,
+          "b": 122
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 116,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "SET",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.QuickActions.SettingsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 82,
+          "b": 122
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 116,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "SET",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel",
+      "className": "Frame",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 210
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -105
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 210
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -105
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.Title",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "PLAYTIME",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.Title",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "PLAYTIME",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.CloseButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.CloseButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.RewardInfo",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Next reward loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 238,
+          "g": 241,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.RewardInfo",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Next reward loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 238,
+          "g": 241,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.ClaimButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 86,
+          "g": 154,
+          "b": 215
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -56
+        },
+        "Text": "CLAIM",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.ClaimButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 86,
+          "g": 154,
+          "b": 215
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -56
+        },
+        "Text": "CLAIM",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel",
+      "className": "Frame",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 210
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -105
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 210
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -105
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel.Title",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "DAILY CHEST",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel.Title",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "DAILY CHEST",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel.CloseButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel.CloseButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel.DailyInfo",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Daily reward loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 238,
+          "g": 241,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel.DailyInfo",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Daily reward loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 238,
+          "g": 241,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel.ClaimButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 105,
+          "g": 190,
+          "b": 112
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -56
+        },
+        "Text": "CLAIM DAILY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel.ClaimButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 105,
+          "g": 190,
+          "b": 112
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -56
+        },
+        "Text": "CLAIM DAILY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel",
+      "className": "Frame",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 330
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -165
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 330
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -165
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.Title",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "SETTINGS",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.Title",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "SETTINGS",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.CloseButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.CloseButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.ReduceEffectsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Reduce Effects: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.ReduceEffectsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Reduce Effects: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.LowDetailModeButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 104
+        },
+        "Text": "Low Detail Mode: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.LowDetailModeButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 104
+        },
+        "Text": "Low Detail Mode: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.MuteSoundsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 150
+        },
+        "Text": "Mute Sounds: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.MuteSoundsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 150
+        },
+        "Text": "Mute Sounds: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.HideExtraPopupsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 196
+        },
+        "Text": "Hide Popups: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.HideExtraPopupsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 196
+        },
+        "Text": "Hide Popups: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.AutoClosePanelsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 242
+        },
+        "Text": "Auto Close Panels: ON",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.AutoClosePanelsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 242
+        },
+        "Text": "Auto Close Panels: ON",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.RestockLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 28
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -40
+        },
+        "Text": "Restock: loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 225,
+          "g": 232,
+          "b": 245
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.RestockLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 28
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -40
+        },
+        "Text": "Restock: loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 225,
+          "g": 232,
+          "b": 245
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    }
+  ],
+  "metadata": {
+    "phase": "5-launch-ready",
+    "generatedAt": "2026-07-02T01:41:16.295Z",
+    "overlayOnly": true,
+    "noWorkspaceMapRebuild": true,
+    "noPaidMonetization": true,
+    "sourceHashes": {
+      "client/ClientMain.client.lua": "sha256:2c9318a2b60352965a145c610d23ce55dbdee31d74266ca1cf05a2854cfe0e70",
+      "client/Controllers/EffectsController.lua": "sha256:2d48acd1f22d16a226201844b9bec60690c3091b5fa689a6cffd006f792b1e65",
+      "client/Controllers/NotificationController.lua": "sha256:a1c3fc4e7df5687c516902f38bc5f7d91c154954c4da5e628a7ff56a1f043741",
+      "client/Controllers/PromptController.lua": "sha256:fca7dc7273e901c97ce284fc25bab4bfa31da0bb42dc87081cc2f45890997246",
+      "client/Controllers/SoundController.lua": "sha256:d339bb9aea7f448c87333419a4d34cabab24b62219b0a8b9be86acea2fcdf103",
+      "client/Controllers/UIController.lua": "sha256:59825c9f31001a7474dc71c91ab4d7cb0cdee19a23c47684ce5f2da8fd42f3bb",
+      "client/Controllers/VFXController.lua": "sha256:b5c936bee25c8cce3b8393939976ac7af993048a4a0551a1960dd2f8cd6f9e1e",
+      "server/Main.server.lua": "sha256:295b7927073485b5e6318c8962da1714a1b7ba0860d5aaa4fde88dfffd4afc35",
+      "server/Services/ActivityFeedService.lua": "sha256:c3016c6a240a94353076c297a64d6e773fabd346ef7d83b36a57fcd8366a36b1",
+      "server/Services/AnalyticsService.lua": "sha256:d8d393d22071f44b14c0461ab7aed7a335450764341e854d898ebf4bf8452299",
+      "server/Services/AssetService.lua": "sha256:aeb1e78962d0f9f59ac91d2a8450e686ead9769cfdbcd154a395dc7cf4c09a2f",
+      "server/Services/BadgeAwardService.lua": "sha256:8f6a454018e08a263710ca680ad3cc34034ca0e34b9e6120ad295d15612c7625",
+      "server/Services/CollectionService.lua": "sha256:082843a9c1ef37693eb7a4a43df2d783e7977a7e1fdda9a5f69e14b149679a8b",
+      "server/Services/DailyRewardService.lua": "sha256:74a0756316e9b474ac44d61c1beda164de251d0350ca5e629dcc6b33e450cc93",
+      "server/Services/EconomyService.lua": "sha256:3d76330538c894bbd52677d9189b36a52937e7792aa179c9a3a0ed77b67b6b1a",
+      "server/Services/EventService.lua": "sha256:911bf9819659674d5f68a40e370735fb648fe11bc085954e70f4260e221fa862",
+      "server/Services/HealthCheckService.lua": "sha256:fc1543b83116d29e2dfec738fc8f3cff7173d203b1ad51dafe8fc99e7e4c2eb0",
+      "server/Services/InventoryService.lua": "sha256:e3fc05d56a9fae4d8e07e2cb61f4a0bcce6bae3da32119e183cfdd9234fdf9c2",
+      "server/Services/MapService.lua": "sha256:530515634397c20b5c7f33506eaefdbcd631608c26fa933965c29d4eb6fb7c95",
+      "server/Services/OnboardingService.lua": "sha256:c193ec07996eefa55e47f517b63f9e19a162a6a6a4b68ac32f6a6a42a0e40d58",
+      "server/Services/PhantomSnackService.lua": "sha256:74fd4541f434ea350f3f0b45e78d813581d76c33e54e75a80531770d5cd7c092",
+      "server/Services/PlaytimeRewardService.lua": "sha256:25552bc594996c7748e3fbc085ae203e4c2de6f06a3ee11ab524d03d630f9268",
+      "server/Services/PlotService.lua": "sha256:4a5ab0e018133d13c3e41e717ca22bf95c4338bbe15d28bec127f333840ad0b3",
+      "server/Services/ProfileServiceWrapper.lua": "sha256:4fc98503c9f2457968adb4578fdd08da47c77c970993315f7cbf3b62762fc5b0",
+      "server/Services/QuestService.lua": "sha256:c251f48b2160df7d17a930242c242d39e1049436f93808e3489c91347277d127",
+      "server/Services/RebirthService.lua": "sha256:39a5af9c83ada8ce82fd38f1b9bafe112216f9dd5f10edf683327a5ede0ae781",
+      "server/Services/SettingsService.lua": "sha256:74ed0c0a1d16e3ec8aeb9563b59dbedfc687907061ce5fc2382fb17a0af47575",
+      "server/Services/ShopService.lua": "sha256:a26916dc2d1c184d63de7a94161dc7b692e9d53d01725772aadafc07f69cdbe8",
+      "server/Services/SnackService.lua": "sha256:a456781414d08c1d28ade1e507395dcf4c69009d67357ab520a85f92e0a911ac",
+      "server/Services/StatsService.lua": "sha256:6bada6fb017dc76aa347a3822cc689e99ba06cd057508287c0a46bfd8824c739",
+      "server/Services/TutorialService.lua": "sha256:1f8fd24170722d4aa910a3b14d5a0e0679c5f33c998ca474a9f4142b1e2de497",
+      "server/Services/UpgradeService.lua": "sha256:3a4928cc19ca5d3625e2d7c37b7771b7a527e82b3671dd36abe6270590afe89a",
+      "server/Services/ValidationService.lua": "sha256:8e0f4e3a711ba02a8e3da7f54ecd0380d5b73a41900279ff88126e6efd968957",
+      "server/Services/VisitRewardService.lua": "sha256:7ac004c61b7ca32a4fcd5608719d38f5efd493d06c92be0ccd461ab19793f663",
+      "server/Services/VoidService.lua": "sha256:630b53bde02bc9a13c5c72b0b3204683b58ea28bc03ab4e7e6355da56c66cc7b",
+      "server/Services/VoidmiteService.lua": "sha256:0ed07a8265c724b096983b71e3c8e0e8b94387457985de6ed8888ec453a8d950",
+      "server/Util/CooldownUtil.lua": "sha256:6fcedea90d79895a776483926cd2a21ed9eac1d07e48b8e650f8de7743e47939",
+      "server/Util/ValidationUtil.lua": "sha256:05e8fce0b00751d7c135854feb0b138f5da59a611e747becc37c0e33ec1e97ca",
+      "shared/AssetImportGuide.lua": "sha256:e093326b9dda9812818959be682f4a0c95092942630d5e71a69ecb67d12c3748",
+      "shared/AssetReferences.lua": "sha256:d598cb45bc551d157ee9fa2812a4f315441634668c779c0c4ac3946d0fce6192",
+      "shared/EventConfig.lua": "sha256:be2dd151d8ea1a16d8f512b38883a6390a26dd3bb86e0e2f217b97effbaf098c",
+      "shared/FTWAssetManifest.lua": "sha256:b861f8c12e464aa70e55a23be19164c007fa632146d013d0eb39226400768cfd",
+      "shared/FormatNumbers.lua": "sha256:7158e97ed64abf7aa2aa1882e5c6a2db9b1823d1ab5bfb0f55df1d4bd54b4617",
+      "shared/GameConfig.lua": "sha256:052a8bc79cfa6edf024ae8625de790500ed1f665fd7c462c65ac77d15f23f825",
+      "shared/MonetizationConfig.lua": "sha256:d46c5d716e9d51555214adadb342d88bf720f46913550db568165a76a33bf00c",
+      "shared/MutationConfig.lua": "sha256:499e26efbce84ca17f335b71331e8f031d629e639bbf829e56537d0c50904acb",
+      "shared/SnackConfig.lua": "sha256:bd50f6d29396dab0c0e135d1086477b79e79d6671dd5b9958dec19f68f26ae7c"
+    }
+  }
+}

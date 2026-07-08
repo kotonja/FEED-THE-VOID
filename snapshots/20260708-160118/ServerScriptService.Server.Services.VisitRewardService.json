@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:01:18.994Z",
+  "script": {
+    "id": "i2475",
+    "name": "VisitRewardService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.VisitRewardService"
+  },
+  "sourceHash": "sha256:7ac004c61b7ca32a4fcd5608719d38f5efd493d06c92be0ccd461ab19793f663",
+  "sourceLength": 472,
+  "lineCount": 19,
+  "backupPath": "snapshots\\20260708-160118\\ServerScriptService.Server.Services.VisitRewardService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:7ac004c61b7ca32a4fcd5608719d38f5efd493d06c92be0ccd461ab19793f663",
+  "diff": {
+    "oldLineCount": 19,
+    "newLineCount": 19,
+    "changedLineCount": 0,
+    "oldLength": 472,
+    "newLength": 472
+  }
+}

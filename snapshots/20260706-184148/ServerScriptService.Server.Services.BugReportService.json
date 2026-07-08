@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:41:48.416Z",
+  "script": {
+    "id": "i2444",
+    "name": "BugReportService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.BugReportService"
+  },
+  "sourceHash": "sha256:2c0172f550e2178eb5ceb38ccb4575c80622c13e700b8bd7dcfdbc6277a960ea",
+  "sourceLength": 13956,
+  "lineCount": 305,
+  "backupPath": "snapshots\\20260706-184148\\ServerScriptService.Server.Services.BugReportService.lua",
+  "kind": "patch",
+  "summary": "Phase 13 screenshot spot fallback look targets",
+  "diff": {
+    "oldLineCount": 305,
+    "newLineCount": 305,
+    "changedLineCount": 0,
+    "oldLength": 13956,
+    "newLength": 13956
+  },
+  "newSourceHash": "sha256:2c0172f550e2178eb5ceb38ccb4575c80622c13e700b8bd7dcfdbc6277a960ea"
+}

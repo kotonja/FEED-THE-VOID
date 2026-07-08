@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:48.942Z",
+  "script": {
+    "id": "i2080",
+    "name": "UIController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController"
+  },
+  "sourceHash": "sha256:5883c2f2a47946ed68e7274cf74e1e22c4a2a5d077076e24faffce661549be2b",
+  "sourceLength": 28108,
+  "lineCount": 827,
+  "backupPath": "snapshots\\20260703-111548\\StarterPlayer.StarterPlayerScripts.Controllers.UIController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:b568ef8fc09be307bb513911d1d0ece193bd0f1a68cd89933f37a1bdf5e9a181",
+  "diff": {
+    "oldLineCount": 827,
+    "newLineCount": 853,
+    "changedLineCount": 806,
+    "oldLength": 28108,
+    "newLength": 28889
+  }
+}

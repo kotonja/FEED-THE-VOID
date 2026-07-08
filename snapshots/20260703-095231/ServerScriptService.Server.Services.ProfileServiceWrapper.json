@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:31.626Z",
+  "script": {
+    "id": "i2059",
+    "name": "ProfileServiceWrapper",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.ProfileServiceWrapper"
+  },
+  "sourceHash": "sha256:5145f514a665805a6dc5fd56b77d87dd6a99f180ae0788fa55facdd2c507a87b",
+  "sourceLength": 11416,
+  "lineCount": 362,
+  "backupPath": "snapshots\\20260703-095231\\ServerScriptService.Server.Services.ProfileServiceWrapper.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 362,
+    "newLineCount": 376,
+    "changedLineCount": 230,
+    "oldLength": 11416,
+    "newLength": 12041
+  },
+  "newSourceHash": "sha256:b9096e5e7ccfdd9338caf61050f8610a39a243f3cfdc4e876eb2d038a7deb602"
+}

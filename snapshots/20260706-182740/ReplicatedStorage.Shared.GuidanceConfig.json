@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:27:40.898Z",
+  "script": {
+    "id": "i2145",
+    "name": "GuidanceConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.GuidanceConfig"
+  },
+  "sourceHash": "sha256:94cacf9e001495197bca3f07764fdb99581ec81356029ed7a9c431cc4defeb0e",
+  "sourceLength": 502,
+  "lineCount": 18,
+  "backupPath": "snapshots\\20260706-182740\\ReplicatedStorage.Shared.GuidanceConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:94cacf9e001495197bca3f07764fdb99581ec81356029ed7a9c431cc4defeb0e",
+  "diff": {
+    "oldLineCount": 18,
+    "newLineCount": 18,
+    "changedLineCount": 0,
+    "oldLength": 502,
+    "newLength": 502
+  }
+}

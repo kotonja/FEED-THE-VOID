@@ -1,0 +1,5425 @@
+{
+  "name": "FEED THE VOID Premium Plate Locks",
+  "mode": "supervised",
+  "description": "Adds premium lock billboards to GrowPlateVisual7 through GrowPlateVisual10 on every existing plot. Seal parts are omitted; anchors are transparent and lowered; billboards default hidden and a separate local visibility client shows only the owning player their still-locked plates.",
+  "steps": [
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual7.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -257.2450866699219,
+          "y": 61.407574,
+          "z": -33.537109375
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 7,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -257.2450866699219,
+          "y": 61.407574,
+          "z": -33.537109375
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual8.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -270.4245910644531,
+          "y": 61.407612,
+          "z": -27.988739013671875
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 8,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -270.4245910644531,
+          "y": 61.407612,
+          "z": -27.988739013671875
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual9.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -264.6559143066406,
+          "y": 61.405209,
+          "z": -51.14080810546875
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 9,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -264.6559143066406,
+          "y": 61.405209,
+          "z": -51.14080810546875
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual10.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -277.83544921875,
+          "y": 61.405247,
+          "z": -45.592437744140625
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 10,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -277.83544921875,
+          "y": 61.405247,
+          "z": -45.592437744140625
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 1,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual7.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -430.0953369140625,
+          "y": 61.407574,
+          "z": -46.32561111450195
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 7,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -430.0953369140625,
+          "y": 61.407574,
+          "z": -46.32561111450195
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual8.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -443.33795166015625,
+          "y": 61.407612,
+          "z": -51.72163772583008
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 8,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -443.33795166015625,
+          "y": 61.407612,
+          "z": -51.72163772583008
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual9.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -422.88787841796875,
+          "y": 61.405209,
+          "z": -64.01356506347656
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 9,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -422.88787841796875,
+          "y": 61.405209,
+          "z": -64.01356506347656
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual10.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -436.1305236816406,
+          "y": 61.405247,
+          "z": -69.40962219238281
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 10,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -436.1305236816406,
+          "y": 61.405247,
+          "z": -69.40962219238281
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 2,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual7.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -542.2476806640625,
+          "y": 61.407574,
+          "z": -179.8444061279297
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 7,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -542.2476806640625,
+          "y": 61.407574,
+          "z": -179.8444061279297
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual8.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -547.7960815429688,
+          "y": 61.407612,
+          "z": -193.02394104003906
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 8,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -547.7960815429688,
+          "y": 61.407612,
+          "z": -193.02394104003906
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual9.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -524.6439208984375,
+          "y": 61.405209,
+          "z": -187.2552490234375
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 9,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -524.6439208984375,
+          "y": 61.405209,
+          "z": -187.2552490234375
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual10.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -530.1923217773438,
+          "y": 61.405247,
+          "z": -200.434814453125
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 10,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -530.1923217773438,
+          "y": 61.405247,
+          "z": -200.434814453125
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 3,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual7.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -531.6763916015625,
+          "y": 61.407574,
+          "z": -352.3287658691406
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 7,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -531.6763916015625,
+          "y": 61.407574,
+          "z": -352.3287658691406
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual8.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -526.2803955078125,
+          "y": 61.407612,
+          "z": -365.5714416503906
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 8,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -526.2803955078125,
+          "y": 61.407612,
+          "z": -365.5714416503906
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual9.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -513.9884033203125,
+          "y": 61.405209,
+          "z": -345.12127685546875
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 9,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -513.9884033203125,
+          "y": 61.405209,
+          "z": -345.12127685546875
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual10.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -508.5923156738281,
+          "y": 61.405247,
+          "z": -358.36395263671875
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 10,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -508.5923156738281,
+          "y": 61.405247,
+          "z": -358.36395263671875
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 4,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual7.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -400.2449645996094,
+          "y": 61.407574,
+          "z": -465.9002685546875
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 7,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -400.2449645996094,
+          "y": 61.407574,
+          "z": -465.9002685546875
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual8.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -387.0654602050781,
+          "y": 61.407612,
+          "z": -471.4486999511719
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 8,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -387.0654602050781,
+          "y": 61.407612,
+          "z": -471.4486999511719
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual9.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -392.8341369628906,
+          "y": 61.405209,
+          "z": -448.2965087890625
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 9,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -392.8341369628906,
+          "y": 61.405209,
+          "z": -448.2965087890625
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual10.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -379.654541015625,
+          "y": 61.405247,
+          "z": -453.8448791503906
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 10,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -379.654541015625,
+          "y": 61.405247,
+          "z": -453.8448791503906
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 5,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual7.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -227.00169372558594,
+          "y": 61.407574,
+          "z": -453.271240234375
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 7,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -227.00169372558594,
+          "y": 61.407574,
+          "z": -453.271240234375
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual8.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -213.759033203125,
+          "y": 61.407612,
+          "z": -447.87530517578125
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 8,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -213.759033203125,
+          "y": 61.407612,
+          "z": -447.87530517578125
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual9.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -234.20916748046875,
+          "y": 61.405209,
+          "z": -435.5832824707031
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 9,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -234.20916748046875,
+          "y": 61.405209,
+          "z": -435.5832824707031
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual10.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -220.9664764404297,
+          "y": 61.405247,
+          "z": -430.1872253417969
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 10,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -220.9664764404297,
+          "y": 61.405247,
+          "z": -430.1872253417969
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 6,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual7.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -112.61105346679688,
+          "y": 61.407574,
+          "z": -321.416748046875
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 7,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -112.61105346679688,
+          "y": 61.407574,
+          "z": -321.416748046875
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual8.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -107.06257629394531,
+          "y": 61.407612,
+          "z": -308.23724365234375
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 8,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -107.06257629394531,
+          "y": 61.407612,
+          "z": -308.23724365234375
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual9.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -130.21481323242188,
+          "y": 61.405209,
+          "z": -314.00592041015625
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 9,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -130.21481323242188,
+          "y": 61.405209,
+          "z": -314.00592041015625
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual10.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -124.66638946533203,
+          "y": 61.405247,
+          "z": -300.8263244628906
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 10,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -124.66638946533203,
+          "y": 61.405247,
+          "z": -300.8263244628906
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 7,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual7.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -125.95890045166016,
+          "y": 61.407574,
+          "z": -147.4999237060547
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 7,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -125.95890045166016,
+          "y": 61.407574,
+          "z": -147.4999237060547
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 7
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual7.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual8.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -131.35484313964844,
+          "y": 61.407612,
+          "z": -134.25723266601562
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 8,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -131.35484313964844,
+          "y": 61.407612,
+          "z": -134.25723266601562
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 8
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual8.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual9.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -143.64691162109375,
+          "y": 61.405209,
+          "z": -154.70742797851562
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 9,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -143.64691162109375,
+          "y": 61.405209,
+          "z": -154.70742797851562
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 9
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual9.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual10.PremiumPlateLock",
+      "className": "Folder",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "createPart",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Size": {
+          "__type": "Vector3",
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "Position": {
+          "__type": "Vector3",
+          "x": -149.04298400878906,
+          "y": 61.405247,
+          "z": -141.46469116210938
+        },
+        "Transparency": 1
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 10,
+        "PremiumPlateLockLowered": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor",
+      "properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "CanQuery": false,
+        "CanTouch": false,
+        "CastShadow": false,
+        "Transparency": 1,
+        "Position": {
+          "__type": "Vector3",
+          "x": -149.04298400878906,
+          "y": 61.405247,
+          "z": -141.46469116210938
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "className": "BillboardGui",
+      "properties": {
+        "AlwaysOnTop": true,
+        "LightInfluence": 0,
+        "MaxDistance": 180,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 92,
+          "yScale": 0,
+          "yOffset": 106
+        },
+        "StudsOffset": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "Enabled": false
+      },
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLock": true,
+        "PlotId": 8,
+        "PlateVisualIndex": 10
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard",
+      "properties": {
+        "Enabled": false
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Icon",
+      "className": "ImageLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Image": "rbxassetid://17368080973",
+        "ImageColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 215,
+          "b": 112
+        },
+        "ScaleType": "Fit",
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 56,
+          "yScale": 0,
+          "yOffset": 56
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 18,
+          "yScale": 0,
+          "yOffset": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Visuals.GrowPlateVisual10.PremiumPlateLock.PremiumLockAnchor.PremiumPlateBillboard.Label",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "LOCKED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 226,
+          "b": 144
+        },
+        "TextScaled": true,
+        "TextStrokeTransparency": 0.18,
+        "TextStrokeColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 12,
+          "g": 5,
+          "b": 20
+        },
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.PremiumPlateLockVisibilityClient",
+      "className": "LocalScript",
+      "properties": {},
+      "attributes": {
+        "CodexOwned": true,
+        "PremiumPlateLockVisibility": true
+      }
+    }
+  ]
+}

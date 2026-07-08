@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:25:00.435Z",
+  "script": {
+    "id": "i2208",
+    "name": "LaunchPageConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.LaunchPageConfig"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260706-182500\\ReplicatedStorage.Shared.LaunchPageConfig.lua",
+  "kind": "patch",
+  "summary": "Phase 13 launch page config source",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 44,
+    "changedLineCount": 45,
+    "oldLength": 0,
+    "newLength": 1049
+  },
+  "newSourceHash": "sha256:33d2c891db572500f8fc96bac48d10d677091a621b4e42c55fcdc2f623cbc288"
+}

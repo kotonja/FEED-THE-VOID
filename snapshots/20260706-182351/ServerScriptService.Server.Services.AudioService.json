@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:23:51.455Z",
+  "script": {
+    "id": "i2156",
+    "name": "AudioService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.AudioService"
+  },
+  "sourceHash": "sha256:ea05af616ba07c42aa5289bb7acbfe150d1ed0db81f72b5c038a059b171963ef",
+  "sourceLength": 10154,
+  "lineCount": 358,
+  "backupPath": "snapshots\\20260706-182351\\ServerScriptService.Server.Services.AudioService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:1c1c6c52a034a072305f443c4e012da20162b1f74bf2065be879972a5e49c86b",
+  "diff": {
+    "oldLineCount": 358,
+    "newLineCount": 389,
+    "changedLineCount": 69,
+    "oldLength": 10154,
+    "newLength": 11797
+  }
+}

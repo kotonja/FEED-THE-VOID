@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:18:23.687Z",
+  "script": {
+    "id": "i2144",
+    "name": "SecurityService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SecurityService"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260703-111823\\ServerScriptService.Server.Services.SecurityService.lua",
+  "kind": "patch",
+  "summary": "Write Phase 9 SecurityService source after new module creation",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 112,
+    "changedLineCount": 113,
+    "oldLength": 0,
+    "newLength": 2782
+  },
+  "newSourceHash": "sha256:bbe4c4fe817ee622c63af809d94412e7e77c34ae882671b406fe1b5ae450714e"
+}

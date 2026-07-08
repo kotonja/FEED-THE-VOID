@@ -1,0 +1,9 @@
+{
+  "name": "Phase6PlayEffectRemote",
+  "steps": [
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.PlayEffect"
+    }
+  ]
+}

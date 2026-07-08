@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:39:47.423Z",
+  "script": {
+    "id": "i2054",
+    "name": "MapService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.MapService"
+  },
+  "sourceHash": "sha256:601a0959d3a8f79433f05fae115fbda08d4f68fac6a2ed855988a26d03ffd98c",
+  "sourceLength": 2767,
+  "lineCount": 101,
+  "backupPath": "snapshots\\20260703-113947\\ServerScriptService.Server.Services.MapService.lua",
+  "kind": "patch",
+  "summary": "Cleanup: verify Studio-built world folders only; stop recreating old map scaffold folders from script.",
+  "diff": {
+    "oldLineCount": 101,
+    "newLineCount": 91,
+    "changedLineCount": 97,
+    "oldLength": 2767,
+    "newLength": 2633
+  },
+  "newSourceHash": "sha256:4a7d477693afad916597d4a21b4e3feba7b0adacb50602ec90342c6cd10e7c1b"
+}

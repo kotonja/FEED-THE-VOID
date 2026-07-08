@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:57:25.859Z",
+  "script": {
+    "id": "i1930",
+    "name": "EventService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.EventService"
+  },
+  "sourceHash": "sha256:911bf9819659674d5f68a40e370735fb648fe11bc085954e70f4260e221fa862",
+  "sourceLength": 9719,
+  "lineCount": 286,
+  "backupPath": "snapshots\\20260702-135725\\ServerScriptService.Server.Services.EventService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 286,
+    "newLineCount": 307,
+    "changedLineCount": 298,
+    "oldLength": 9719,
+    "newLength": 10259
+  },
+  "newSourceHash": "sha256:9aaeddd1c77e4b55ae4c0d2ac56a231f4349244e033197cc041718c72ab2bdb2"
+}

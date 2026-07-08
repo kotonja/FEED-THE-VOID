@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:17:21.044Z",
+  "script": {
+    "id": "i2034",
+    "name": "SoundController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.SoundController"
+  },
+  "sourceHash": "sha256:d66dbbfc8693e15d7f58c93c53cbaef8015de30380668ced750e43c1a5ae83c3",
+  "sourceLength": 2310,
+  "lineCount": 90,
+  "backupPath": "snapshots\\20260703-121721\\StarterPlayer.StarterPlayerScripts.Controllers.SoundController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 10 Private Test Freeze Overlay",
+  "newSourceHash": "sha256:d66dbbfc8693e15d7f58c93c53cbaef8015de30380668ced750e43c1a5ae83c3",
+  "diff": {
+    "oldLineCount": 90,
+    "newLineCount": 90,
+    "changedLineCount": 0,
+    "oldLength": 2310,
+    "newLength": 2310
+  }
+}

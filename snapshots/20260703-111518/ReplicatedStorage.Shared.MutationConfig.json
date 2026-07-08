@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:18.634Z",
+  "script": {
+    "id": "i2038",
+    "name": "MutationConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.MutationConfig"
+  },
+  "sourceHash": "sha256:675caccbb76bbea8e350368676778bb38885ec89c6ed3b2fc9e5cb18ee9da358",
+  "sourceLength": 1704,
+  "lineCount": 84,
+  "backupPath": "snapshots\\20260703-111518\\ReplicatedStorage.Shared.MutationConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:499e26efbce84ca17f335b71331e8f031d629e639bbf829e56537d0c50904acb",
+  "diff": {
+    "oldLineCount": 84,
+    "newLineCount": 84,
+    "changedLineCount": 3,
+    "oldLength": 1704,
+    "newLength": 1685
+  }
+}

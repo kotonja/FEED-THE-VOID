@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:49.424Z",
+  "script": {
+    "id": "i2081",
+    "name": "VFXController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.VFXController"
+  },
+  "sourceHash": "sha256:b5c936bee25c8cce3b8393939976ac7af993048a4a0551a1960dd2f8cd6f9e1e",
+  "sourceLength": 3995,
+  "lineCount": 146,
+  "backupPath": "snapshots\\20260703-111549\\StarterPlayer.StarterPlayerScripts.Controllers.VFXController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:b5c936bee25c8cce3b8393939976ac7af993048a4a0551a1960dd2f8cd6f9e1e",
+  "diff": {
+    "oldLineCount": 146,
+    "newLineCount": 146,
+    "changedLineCount": 0,
+    "oldLength": 3995,
+    "newLength": 3995
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:38:58.960Z",
+  "script": {
+    "id": "i2413",
+    "name": "SmokeTestService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SmokeTestService"
+  },
+  "sourceHash": "sha256:ef3901cf77bb6ad2ccd60bbaca961e958203775ab4923a3e2bad414db04f9f51",
+  "sourceLength": 16500,
+  "lineCount": 334,
+  "backupPath": "snapshots\\20260706-183858\\ServerScriptService.Server.Services.SmokeTestService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:ef3901cf77bb6ad2ccd60bbaca961e958203775ab4923a3e2bad414db04f9f51",
+  "diff": {
+    "oldLineCount": 334,
+    "newLineCount": 334,
+    "changedLineCount": 0,
+    "oldLength": 16500,
+    "newLength": 16500
+  }
+}

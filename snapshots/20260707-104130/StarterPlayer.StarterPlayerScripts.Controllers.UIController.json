@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:41:30.610Z",
+  "script": {
+    "id": "i2229",
+    "name": "UIController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController"
+  },
+  "sourceHash": "sha256:f1178e39901eae973e6a5a9d0bfc39e24b7a801e3602813d5a05f9201f69aa78",
+  "sourceLength": 43083,
+  "lineCount": 1298,
+  "backupPath": "snapshots\\20260707-104130\\StarterPlayer.StarterPlayerScripts.Controllers.UIController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 14 Imported Assets Overlay",
+  "newSourceHash": "sha256:bbf76569573150f0143a0ac5a2ce18bcd3455bcb60d69a570548e50267808f68",
+  "diff": {
+    "oldLineCount": 1298,
+    "newLineCount": 1298,
+    "changedLineCount": 1,
+    "oldLength": 43083,
+    "newLength": 43083
+  }
+}

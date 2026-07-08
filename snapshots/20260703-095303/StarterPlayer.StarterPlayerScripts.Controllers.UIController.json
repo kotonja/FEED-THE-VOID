@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:53:03.395Z",
+  "script": {
+    "id": "i2080",
+    "name": "UIController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController"
+  },
+  "sourceHash": "sha256:7b91a493fa4f5c277aa1bf557b4201f891167c59fcb2d7cd476cbd13f3d4ca43",
+  "sourceLength": 27502,
+  "lineCount": 806,
+  "backupPath": "snapshots\\20260703-095303\\StarterPlayer.StarterPlayerScripts.Controllers.UIController.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 806,
+    "newLineCount": 827,
+    "changedLineCount": 814,
+    "oldLength": 27502,
+    "newLength": 28108
+  },
+  "newSourceHash": "sha256:5883c2f2a47946ed68e7274cf74e1e22c4a2a5d077076e24faffce661549be2b"
+}

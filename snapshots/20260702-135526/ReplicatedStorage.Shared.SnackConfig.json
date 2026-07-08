@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:55:26.273Z",
+  "script": {
+    "id": "i1760",
+    "name": "SnackConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.SnackConfig"
+  },
+  "sourceHash": "sha256:2595d26fe39661891646183493dbbc61160b4823b31b70741819551ec26efc7e",
+  "sourceLength": 2317,
+  "lineCount": 123,
+  "backupPath": "snapshots\\20260702-135526\\ReplicatedStorage.Shared.SnackConfig.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 123,
+    "newLineCount": 260,
+    "changedLineCount": 257,
+    "oldLength": 2317,
+    "newLength": 6127
+  },
+  "newSourceHash": "sha256:90ab3b82bde3ac8a5b51ee4cb8fc1fbdc441d41d352c58a1c577b896f0f056de"
+}

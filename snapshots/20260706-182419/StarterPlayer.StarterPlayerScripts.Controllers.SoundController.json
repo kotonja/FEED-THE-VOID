@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:24:19.863Z",
+  "script": {
+    "id": "i2197",
+    "name": "SoundController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.SoundController"
+  },
+  "sourceHash": "sha256:f162dc4959dedc501405bf3ddd15f96866b8e2664ec8b256e2b5d81c46eaa3ea",
+  "sourceLength": 18054,
+  "lineCount": 647,
+  "backupPath": "snapshots\\20260706-182419\\StarterPlayer.StarterPlayerScripts.Controllers.SoundController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:ea4c27157d0d086e3dc9c0e065be8ad112085f738a3ed2bf32a74b0fd9e84554",
+  "diff": {
+    "oldLineCount": 647,
+    "newLineCount": 656,
+    "changedLineCount": 262,
+    "oldLength": 18054,
+    "newLength": 18502
+  }
+}

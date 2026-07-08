@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T19:53:01.122Z",
+  "script": {
+    "id": "i2056",
+    "name": "SmokeTestService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SmokeTestService"
+  },
+  "sourceHash": "sha256:8e634133ad03de3d77ec105920abf04f30b51bf627398d9710a0c23efad27281",
+  "sourceLength": 11611,
+  "lineCount": 278,
+  "backupPath": "snapshots\\20260706-155301\\ServerScriptService.Server.Services.SmokeTestService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 12 VFX Overlay",
+  "newSourceHash": "sha256:ebf834900a47ba1967e68ec1453082605c2a028b85de84778c17f0de86bf9a30",
+  "diff": {
+    "oldLineCount": 278,
+    "newLineCount": 299,
+    "changedLineCount": 226,
+    "oldLength": 11611,
+    "newLength": 13713
+  }
+}

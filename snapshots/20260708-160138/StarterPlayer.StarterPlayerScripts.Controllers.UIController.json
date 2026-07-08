@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:01:38.363Z",
+  "script": {
+    "id": "i2005",
+    "name": "UIController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController"
+  },
+  "sourceHash": "sha256:e90a8c392540fb7fe7d9932822af49344deef3148a74739d677623751eca12ff",
+  "sourceLength": 43856,
+  "lineCount": 1325,
+  "backupPath": "snapshots\\20260708-160138\\StarterPlayer.StarterPlayerScripts.Controllers.UIController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:3328c08255474bc74efacdf224212b0f461c7d36246ab9194cdc126a4263f212",
+  "diff": {
+    "oldLineCount": 1325,
+    "newLineCount": 1333,
+    "changedLineCount": 1000,
+    "oldLength": 43856,
+    "newLength": 44259
+  }
+}

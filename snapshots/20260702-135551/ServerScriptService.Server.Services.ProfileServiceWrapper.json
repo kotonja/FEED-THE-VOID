@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:55:51.127Z",
+  "script": {
+    "id": "i1923",
+    "name": "ProfileServiceWrapper",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.ProfileServiceWrapper"
+  },
+  "sourceHash": "sha256:4fc98503c9f2457968adb4578fdd08da47c77c970993315f7cbf3b62762fc5b0",
+  "sourceLength": 9748,
+  "lineCount": 325,
+  "backupPath": "snapshots\\20260702-135551\\ServerScriptService.Server.Services.ProfileServiceWrapper.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 325,
+    "newLineCount": 362,
+    "changedLineCount": 284,
+    "oldLength": 9748,
+    "newLength": 11416
+  },
+  "newSourceHash": "sha256:5145f514a665805a6dc5fd56b77d87dd6a99f180ae0788fa55facdd2c507a87b"
+}

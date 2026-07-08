@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T13:09:15.972Z",
+  "script": {
+    "id": "i1761",
+    "name": "MutationConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.MutationConfig"
+  },
+  "sourceHash": "sha256:499e26efbce84ca17f335b71331e8f031d629e639bbf829e56537d0c50904acb",
+  "sourceLength": 1685,
+  "lineCount": 84,
+  "backupPath": "snapshots\\20260702-090915\\ReplicatedStorage.Shared.MutationConfig.lua",
+  "kind": "patch",
+  "summary": "Phase 6 non-neon mutation material pass",
+  "diff": {
+    "oldLineCount": 84,
+    "newLineCount": 84,
+    "changedLineCount": 4,
+    "oldLength": 1685,
+    "newLength": 1705
+  },
+  "newSourceHash": "sha256:3d06e8a34f69c430f7f4442c6a200e70c1b00a96aa8eeb1870c588723976da77"
+}

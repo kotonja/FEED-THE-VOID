@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:13:19.019Z",
+  "script": {
+    "id": "i2080",
+    "name": "UIController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController"
+  },
+  "sourceHash": "sha256:b568ef8fc09be307bb513911d1d0ece193bd0f1a68cd89933f37a1bdf5e9a181",
+  "sourceLength": 28889,
+  "lineCount": 853,
+  "backupPath": "snapshots\\20260703-121319\\StarterPlayer.StarterPlayerScripts.Controllers.UIController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 10 Private Test Freeze Overlay",
+  "newSourceHash": "sha256:30fd9b7bc210b69b0933440c75886071639749eeb5d8259988da5020980755dc",
+  "diff": {
+    "oldLineCount": 853,
+    "newLineCount": 1050,
+    "changedLineCount": 1032,
+    "oldLength": 28889,
+    "newLength": 35464
+  }
+}

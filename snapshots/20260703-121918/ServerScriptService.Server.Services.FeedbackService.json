@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:19:18.908Z",
+  "script": {
+    "id": "i8143",
+    "name": "FeedbackService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.FeedbackService"
+  },
+  "sourceHash": "sha256:72f0086e2718d5c57bd4baea508a0afc6c86686b88f8525ca897ce9e02e1449d",
+  "sourceLength": 4346,
+  "lineCount": 143,
+  "backupPath": "snapshots\\20260703-121918\\ServerScriptService.Server.Services.FeedbackService.lua",
+  "kind": "patch",
+  "summary": "Phase 10 feedback service source",
+  "diff": {
+    "oldLineCount": 143,
+    "newLineCount": 143,
+    "changedLineCount": 0,
+    "oldLength": 4346,
+    "newLength": 4346
+  },
+  "newSourceHash": "sha256:72f0086e2718d5c57bd4baea508a0afc6c86686b88f8525ca897ce9e02e1449d"
+}

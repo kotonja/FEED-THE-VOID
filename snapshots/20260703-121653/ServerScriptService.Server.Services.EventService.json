@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:16:53.030Z",
+  "script": {
+    "id": "i2023",
+    "name": "EventService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.EventService"
+  },
+  "sourceHash": "sha256:ebb3ff8f3e5ddee84bb37420c8c24db8db870b2cb6b910bc2a69c56922573581",
+  "sourceLength": 14852,
+  "lineCount": 451,
+  "backupPath": "snapshots\\20260703-121653\\ServerScriptService.Server.Services.EventService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 10 Private Test Freeze Overlay",
+  "newSourceHash": "sha256:ebb3ff8f3e5ddee84bb37420c8c24db8db870b2cb6b910bc2a69c56922573581",
+  "diff": {
+    "oldLineCount": 451,
+    "newLineCount": 451,
+    "changedLineCount": 0,
+    "oldLength": 14852,
+    "newLength": 14852
+  }
+}

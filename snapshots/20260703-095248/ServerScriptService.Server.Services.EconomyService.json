@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:48.320Z",
+  "script": {
+    "id": "i2049",
+    "name": "EconomyService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.EconomyService"
+  },
+  "sourceHash": "sha256:fcc383a5336a2985b5697265a1a205aac080b4cd97ea2059b4070b58b9d66cce",
+  "sourceLength": 9855,
+  "lineCount": 244,
+  "backupPath": "snapshots\\20260703-095248\\ServerScriptService.Server.Services.EconomyService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 244,
+    "newLineCount": 246,
+    "changedLineCount": 112,
+    "oldLength": 9855,
+    "newLength": 10069
+  },
+  "newSourceHash": "sha256:09d9b87468c36e612de4610758b6f69387f69c209466ab3fd7557896e1ec67a3"
+}

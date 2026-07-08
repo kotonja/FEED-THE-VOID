@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:46.824Z",
+  "script": {
+    "id": "i2077",
+    "name": "NotificationController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.NotificationController"
+  },
+  "sourceHash": "sha256:a1c3fc4e7df5687c516902f38bc5f7d91c154954c4da5e628a7ff56a1f043741",
+  "sourceLength": 991,
+  "lineCount": 44,
+  "backupPath": "snapshots\\20260703-111546\\StarterPlayer.StarterPlayerScripts.Controllers.NotificationController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:dd3eaf1a972e9a84b61d8e27b6c5468398f366b428ad1257b38145fe372d18bb",
+  "diff": {
+    "oldLineCount": 44,
+    "newLineCount": 49,
+    "changedLineCount": 48,
+    "oldLength": 991,
+    "newLength": 1248
+  }
+}

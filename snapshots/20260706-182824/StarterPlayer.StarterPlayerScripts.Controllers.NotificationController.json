@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:28:24.508Z",
+  "script": {
+    "id": "i2195",
+    "name": "NotificationController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.NotificationController"
+  },
+  "sourceHash": "sha256:4f3c7af57a10a6f876aa1dea8e3345cdfd2dd382bd20b79a15c82a9c9f32028a",
+  "sourceLength": 1919,
+  "lineCount": 68,
+  "backupPath": "snapshots\\20260706-182824\\StarterPlayer.StarterPlayerScripts.Controllers.NotificationController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:4f3c7af57a10a6f876aa1dea8e3345cdfd2dd382bd20b79a15c82a9c9f32028a",
+  "diff": {
+    "oldLineCount": 68,
+    "newLineCount": 68,
+    "changedLineCount": 0,
+    "oldLength": 1919,
+    "newLength": 1919
+  }
+}

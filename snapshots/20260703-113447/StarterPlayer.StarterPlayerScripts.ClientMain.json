@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:34:47.444Z",
+  "script": {
+    "id": "i2074",
+    "name": "ClientMain",
+    "className": "LocalScript",
+    "path": "StarterPlayer.StarterPlayerScripts.ClientMain"
+  },
+  "sourceHash": "sha256:0b20e751268dc5d65e806716ae0978f8d8d192cc9c9888d35e0166c1743b97bb",
+  "sourceLength": 1004,
+  "lineCount": 21,
+  "backupPath": "snapshots\\20260703-113447\\StarterPlayer.StarterPlayerScripts.ClientMain.lua",
+  "kind": "patch",
+  "summary": "Phase 9 cleanup: bounded MainUI wait to avoid infinite-yield warning without script-creating UI.",
+  "diff": {
+    "oldLineCount": 21,
+    "newLineCount": 27,
+    "changedLineCount": 25,
+    "oldLength": 1004,
+    "newLength": 1188
+  },
+  "newSourceHash": "sha256:f46f8f09ecc0664d19e9c764532ee5b27f5bf7985234a0d05771ec3cc5aec3a2"
+}

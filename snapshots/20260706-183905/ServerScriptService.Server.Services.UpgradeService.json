@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:39:05.204Z",
+  "script": {
+    "id": "i2417",
+    "name": "UpgradeService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.UpgradeService"
+  },
+  "sourceHash": "sha256:fac32cbb86abbe4538d8876f143391498bc2bdb39e6008d083a652c16bf91148",
+  "sourceLength": 5485,
+  "lineCount": 145,
+  "backupPath": "snapshots\\20260706-183905\\ServerScriptService.Server.Services.UpgradeService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:fac32cbb86abbe4538d8876f143391498bc2bdb39e6008d083a652c16bf91148",
+  "diff": {
+    "oldLineCount": 145,
+    "newLineCount": 145,
+    "changedLineCount": 0,
+    "oldLength": 5485,
+    "newLength": 5485
+  }
+}

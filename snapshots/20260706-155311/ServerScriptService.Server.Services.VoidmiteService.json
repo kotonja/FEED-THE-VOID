@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T19:53:11.290Z",
+  "script": {
+    "id": "i2064",
+    "name": "VoidmiteService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.VoidmiteService"
+  },
+  "sourceHash": "sha256:8127ea3a108d5cc562791ca2b20f55a5237178534179276f8dcd69c32d999044",
+  "sourceLength": 9717,
+  "lineCount": 272,
+  "backupPath": "snapshots\\20260706-155311\\ServerScriptService.Server.Services.VoidmiteService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 12 VFX Overlay",
+  "newSourceHash": "sha256:20cb8438b9a5b735dcd75c86659050c02a25d1be318fd8f124d5ac2f803c7de3",
+  "diff": {
+    "oldLineCount": 272,
+    "newLineCount": 286,
+    "changedLineCount": 170,
+    "oldLength": 9717,
+    "newLength": 10165
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:20.623Z",
+  "script": {
+    "id": "i2041",
+    "name": "Main",
+    "className": "Script",
+    "path": "ServerScriptService.Server.Main"
+  },
+  "sourceHash": "sha256:589325b83bf33932d58f26d510c1682af83dcabbba337b29af992226a03dd9e9",
+  "sourceLength": 13554,
+  "lineCount": 364,
+  "backupPath": "snapshots\\20260703-111520\\ServerScriptService.Server.Main.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:118d1f4814505b76ed272fb2c5e9386bc47eb637ce093d57dd33dc17d9c566ac",
+  "diff": {
+    "oldLineCount": 364,
+    "newLineCount": 479,
+    "changedLineCount": 466,
+    "oldLength": 13554,
+    "newLength": 18474
+  }
+}

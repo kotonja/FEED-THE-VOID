@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:40:52.528Z",
+  "script": {
+    "id": "i2175",
+    "name": "LaunchPageConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.LaunchPageConfig"
+  },
+  "sourceHash": "sha256:33d2c891db572500f8fc96bac48d10d677091a621b4e42c55fcdc2f623cbc288",
+  "sourceLength": 1049,
+  "lineCount": 44,
+  "backupPath": "snapshots\\20260707-104052\\ReplicatedStorage.Shared.LaunchPageConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 14 Imported Assets Overlay",
+  "newSourceHash": "sha256:33d2c891db572500f8fc96bac48d10d677091a621b4e42c55fcdc2f623cbc288",
+  "diff": {
+    "oldLineCount": 44,
+    "newLineCount": 44,
+    "changedLineCount": 0,
+    "oldLength": 1049,
+    "newLength": 1049
+  }
+}

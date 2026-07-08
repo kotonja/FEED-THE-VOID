@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:47.641Z",
+  "script": {
+    "id": "i2078",
+    "name": "PromptController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.PromptController"
+  },
+  "sourceHash": "sha256:1b475a565b644b30ed4af681bf68071f4d159849b5095443703575b96d1e8285",
+  "sourceLength": 574,
+  "lineCount": 23,
+  "backupPath": "snapshots\\20260703-111547\\StarterPlayer.StarterPlayerScripts.Controllers.PromptController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:fca7dc7273e901c97ce284fc25bab4bfa31da0bb42dc87081cc2f45890997246",
+  "diff": {
+    "oldLineCount": 23,
+    "newLineCount": 5,
+    "changedLineCount": 22,
+    "oldLength": 574,
+    "newLength": 91
+  }
+}

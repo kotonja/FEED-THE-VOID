@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:56:41.688Z",
+  "script": {
+    "id": "i1937",
+    "name": "CollectionService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.CollectionService"
+  },
+  "sourceHash": "sha256:082843a9c1ef37693eb7a4a43df2d783e7977a7e1fdda9a5f69e14b149679a8b",
+  "sourceLength": 4929,
+  "lineCount": 134,
+  "backupPath": "snapshots\\20260702-135641\\ServerScriptService.Server.Services.CollectionService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 134,
+    "newLineCount": 244,
+    "changedLineCount": 220,
+    "oldLength": 4929,
+    "newLength": 8664
+  },
+  "newSourceHash": "sha256:ceb4413a39fd07529c4371dc10de3a36dbb0d845dbd883c7fd4f7997b3310f1a"
+}

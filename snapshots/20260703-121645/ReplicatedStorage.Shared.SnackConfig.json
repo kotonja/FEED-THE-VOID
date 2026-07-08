@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:16:45.505Z",
+  "script": {
+    "id": "i2017",
+    "name": "SnackConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.SnackConfig"
+  },
+  "sourceHash": "sha256:90ab3b82bde3ac8a5b51ee4cb8fc1fbdc441d41d352c58a1c577b896f0f056de",
+  "sourceLength": 6127,
+  "lineCount": 260,
+  "backupPath": "snapshots\\20260703-121645\\ReplicatedStorage.Shared.SnackConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 10 Private Test Freeze Overlay",
+  "newSourceHash": "sha256:90ab3b82bde3ac8a5b51ee4cb8fc1fbdc441d41d352c58a1c577b896f0f056de",
+  "diff": {
+    "oldLineCount": 260,
+    "newLineCount": 260,
+    "changedLineCount": 0,
+    "oldLength": 6127,
+    "newLength": 6127
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:17:19.348Z",
+  "script": {
+    "id": "i2077",
+    "name": "NotificationController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.NotificationController"
+  },
+  "sourceHash": "sha256:dd3eaf1a972e9a84b61d8e27b6c5468398f366b428ad1257b38145fe372d18bb",
+  "sourceLength": 1248,
+  "lineCount": 49,
+  "backupPath": "snapshots\\20260703-121719\\StarterPlayer.StarterPlayerScripts.Controllers.NotificationController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 10 Private Test Freeze Overlay",
+  "newSourceHash": "sha256:dd3eaf1a972e9a84b61d8e27b6c5468398f366b428ad1257b38145fe372d18bb",
+  "diff": {
+    "oldLineCount": 49,
+    "newLineCount": 49,
+    "changedLineCount": 0,
+    "oldLength": 1248,
+    "newLength": 1248
+  }
+}

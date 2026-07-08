@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:42:39.781Z",
+  "script": {
+    "id": "i2269",
+    "name": "AssetOrganizerService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.AssetOrganizerService"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260707-104239\\ServerScriptService.Server.Services.AssetOrganizerService.lua",
+  "kind": "patch",
+  "summary": "Phase 14 imported asset organizer source restore",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 169,
+    "changedLineCount": 170,
+    "oldLength": 0,
+    "newLength": 4511
+  },
+  "newSourceHash": "sha256:a8821f276106b98043e101a7ad60ee94a71e04f31a11fb3230902455c9ce5874"
+}

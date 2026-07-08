@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T19:52:25.512Z",
+  "script": {
+    "id": "i2022",
+    "name": "FTWAssetManifest",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.FTWAssetManifest"
+  },
+  "sourceHash": "sha256:b861f8c12e464aa70e55a23be19164c007fa632146d013d0eb39226400768cfd",
+  "sourceLength": 3430,
+  "lineCount": 106,
+  "backupPath": "snapshots\\20260706-155225\\ReplicatedStorage.Shared.FTWAssetManifest.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 12 VFX Overlay",
+  "newSourceHash": "sha256:b861f8c12e464aa70e55a23be19164c007fa632146d013d0eb39226400768cfd",
+  "diff": {
+    "oldLineCount": 106,
+    "newLineCount": 106,
+    "changedLineCount": 0,
+    "oldLength": 3430,
+    "newLength": 3430
+  }
+}

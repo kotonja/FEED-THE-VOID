@@ -1,0 +1,665 @@
+{
+  "name": "FEED THE VOID Phase 1 Repair Sync",
+  "mode": "supervised",
+  "description": "Synchronizes client controller placement and fixes authored plate orientation.",
+  "steps": [
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.ClientMain",
+      "className": "LocalScript",
+      "sourceFile": "src/client/ClientMain.client.lua",
+      "overwrite": true
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/UIController.lua",
+      "overwrite": true
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.PromptController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/PromptController.lua",
+      "overwrite": true
+    },
+    {
+      "type": "writeScript",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.NotificationController",
+      "className": "ModuleScript",
+      "sourceFile": "src/client/Controllers/NotificationController.lua",
+      "overwrite": true
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate1",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate2",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate3",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate4",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate5",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot1.Plates.Plate6",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate1",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate2",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate3",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate4",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate5",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot2.Plates.Plate6",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate1",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate2",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate3",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate4",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate5",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot3.Plates.Plate6",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate1",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate2",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate3",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate4",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate5",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot4.Plates.Plate6",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate1",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate2",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate3",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate4",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate5",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot5.Plates.Plate6",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate1",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate2",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate3",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate4",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate5",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot6.Plates.Plate6",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate1",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate2",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate3",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate4",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate5",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot7.Plates.Plate6",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates",
+      "className": "Folder",
+      "properties": {}
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate1",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate2",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate3",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate4",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate5",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "Workspace.GameWorld.Plots.Plot8.Plates.Plate6",
+      "properties": {
+        "Orientation": {
+          "__type": "Vector3",
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    }
+  ]
+}

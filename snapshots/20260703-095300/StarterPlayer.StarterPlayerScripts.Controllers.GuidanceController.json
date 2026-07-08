@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:53:00.588Z",
+  "script": {
+    "id": "i2076",
+    "name": "GuidanceController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.GuidanceController"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260703-095300\\StarterPlayer.StarterPlayerScripts.Controllers.GuidanceController.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 441,
+    "changedLineCount": 442,
+    "oldLength": 0,
+    "newLength": 12631
+  },
+  "newSourceHash": "sha256:45e2e9dca38e5b2506842414df34d695c8d17d6f8f152ee55aa14fb7a6960157"
+}

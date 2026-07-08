@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:42.156Z",
+  "script": {
+    "id": "i2071",
+    "name": "VoidmiteService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.VoidmiteService"
+  },
+  "sourceHash": "sha256:5107fdeff4f2a99c4b8d3aa20e960dd0e9b89299501821c63b639ff680e9bd4e",
+  "sourceLength": 7883,
+  "lineCount": 232,
+  "backupPath": "snapshots\\20260703-111542\\ServerScriptService.Server.Services.VoidmiteService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:e92865b9d6c01f473febd71705ae506d7e81579ba7ca2fec5a881173c65319d6",
+  "diff": {
+    "oldLineCount": 232,
+    "newLineCount": 248,
+    "changedLineCount": 240,
+    "oldLength": 7883,
+    "newLength": 8740
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:56:09.418Z",
+  "script": {
+    "id": "i3297",
+    "name": "SizeConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.SizeConfig"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260708-165609\\ReplicatedStorage.Shared.SizeConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 16 SizeConfig Repair",
+  "newSourceHash": "sha256:3f08a57ddf3a8f1e2691d66537fd9d2007f1816c50cc4b966b0ab2cfc4414f36",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 237,
+    "changedLineCount": 238,
+    "oldLength": 0,
+    "newLength": 6313
+  }
+}

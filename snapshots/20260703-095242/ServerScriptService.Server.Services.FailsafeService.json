@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:42.043Z",
+  "script": {
+    "id": "i2051",
+    "name": "FailsafeService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.FailsafeService"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260703-095242\\ServerScriptService.Server.Services.FailsafeService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 164,
+    "changedLineCount": 165,
+    "oldLength": 0,
+    "newLength": 5476
+  },
+  "newSourceHash": "sha256:66f5acdbda1d93619b4ce3c88fe0a552cacc07341f318ad8cfa4f53183b491fa"
+}

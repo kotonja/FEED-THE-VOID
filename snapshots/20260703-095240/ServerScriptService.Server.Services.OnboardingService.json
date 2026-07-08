@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:40.228Z",
+  "script": {
+    "id": "i2055",
+    "name": "OnboardingService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.OnboardingService"
+  },
+  "sourceHash": "sha256:c193ec07996eefa55e47f517b63f9e19a162a6a6a4b68ac32f6a6a42a0e40d58",
+  "sourceLength": 2394,
+  "lineCount": 71,
+  "backupPath": "snapshots\\20260703-095240\\ServerScriptService.Server.Services.OnboardingService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 71,
+    "newLineCount": 246,
+    "changedLineCount": 243,
+    "oldLength": 2394,
+    "newLength": 8354
+  },
+  "newSourceHash": "sha256:3344252cca0f7ffbdcd8862791b939ca3fea2b60086bdfef2f1a21d7a594ce7f"
+}

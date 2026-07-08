@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:56:29.861Z",
+  "script": {
+    "id": "i1931",
+    "name": "ShopService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.ShopService"
+  },
+  "sourceHash": "sha256:a26916dc2d1c184d63de7a94161dc7b692e9d53d01725772aadafc07f69cdbe8",
+  "sourceLength": 4169,
+  "lineCount": 142,
+  "backupPath": "snapshots\\20260702-135629\\ServerScriptService.Server.Services.ShopService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 142,
+    "newLineCount": 188,
+    "changedLineCount": 184,
+    "oldLength": 4169,
+    "newLength": 6111
+  },
+  "newSourceHash": "sha256:15af8d9930728f66d505ec04756a9b2ff3c4cedd007b77628c94dd59ea5e0190"
+}

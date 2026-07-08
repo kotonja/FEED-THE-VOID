@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:15:28.845Z",
+  "script": {
+    "id": "i2053",
+    "name": "InventoryService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.InventoryService"
+  },
+  "sourceHash": "sha256:df2e5f723925d6e2beb027a1225fa5b6d0902b5861a28936a88efb8c0003720f",
+  "sourceLength": 3158,
+  "lineCount": 104,
+  "backupPath": "snapshots\\20260703-111528\\ServerScriptService.Server.Services.InventoryService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 9 Hardening Overlay",
+  "newSourceHash": "sha256:3b3ffc886a45812606eef410cb3449b289b6be468307c3e21eb168183cf14b90",
+  "diff": {
+    "oldLineCount": 104,
+    "newLineCount": 191,
+    "changedLineCount": 171,
+    "oldLength": 3158,
+    "newLength": 6261
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:27.842Z",
+  "script": {
+    "id": "i2036",
+    "name": "GuidanceConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.GuidanceConfig"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260703-095227\\ReplicatedStorage.Shared.GuidanceConfig.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 18,
+    "changedLineCount": 19,
+    "oldLength": 0,
+    "newLength": 502
+  },
+  "newSourceHash": "sha256:94cacf9e001495197bca3f07764fdb99581ec81356029ed7a9c431cc4defeb0e"
+}

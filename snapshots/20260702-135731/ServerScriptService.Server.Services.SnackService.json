@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:57:31.820Z",
+  "script": {
+    "id": "i1925",
+    "name": "SnackService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SnackService"
+  },
+  "sourceHash": "sha256:76476c4b7717d2a7432a106f21d6c83e74187190b15bf09ea2f3b34bda6f9b8e",
+  "sourceLength": 34786,
+  "lineCount": 941,
+  "backupPath": "snapshots\\20260702-135731\\ServerScriptService.Server.Services.SnackService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 941,
+    "newLineCount": 1092,
+    "changedLineCount": 998,
+    "oldLength": 34786,
+    "newLength": 40932
+  },
+  "newSourceHash": "sha256:755dfc5f5067df134ea8ee2951fa81d46471fd94525d1407e0abdc0d554f377f"
+}

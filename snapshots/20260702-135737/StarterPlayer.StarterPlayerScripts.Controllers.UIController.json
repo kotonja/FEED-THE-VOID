@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:57:37.780Z",
+  "script": {
+    "id": "i4504",
+    "name": "UIController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController"
+  },
+  "sourceHash": "sha256:45ed58e9bbe69d32f9081a52f7576e35796fff1b9d86dce4a04e21f8fa148eb1",
+  "sourceLength": 20196,
+  "lineCount": 585,
+  "backupPath": "snapshots\\20260702-135737\\StarterPlayer.StarterPlayerScripts.Controllers.UIController.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 585,
+    "newLineCount": 806,
+    "changedLineCount": 788,
+    "oldLength": 20196,
+    "newLength": 27502
+  },
+  "newSourceHash": "sha256:7b91a493fa4f5c277aa1bf557b4201f891167c59fcb2d7cd476cbd13f3d4ca43"
+}

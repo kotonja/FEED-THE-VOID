@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T13:09:08.617Z",
+  "script": {
+    "id": "i1925",
+    "name": "SnackService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SnackService"
+  },
+  "sourceHash": "sha256:47e02017f685e696747c08ac0a0f8a64540cd8263d2c2d208685640d342cfa89",
+  "sourceLength": 23250,
+  "lineCount": 596,
+  "backupPath": "snapshots\\20260702-090908\\ServerScriptService.Server.Services.SnackService.lua",
+  "kind": "patch",
+  "summary": "Phase 6 planting growth harvest feed display VFX hooks",
+  "diff": {
+    "oldLineCount": 596,
+    "newLineCount": 701,
+    "changedLineCount": 675,
+    "oldLength": 23250,
+    "newLength": 26700
+  },
+  "newSourceHash": "sha256:2af6a1af7058afeeb82fb4eade7854213cbf7c092bee5c260f8550c5c3a24434"
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T16:57:09.102Z",
+  "script": {
+    "id": "i6192",
+    "name": "PremiumPlateLockVisibilityClient",
+    "className": "LocalScript",
+    "path": "StarterPlayer.StarterPlayerScripts.PremiumPlateLockVisibilityClient"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260702-125709\\StarterPlayer.StarterPlayerScripts.PremiumPlateLockVisibilityClient.lua",
+  "kind": "patch",
+  "summary": "Premium plate lock owner-only visibility client",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 139,
+    "changedLineCount": 140,
+    "oldLength": 0,
+    "newLength": 3241
+  },
+  "newSourceHash": "sha256:6d9b2d51cc27f2773c4df913494184af64417c4e6a6fc7ab3532210223cb598c"
+}

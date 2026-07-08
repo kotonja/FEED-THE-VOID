@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:17:29.910Z",
+  "script": {
+    "id": "i2078",
+    "name": "PromptController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.PromptController"
+  },
+  "sourceHash": "sha256:fca7dc7273e901c97ce284fc25bab4bfa31da0bb42dc87081cc2f45890997246",
+  "sourceLength": 91,
+  "lineCount": 5,
+  "backupPath": "snapshots\\20260703-111729\\StarterPlayer.StarterPlayerScripts.Controllers.PromptController.lua",
+  "kind": "patch",
+  "summary": "Restore live prompt controller after Phase 9 hardening apply",
+  "diff": {
+    "oldLineCount": 5,
+    "newLineCount": 23,
+    "changedLineCount": 22,
+    "oldLength": 91,
+    "newLength": 574
+  },
+  "newSourceHash": "sha256:1b475a565b644b30ed4af681bf68071f4d159849b5095443703575b96d1e8285"
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:41:22.804Z",
+  "script": {
+    "id": "i2217",
+    "name": "VoidService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.VoidService"
+  },
+  "sourceHash": "sha256:b8639dbd0b4ced0f8d470ea6d44ec9517c86ba91279c37001e68db7e106f9e35",
+  "sourceLength": 4658,
+  "lineCount": 133,
+  "backupPath": "snapshots\\20260707-104122\\ServerScriptService.Server.Services.VoidService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 14 Imported Assets Overlay",
+  "newSourceHash": "sha256:b8639dbd0b4ced0f8d470ea6d44ec9517c86ba91279c37001e68db7e106f9e35",
+  "diff": {
+    "oldLineCount": 133,
+    "newLineCount": 133,
+    "changedLineCount": 0,
+    "oldLength": 4658,
+    "newLength": 4658
+  }
+}

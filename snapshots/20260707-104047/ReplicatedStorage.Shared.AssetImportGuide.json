@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:40:47.086Z",
+  "script": {
+    "id": "i2167",
+    "name": "AssetImportGuide",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.AssetImportGuide"
+  },
+  "sourceHash": "sha256:e093326b9dda9812818959be682f4a0c95092942630d5e71a69ecb67d12c3748",
+  "sourceLength": 1948,
+  "lineCount": 29,
+  "backupPath": "snapshots\\20260707-104047\\ReplicatedStorage.Shared.AssetImportGuide.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 14 Imported Assets Overlay",
+  "newSourceHash": "sha256:37eaf929d454daf2484fde50d02b37cac9db3d772bdcfb97fe9e0b61d485cb68",
+  "diff": {
+    "oldLineCount": 29,
+    "newLineCount": 61,
+    "changedLineCount": 60,
+    "oldLength": 1948,
+    "newLength": 3828
+  }
+}

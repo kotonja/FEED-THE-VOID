@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:57:20.422Z",
+  "script": {
+    "id": "i1928",
+    "name": "VoidService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.VoidService"
+  },
+  "sourceHash": "sha256:630b53bde02bc9a13c5c72b0b3204683b58ea28bc03ab4e7e6355da56c66cc7b",
+  "sourceLength": 3624,
+  "lineCount": 108,
+  "backupPath": "snapshots\\20260702-135720\\ServerScriptService.Server.Services.VoidService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 108,
+    "newLineCount": 112,
+    "changedLineCount": 94,
+    "oldLength": 3624,
+    "newLength": 3824
+  },
+  "newSourceHash": "sha256:18ffcdcf029c5e2a0d67a884eafd9000f2a1c28d70f55a245c82e86c861fa830"
+}

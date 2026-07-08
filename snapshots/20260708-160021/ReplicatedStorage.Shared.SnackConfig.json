@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:00:21.607Z",
+  "script": {
+    "id": "i2436",
+    "name": "SnackConfig",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.SnackConfig"
+  },
+  "sourceHash": "sha256:e0190fa92616f7ceb9a8a430df619f7887db5d6a414e2b7b7d7e3bb11db37db1",
+  "sourceLength": 6445,
+  "lineCount": 269,
+  "backupPath": "snapshots\\20260708-160021\\ReplicatedStorage.Shared.SnackConfig.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 15 Private Test QA Overlay",
+  "newSourceHash": "sha256:e0190fa92616f7ceb9a8a430df619f7887db5d6a414e2b7b7d7e3bb11db37db1",
+  "diff": {
+    "oldLineCount": 269,
+    "newLineCount": 269,
+    "changedLineCount": 0,
+    "oldLength": 6445,
+    "newLength": 6445
+  }
+}

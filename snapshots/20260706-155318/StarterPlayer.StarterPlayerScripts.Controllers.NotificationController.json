@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T19:53:18.263Z",
+  "script": {
+    "id": "i2072",
+    "name": "NotificationController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.NotificationController"
+  },
+  "sourceHash": "sha256:dd3eaf1a972e9a84b61d8e27b6c5468398f366b428ad1257b38145fe372d18bb",
+  "sourceLength": 1248,
+  "lineCount": 49,
+  "backupPath": "snapshots\\20260706-155318\\StarterPlayer.StarterPlayerScripts.Controllers.NotificationController.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 12 VFX Overlay",
+  "newSourceHash": "sha256:4f3c7af57a10a6f876aa1dea8e3345cdfd2dd382bd20b79a15c82a9c9f32028a",
+  "diff": {
+    "oldLineCount": 49,
+    "newLineCount": 68,
+    "changedLineCount": 67,
+    "oldLength": 1248,
+    "newLength": 1919
+  }
+}

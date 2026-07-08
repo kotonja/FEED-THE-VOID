@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:19:28.823Z",
+  "script": {
+    "id": "i2036",
+    "name": "SmokeTestService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SmokeTestService"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260703-121928\\ServerScriptService.Server.Services.SmokeTestService.lua",
+  "kind": "patch",
+  "summary": "Phase 10 smoke test service source",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 254,
+    "changedLineCount": 255,
+    "oldLength": 0,
+    "newLength": 9709
+  },
+  "newSourceHash": "sha256:d8e403462227c70f45fa5a2f6a54560cb1e5f6c78c861f4e0218284ca62faf14"
+}

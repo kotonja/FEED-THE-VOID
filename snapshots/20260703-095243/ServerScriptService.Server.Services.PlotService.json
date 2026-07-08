@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:43.837Z",
+  "script": {
+    "id": "i2058",
+    "name": "PlotService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.PlotService"
+  },
+  "sourceHash": "sha256:38d16637b6a3002530beac65cc00a4ba308d64b30cb4eed9bb035bd33307b6a6",
+  "sourceLength": 4258,
+  "lineCount": 164,
+  "backupPath": "snapshots\\20260703-095243\\ServerScriptService.Server.Services.PlotService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 164,
+    "newLineCount": 239,
+    "changedLineCount": 227,
+    "oldLength": 4258,
+    "newLength": 6822
+  },
+  "newSourceHash": "sha256:b64f6428afe9912db2bee63f5bcd38d8ec96452476cb69ced741148c913216e2"
+}

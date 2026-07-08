@@ -1,0 +1,4764 @@
+{
+  "name": "FEED THE VOID Phase 7 Progression Overlay",
+  "mode": "supervised",
+  "description": "Adds Phase 7 progression polish: snack expansion, rarity config, item locking, collection milestones, offline growth, shop unlocks, balance report, and QA hardening without rebuilding Workspace.GameWorld.",
+  "steps": [
+    {
+      "type": "ensureFolder",
+      "path": "ReplicatedStorage.Shared"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ReplicatedStorage.Remotes"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ServerScriptService.Server"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ServerScriptService.Server.Services"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "ServerScriptService.Server.Util"
+    },
+    {
+      "type": "ensureFolder",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestPlantSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestHarvestSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestSellSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestFeedVoid"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestDisplaySnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestClearVoidmite"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestBuySeed"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestBuyUpgrade"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestRebirth"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestSkipTutorial"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestDebugCommand"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestClaimPlaytimeReward"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestClaimDailyReward"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestCatchPhantomSnack"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestUpdateSettings"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestCollectEventPickup"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestToggleItemLock"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.RequestClaimCollectionMilestone"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.PlayEffect"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.NotifyClient"
+    },
+    {
+      "type": "ensureRemoteEvent",
+      "path": "ReplicatedStorage.Remotes.SyncPlayerData"
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.AssetImportGuide",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.AssetReferences",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.EventConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.FTWAssetManifest",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.FormatNumbers",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.GameConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.MonetizationConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.MutationConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.RarityConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ReplicatedStorage.Shared.SnackConfig",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Main",
+      "className": "Script",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.ActivityFeedService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.AnalyticsService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.AssetService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.BadgeAwardService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.BalanceReportService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.CollectionService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.DailyRewardService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.EconomyService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.EventService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.HealthCheckService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.InventoryService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.MapService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.OnboardingService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.PhantomSnackService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.PlaytimeRewardService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.PlotService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.ProfileServiceWrapper",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.QuestService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.RebirthService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.SettingsService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.ShopService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.SnackService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.StatsService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.TutorialService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.UpgradeService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.ValidationService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.VisitRewardService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.VoidService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Services.VoidmiteService",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Util.CooldownUtil",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "ServerScriptService.Server.Util.ValidationUtil",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.ClientMain",
+      "className": "LocalScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.EffectsController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.NotificationController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.PromptController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.SoundController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.UIController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterPlayer.StarterPlayerScripts.Controllers.VFXController",
+      "className": "ModuleScript",
+      "properties": {}
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.NextGoalPanel",
+      "className": "Frame",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 42,
+          "g": 32,
+          "b": 58
+        },
+        "BackgroundTransparency": 0.08,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 370,
+          "yScale": 0,
+          "yOffset": 50
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -185,
+          "yScale": 1,
+          "yOffset": -136
+        },
+        "Visible": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.NextGoalPanel",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 42,
+          "g": 32,
+          "b": 58
+        },
+        "BackgroundTransparency": 0.08,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 370,
+          "yScale": 0,
+          "yOffset": 50
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -185,
+          "yScale": 1,
+          "yOffset": -136
+        },
+        "Visible": true
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.NextGoalPanel.NextGoalText",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -18,
+          "yScale": 1,
+          "yOffset": -10
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 9,
+          "yScale": 0,
+          "yOffset": 5
+        },
+        "Text": "Next Goal: Grow a snack",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 246,
+          "b": 210
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.NextGoalPanel.NextGoalText",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -18,
+          "yScale": 1,
+          "yOffset": -10
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 9,
+          "yScale": 0,
+          "yOffset": 5
+        },
+        "Text": "Next Goal: Grow a snack",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 246,
+          "b": 210
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.QuickActions",
+      "className": "Frame",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 176,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -188,
+          "yScale": 0,
+          "yOffset": 108
+        },
+        "Visible": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.QuickActions",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 176,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -188,
+          "yScale": 0,
+          "yOffset": 108
+        },
+        "Visible": true
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.QuickActions.PlaytimeButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 86,
+          "g": 154,
+          "b": 215
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "TIME",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.QuickActions.PlaytimeButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 86,
+          "g": 154,
+          "b": 215
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "TIME",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.QuickActions.DailyButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 105,
+          "g": 190,
+          "b": 112
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 58,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "DAILY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.QuickActions.DailyButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 105,
+          "g": 190,
+          "b": 112
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 58,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "DAILY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.QuickActions.SettingsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 82,
+          "b": 122
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 116,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "SET",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.QuickActions.SettingsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 82,
+          "b": 122
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 54,
+          "yScale": 1,
+          "yOffset": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 116,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "SET",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel",
+      "className": "Frame",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 210
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -105
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 210
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -105
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.Title",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "PLAYTIME",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.Title",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "PLAYTIME",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.CloseButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.CloseButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.RewardInfo",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Next reward loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 238,
+          "g": 241,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.RewardInfo",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Next reward loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 238,
+          "g": 241,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.ClaimButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 86,
+          "g": 154,
+          "b": 215
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -56
+        },
+        "Text": "CLAIM",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.PlaytimeRewardsPanel.ClaimButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 86,
+          "g": 154,
+          "b": 215
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -56
+        },
+        "Text": "CLAIM",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel",
+      "className": "Frame",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 210
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -105
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 210
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -105
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel.Title",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "DAILY CHEST",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel.Title",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "DAILY CHEST",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel.CloseButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel.CloseButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel.DailyInfo",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Daily reward loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 238,
+          "g": 241,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel.DailyInfo",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Daily reward loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 238,
+          "g": 241,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.DailyRewardPanel.ClaimButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 105,
+          "g": 190,
+          "b": 112
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -56
+        },
+        "Text": "CLAIM DAILY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.DailyRewardPanel.ClaimButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 105,
+          "g": 190,
+          "b": 112
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -56
+        },
+        "Text": "CLAIM DAILY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel",
+      "className": "Frame",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 330
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -165
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 31,
+          "b": 39
+        },
+        "BackgroundTransparency": 0.04,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 340,
+          "yScale": 0,
+          "yOffset": 330
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -170,
+          "yScale": 0.5,
+          "yOffset": -165
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.Title",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "SETTINGS",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.Title",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "SETTINGS",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 213,
+          "b": 105
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.CloseButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.CloseButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.ReduceEffectsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Reduce Effects: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.ReduceEffectsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 58
+        },
+        "Text": "Reduce Effects: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.LowDetailModeButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 104
+        },
+        "Text": "Low Detail Mode: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.LowDetailModeButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 104
+        },
+        "Text": "Low Detail Mode: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.MuteSoundsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 150
+        },
+        "Text": "Mute Sounds: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.MuteSoundsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 150
+        },
+        "Text": "Mute Sounds: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.HideExtraPopupsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 196
+        },
+        "Text": "Hide Popups: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.HideExtraPopupsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 196
+        },
+        "Text": "Hide Popups: OFF",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SettingsPanel.AutoClosePanelsButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 242
+        },
+        "Text": "Auto Close Panels: ON",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SettingsPanel.AutoClosePanelsButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 50,
+          "g": 57,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 38
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 242
+        },
+        "Text": "Auto Close Panels: ON",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.RestockLabel",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 28
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -40
+        },
+        "Text": "Restock: loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 225,
+          "g": 232,
+          "b": 245
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.RestockLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 28
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -40
+        },
+        "Text": "Restock: loading...",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 225,
+          "g": 232,
+          "b": 245
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel",
+      "className": "Frame",
+      "properties": {
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 384,
+          "yScale": 0,
+          "yOffset": 470
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -396,
+          "yScale": 1,
+          "yOffset": -546
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel",
+      "properties": {
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 384,
+          "yScale": 0,
+          "yOffset": 470
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -396,
+          "yScale": 1,
+          "yOffset": -546
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.ShopTitle",
+      "className": "TextLabel",
+      "properties": {
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "SEED SHOP",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 115,
+          "g": 226,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.ShopTitle",
+      "properties": {
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -58,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "SEED SHOP",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 115,
+          "g": 226,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.CloseButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.CloseButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 70,
+          "b": 80
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 34,
+          "yScale": 0,
+          "yOffset": 30
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -42,
+          "yScale": 0,
+          "yOffset": 8
+        },
+        "Text": "X",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList",
+      "className": "Frame",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 376
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 50
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 376
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 0,
+          "yOffset": 50
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.CookieRockButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 185,
+          "g": 164,
+          "b": 132
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "CookieRock",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.CookieRockButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 185,
+          "g": 164,
+          "b": 132
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "CookieRock",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.MoonMarshmallowButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 150,
+          "g": 165,
+          "b": 225
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "MoonMarshmallow",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.MoonMarshmallowButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 150,
+          "g": 165,
+          "b": 225
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 0
+        },
+        "Text": "MoonMarshmallow",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.BubbleBreadButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 225,
+          "g": 98,
+          "b": 175
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 46
+        },
+        "Text": "BubbleBread",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.BubbleBreadButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 225,
+          "g": 98,
+          "b": 175
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 46
+        },
+        "Text": "BubbleBread",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.JellyCubeButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 195,
+          "b": 205
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 46
+        },
+        "Text": "JellyCube",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.JellyCubeButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 195,
+          "b": 205
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 46
+        },
+        "Text": "JellyCube",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.SlimePretzelButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 80,
+          "g": 185,
+          "b": 92
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Text": "SlimePretzel",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.SlimePretzelButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 80,
+          "g": 185,
+          "b": 92
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Text": "SlimePretzel",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.NeonToastButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 225,
+          "g": 188,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Text": "NeonToast",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.NeonToastButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 225,
+          "g": 188,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Text": "NeonToast",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.MeteorMuffinButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 190,
+          "g": 70,
+          "b": 58
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 138
+        },
+        "Text": "MeteorMuffin",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.MeteorMuffinButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 190,
+          "g": 70,
+          "b": 58
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 138
+        },
+        "Text": "MeteorMuffin",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.CrystalDonutButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 82,
+          "g": 175,
+          "b": 225
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 138
+        },
+        "Text": "CrystalDonut",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.CrystalDonutButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 82,
+          "g": 175,
+          "b": 225
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 138
+        },
+        "Text": "CrystalDonut",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.GoblinSandwichButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 98,
+          "g": 165,
+          "b": 78
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 184
+        },
+        "Text": "GoblinSandwich",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.GoblinSandwichButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 98,
+          "g": 165,
+          "b": 78
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 184
+        },
+        "Text": "GoblinSandwich",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.StarPancakeButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 235,
+          "g": 175,
+          "b": 74
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 184
+        },
+        "Text": "StarPancake",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.StarPancakeButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 235,
+          "g": 175,
+          "b": 74
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 184
+        },
+        "Text": "StarPancake",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.LavaNoodleWrapButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 218,
+          "g": 76,
+          "b": 42
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 230
+        },
+        "Text": "LavaNoodleWrap",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.LavaNoodleWrapButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 218,
+          "g": 76,
+          "b": 42
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 230
+        },
+        "Text": "LavaNoodleWrap",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.VoidWaffleButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 98,
+          "g": 70,
+          "b": 145
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 230
+        },
+        "Text": "VoidWaffle",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.VoidWaffleButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 98,
+          "g": 70,
+          "b": 145
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 230
+        },
+        "Text": "VoidWaffle",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.BlackHoleBurritoButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 56,
+          "g": 43,
+          "b": 76
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 276
+        },
+        "Text": "BlackHoleBurrito",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.BlackHoleBurritoButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 56,
+          "g": 43,
+          "b": 76
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 276
+        },
+        "Text": "BlackHoleBurrito",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.GoldenFridgeSnackButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 220,
+          "g": 166,
+          "b": 44
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 276
+        },
+        "Text": "GoldenFridgeSnack",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.GoldenFridgeSnackButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 220,
+          "g": 166,
+          "b": 44
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 276
+        },
+        "Text": "GoldenFridgeSnack",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.LivingSandwichButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 94,
+          "g": 125,
+          "b": 92
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 322
+        },
+        "Text": "LivingSandwich",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.SeedShopPanel.SeedList.LivingSandwichButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 94,
+          "g": 125,
+          "b": 92
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -6,
+          "yScale": 0,
+          "yOffset": 40
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 0,
+          "yScale": 0,
+          "yOffset": 322
+        },
+        "Text": "LivingSandwich",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel",
+      "className": "Frame",
+      "properties": {
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 384,
+          "yScale": 0,
+          "yOffset": 470
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -546
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel",
+      "properties": {
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 384,
+          "yScale": 0,
+          "yOffset": 470
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -546
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.SortButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 46,
+          "g": 54,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -16,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 116
+        },
+        "Text": "SORT: NEWEST",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.SortButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 46,
+          "g": 54,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -16,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 116
+        },
+        "Text": "SORT: NEWEST",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.FilterButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 46,
+          "g": 54,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -16,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 116
+        },
+        "Text": "FILTER: ALL",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.FilterButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 46,
+          "g": 54,
+          "b": 70
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -16,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 116
+        },
+        "Text": "FILTER: ALL",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.ItemList",
+      "className": "Frame",
+      "properties": {
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 154
+        },
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 196
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.ItemList",
+      "properties": {
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 154
+        },
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 196
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.SelectedDetail",
+      "className": "TextLabel",
+      "properties": {
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 354
+        },
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 54
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.SelectedDetail",
+      "properties": {
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 0,
+          "yOffset": 354
+        },
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 54
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.SellButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 165,
+          "b": 92
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 82,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "SELL",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.SellButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 165,
+          "b": 92
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 82,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "SELL",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.FeedButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 130,
+          "g": 74,
+          "b": 190
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 82,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 100,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "FEED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.FeedButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 130,
+          "g": 74,
+          "b": 190
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 82,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 100,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "FEED",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.DisplayButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 68,
+          "g": 128,
+          "b": 190
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 82,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 190,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "DISPLAY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.DisplayButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 68,
+          "g": 128,
+          "b": 190
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 82,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 190,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "DISPLAY",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.LockButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 82,
+          "b": 122
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 82,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 280,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "LOCK",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.LockButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 92,
+          "g": 82,
+          "b": 122
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 82,
+          "yScale": 0,
+          "yOffset": 42
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 280,
+          "yScale": 1,
+          "yOffset": -52
+        },
+        "Text": "LOCK",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.ConfirmPanel",
+      "className": "Frame",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 22,
+          "b": 36
+        },
+        "BackgroundTransparency": 0.03,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 1,
+          "yOffset": -148
+        }
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.ConfirmPanel",
+      "properties": {
+        "Visible": false,
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 28,
+          "g": 22,
+          "b": 36
+        },
+        "BackgroundTransparency": 0.03,
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -20,
+          "yScale": 0,
+          "yOffset": 92
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 10,
+          "yScale": 1,
+          "yOffset": -148
+        }
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.ConfirmPanel.ConfirmText",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -12,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 6
+        },
+        "Text": "Confirm valuable action?",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 235,
+          "b": 190
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.ConfirmPanel.ConfirmText",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -12,
+          "yScale": 0,
+          "yOffset": 44
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 6,
+          "yScale": 0,
+          "yOffset": 6
+        },
+        "Text": "Confirm valuable action?",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 235,
+          "b": 190
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.ConfirmPanel.ConfirmButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 165,
+          "g": 78,
+          "b": 98
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -9,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 6,
+          "yScale": 1,
+          "yOffset": -40
+        },
+        "Text": "CONFIRM",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.ConfirmPanel.ConfirmButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 165,
+          "g": 78,
+          "b": 98
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -9,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 6,
+          "yScale": 1,
+          "yOffset": -40
+        },
+        "Text": "CONFIRM",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.InventoryPanel.ConfirmPanel.CancelButton",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 65,
+          "g": 65,
+          "b": 76
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -9,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 3,
+          "yScale": 1,
+          "yOffset": -40
+        },
+        "Text": "CANCEL",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.InventoryPanel.ConfirmPanel.CancelButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 65,
+          "g": 65,
+          "b": 76
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": -9,
+          "yScale": 0,
+          "yOffset": 34
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 3,
+          "yScale": 1,
+          "yOffset": -40
+        },
+        "Text": "CANCEL",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBlack"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.CollectionPanel.MilestoneButton1",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 52,
+          "g": 58,
+          "b": 78
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -118
+        },
+        "Text": "MILESTONE",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.CollectionPanel.MilestoneButton1",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 52,
+          "g": 58,
+          "b": 78
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -118
+        },
+        "Text": "MILESTONE",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.CollectionPanel.MilestoneButton2",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 52,
+          "g": 58,
+          "b": 78
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -82
+        },
+        "Text": "MILESTONE",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.CollectionPanel.MilestoneButton2",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 52,
+          "g": 58,
+          "b": 78
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -82
+        },
+        "Text": "MILESTONE",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.CollectionPanel.MilestoneButton3",
+      "className": "TextButton",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 52,
+          "g": 58,
+          "b": 78
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -46
+        },
+        "Text": "MILESTONE",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.CollectionPanel.MilestoneButton3",
+      "properties": {
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 52,
+          "g": 58,
+          "b": 78
+        },
+        "BorderSizePixel": 0,
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 1,
+          "xOffset": -24,
+          "yScale": 0,
+          "yOffset": 32
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0,
+          "xOffset": 12,
+          "yScale": 1,
+          "yOffset": -46
+        },
+        "Text": "MILESTONE",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "TextScaled": true,
+        "TextWrapped": true,
+        "Font": "GothamBold"
+      }
+    }
+  ],
+  "metadata": {
+    "phase": "7-progression-polish",
+    "generatedAt": "2026-07-02T17:53:47.580Z",
+    "writesScriptSources": false,
+    "overlayOnly": true,
+    "noWorkspaceMapRebuild": true,
+    "noPaidMonetization": true,
+    "noSounds": true,
+    "noNewMeshes": true,
+    "sourceHashes": {
+      "client/ClientMain.client.lua": "sha256:2c9318a2b60352965a145c610d23ce55dbdee31d74266ca1cf05a2854cfe0e70",
+      "client/Controllers/EffectsController.lua": "sha256:2d48acd1f22d16a226201844b9bec60690c3091b5fa689a6cffd006f792b1e65",
+      "client/Controllers/NotificationController.lua": "sha256:a1c3fc4e7df5687c516902f38bc5f7d91c154954c4da5e628a7ff56a1f043741",
+      "client/Controllers/PromptController.lua": "sha256:fca7dc7273e901c97ce284fc25bab4bfa31da0bb42dc87081cc2f45890997246",
+      "client/Controllers/SoundController.lua": "sha256:d339bb9aea7f448c87333419a4d34cabab24b62219b0a8b9be86acea2fcdf103",
+      "client/Controllers/UIController.lua": "sha256:7b91a493fa4f5c277aa1bf557b4201f891167c59fcb2d7cd476cbd13f3d4ca43",
+      "client/Controllers/VFXController.lua": "sha256:b5c936bee25c8cce3b8393939976ac7af993048a4a0551a1960dd2f8cd6f9e1e",
+      "server/Main.server.lua": "sha256:b4be43cb1f8e904a9d287e2a9a73c6cd8baa5bfa195ddd5a48c0c8e2bf398f8b",
+      "server/Services/ActivityFeedService.lua": "sha256:ff23b1011ebce30b977506c281332d9e7bdee60b3631a39ea052eef9886d068a",
+      "server/Services/AnalyticsService.lua": "sha256:d8d393d22071f44b14c0461ab7aed7a335450764341e854d898ebf4bf8452299",
+      "server/Services/AssetService.lua": "sha256:aeb1e78962d0f9f59ac91d2a8450e686ead9769cfdbcd154a395dc7cf4c09a2f",
+      "server/Services/BadgeAwardService.lua": "sha256:8f6a454018e08a263710ca680ad3cc34034ca0e34b9e6120ad295d15612c7625",
+      "server/Services/BalanceReportService.lua": "sha256:7443c7570e7e0e56e4edc62c01cece45903f98be3c5c12f71fbbe0f236df7479",
+      "server/Services/CollectionService.lua": "sha256:ceb4413a39fd07529c4371dc10de3a36dbb0d845dbd883c7fd4f7997b3310f1a",
+      "server/Services/DailyRewardService.lua": "sha256:74a0756316e9b474ac44d61c1beda164de251d0350ca5e629dcc6b33e450cc93",
+      "server/Services/EconomyService.lua": "sha256:fcc383a5336a2985b5697265a1a205aac080b4cd97ea2059b4070b58b9d66cce",
+      "server/Services/EventService.lua": "sha256:9aaeddd1c77e4b55ae4c0d2ac56a231f4349244e033197cc041718c72ab2bdb2",
+      "server/Services/HealthCheckService.lua": "sha256:b8d210241fbd1e8f3a1f8e8d46abd122b8c5127d8292a3d73e2f432bf81ff3fd",
+      "server/Services/InventoryService.lua": "sha256:df2e5f723925d6e2beb027a1225fa5b6d0902b5861a28936a88efb8c0003720f",
+      "server/Services/MapService.lua": "sha256:530515634397c20b5c7f33506eaefdbcd631608c26fa933965c29d4eb6fb7c95",
+      "server/Services/OnboardingService.lua": "sha256:c193ec07996eefa55e47f517b63f9e19a162a6a6a4b68ac32f6a6a42a0e40d58",
+      "server/Services/PhantomSnackService.lua": "sha256:74fd4541f434ea350f3f0b45e78d813581d76c33e54e75a80531770d5cd7c092",
+      "server/Services/PlaytimeRewardService.lua": "sha256:25552bc594996c7748e3fbc085ae203e4c2de6f06a3ee11ab524d03d630f9268",
+      "server/Services/PlotService.lua": "sha256:4a5ab0e018133d13c3e41e717ca22bf95c4338bbe15d28bec127f333840ad0b3",
+      "server/Services/ProfileServiceWrapper.lua": "sha256:5145f514a665805a6dc5fd56b77d87dd6a99f180ae0788fa55facdd2c507a87b",
+      "server/Services/QuestService.lua": "sha256:b5022057454e1be540afc6395003117f6cbefad6b657469d7f4e93ab30292161",
+      "server/Services/RebirthService.lua": "sha256:8c3d551b4b48c46af17006323bc20b5b389e50e7bca2e649790628a3f70eb0a5",
+      "server/Services/SettingsService.lua": "sha256:74ed0c0a1d16e3ec8aeb9563b59dbedfc687907061ce5fc2382fb17a0af47575",
+      "server/Services/ShopService.lua": "sha256:15af8d9930728f66d505ec04756a9b2ff3c4cedd007b77628c94dd59ea5e0190",
+      "server/Services/SnackService.lua": "sha256:755dfc5f5067df134ea8ee2951fa81d46471fd94525d1407e0abdc0d554f377f",
+      "server/Services/StatsService.lua": "sha256:6bada6fb017dc76aa347a3822cc689e99ba06cd057508287c0a46bfd8824c739",
+      "server/Services/TutorialService.lua": "sha256:1f8fd24170722d4aa910a3b14d5a0e0679c5f33c998ca474a9f4142b1e2de497",
+      "server/Services/UpgradeService.lua": "sha256:3a4928cc19ca5d3625e2d7c37b7771b7a527e82b3671dd36abe6270590afe89a",
+      "server/Services/ValidationService.lua": "sha256:ae3816558381d60cf0a5db85fbedbd27eab4ffacd955a34a3e161af2f4098a9f",
+      "server/Services/VisitRewardService.lua": "sha256:7ac004c61b7ca32a4fcd5608719d38f5efd493d06c92be0ccd461ab19793f663",
+      "server/Services/VoidService.lua": "sha256:18ffcdcf029c5e2a0d67a884eafd9000f2a1c28d70f55a245c82e86c861fa830",
+      "server/Services/VoidmiteService.lua": "sha256:0ed07a8265c724b096983b71e3c8e0e8b94387457985de6ed8888ec453a8d950",
+      "server/Util/CooldownUtil.lua": "sha256:6fcedea90d79895a776483926cd2a21ed9eac1d07e48b8e650f8de7743e47939",
+      "server/Util/ValidationUtil.lua": "sha256:05e8fce0b00751d7c135854feb0b138f5da59a611e747becc37c0e33ec1e97ca",
+      "shared/AssetImportGuide.lua": "sha256:e093326b9dda9812818959be682f4a0c95092942630d5e71a69ecb67d12c3748",
+      "shared/AssetReferences.lua": "sha256:d598cb45bc551d157ee9fa2812a4f315441634668c779c0c4ac3946d0fce6192",
+      "shared/EventConfig.lua": "sha256:be2dd151d8ea1a16d8f512b38883a6390a26dd3bb86e0e2f217b97effbaf098c",
+      "shared/FTWAssetManifest.lua": "sha256:b861f8c12e464aa70e55a23be19164c007fa632146d013d0eb39226400768cfd",
+      "shared/FormatNumbers.lua": "sha256:7158e97ed64abf7aa2aa1882e5c6a2db9b1823d1ab5bfb0f55df1d4bd54b4617",
+      "shared/GameConfig.lua": "sha256:aa77c4f7cde120796b5afe67388ae224d877d22bdf8c005e37ce483955e9ff7c",
+      "shared/MonetizationConfig.lua": "sha256:d46c5d716e9d51555214adadb342d88bf720f46913550db568165a76a33bf00c",
+      "shared/MutationConfig.lua": "sha256:499e26efbce84ca17f335b71331e8f031d629e639bbf829e56537d0c50904acb",
+      "shared/RarityConfig.lua": "sha256:79218bb767e6829d6884106def0388b4ac18d46ea0b290c52eff45bc06ac4619",
+      "shared/SnackConfig.lua": "sha256:90ab3b82bde3ac8a5b51ee4cb8fc1fbdc441d41d352c58a1c577b896f0f056de"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:56:35.987Z",
+  "script": {
+    "id": "i1938",
+    "name": "QuestService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.QuestService"
+  },
+  "sourceHash": "sha256:c251f48b2160df7d17a930242c242d39e1049436f93808e3489c91347277d127",
+  "sourceLength": 4652,
+  "lineCount": 144,
+  "backupPath": "snapshots\\20260702-135635\\ServerScriptService.Server.Services.QuestService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 144,
+    "newLineCount": 181,
+    "changedLineCount": 161,
+    "oldLength": 4652,
+    "newLength": 6770
+  },
+  "newSourceHash": "sha256:b5022057454e1be540afc6395003117f6cbefad6b657469d7f4e93ab30292161"
+}

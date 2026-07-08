@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:52:55.613Z",
+  "script": {
+    "id": "i3031",
+    "name": "FeedbackService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.FeedbackService"
+  },
+  "sourceHash": "sha256:e15c7ece2f6c94fae585a46503544ab484fb19b3216d6b293384ae9903db61dc",
+  "sourceLength": 5329,
+  "lineCount": 161,
+  "backupPath": "snapshots\\20260708-165255\\ServerScriptService.Server.Services.FeedbackService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 16 Spectacle Overlay",
+  "newSourceHash": "sha256:e15c7ece2f6c94fae585a46503544ab484fb19b3216d6b293384ae9903db61dc",
+  "diff": {
+    "oldLineCount": 161,
+    "newLineCount": 161,
+    "changedLineCount": 0,
+    "oldLength": 5329,
+    "newLength": 5329
+  }
+}

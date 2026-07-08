@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:58.309Z",
+  "script": {
+    "id": "i2074",
+    "name": "ClientMain",
+    "className": "LocalScript",
+    "path": "StarterPlayer.StarterPlayerScripts.ClientMain"
+  },
+  "sourceHash": "sha256:46d6a311ed45b2b029b8b561bbda0b5871cb11345bf16526d4d08fd79bb68939",
+  "sourceLength": 869,
+  "lineCount": 19,
+  "backupPath": "snapshots\\20260703-095258\\StarterPlayer.StarterPlayerScripts.ClientMain.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 19,
+    "newLineCount": 21,
+    "changedLineCount": 10,
+    "oldLength": 869,
+    "newLength": 991
+  },
+  "newSourceHash": "sha256:770f0d5ee4d790d500fd510725480b45bebd902ecf3c28392883f7ea3f712284"
+}

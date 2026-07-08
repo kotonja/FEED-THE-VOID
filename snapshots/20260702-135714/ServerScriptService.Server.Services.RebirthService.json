@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:57:14.577Z",
+  "script": {
+    "id": "i1932",
+    "name": "RebirthService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.RebirthService"
+  },
+  "sourceHash": "sha256:af70985fb8e33bf8087cbc334efb912abed530f2a683c8e78eb59fe761a96f35",
+  "sourceLength": 2333,
+  "lineCount": 69,
+  "backupPath": "snapshots\\20260702-135714\\ServerScriptService.Server.Services.RebirthService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 69,
+    "newLineCount": 67,
+    "changedLineCount": 53,
+    "oldLength": 2333,
+    "newLength": 2327
+  },
+  "newSourceHash": "sha256:8c3d551b4b48c46af17006323bc20b5b389e50e7bca2e649790628a3f70eb0a5"
+}

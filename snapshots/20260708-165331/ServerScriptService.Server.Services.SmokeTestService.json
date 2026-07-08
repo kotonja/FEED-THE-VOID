@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-08T20:53:31.771Z",
+  "script": {
+    "id": "i3045",
+    "name": "SmokeTestService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SmokeTestService"
+  },
+  "sourceHash": "sha256:c4e55a3186abc4ac814c5129ac39182f8c4c38c5b00cccae2f45d9bb520c3181",
+  "sourceLength": 22972,
+  "lineCount": 424,
+  "backupPath": "snapshots\\20260708-165331\\ServerScriptService.Server.Services.SmokeTestService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 16 Spectacle Overlay",
+  "newSourceHash": "sha256:c4e55a3186abc4ac814c5129ac39182f8c4c38c5b00cccae2f45d9bb520c3181",
+  "diff": {
+    "oldLineCount": 424,
+    "newLineCount": 424,
+    "changedLineCount": 0,
+    "oldLength": 22972,
+    "newLength": 22972
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:23:38.430Z",
+  "script": {
+    "id": "i2138",
+    "name": "AssetImportGuide",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.AssetImportGuide"
+  },
+  "sourceHash": "sha256:e093326b9dda9812818959be682f4a0c95092942630d5e71a69ecb67d12c3748",
+  "sourceLength": 1948,
+  "lineCount": 29,
+  "backupPath": "snapshots\\20260706-182338\\ReplicatedStorage.Shared.AssetImportGuide.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 13 Private Test Overlay",
+  "newSourceHash": "sha256:e093326b9dda9812818959be682f4a0c95092942630d5e71a69ecb67d12c3748",
+  "diff": {
+    "oldLineCount": 29,
+    "newLineCount": 29,
+    "changedLineCount": 0,
+    "oldLength": 1948,
+    "newLength": 1948
+  }
+}

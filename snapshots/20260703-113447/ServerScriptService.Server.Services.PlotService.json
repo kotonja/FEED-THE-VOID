@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:34:47.405Z",
+  "script": {
+    "id": "i2058",
+    "name": "PlotService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.PlotService"
+  },
+  "sourceHash": "sha256:b64f6428afe9912db2bee63f5bcd38d8ec96452476cb69ced741148c913216e2",
+  "sourceLength": 6822,
+  "lineCount": 239,
+  "backupPath": "snapshots\\20260703-113447\\ServerScriptService.Server.Services.PlotService.lua",
+  "kind": "patch",
+  "summary": "Phase 9 cleanup: update existing owner sign UI only; remove script-created owner sign SurfaceGui/TextLabel path.",
+  "diff": {
+    "oldLineCount": 239,
+    "newLineCount": 224,
+    "changedLineCount": 199,
+    "oldLength": 6822,
+    "newLength": 6241
+  },
+  "newSourceHash": "sha256:72cea3a8ea0dd8ad2cb67d35b0b43fd9fc936257ce8404487e934876873063d7"
+}

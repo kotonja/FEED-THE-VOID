@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:56:18.227Z",
+  "script": {
+    "id": "i1935",
+    "name": "ValidationService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.ValidationService"
+  },
+  "sourceHash": "sha256:8e0f4e3a711ba02a8e3da7f54ecd0380d5b73a41900279ff88126e6efd968957",
+  "sourceLength": 1863,
+  "lineCount": 52,
+  "backupPath": "snapshots\\20260702-135618\\ServerScriptService.Server.Services.ValidationService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 52,
+    "newLineCount": 59,
+    "changedLineCount": 36,
+    "oldLength": 1863,
+    "newLength": 2074
+  },
+  "newSourceHash": "sha256:ae3816558381d60cf0a5db85fbedbd27eab4ffacd955a34a3e161af2f4098a9f"
+}

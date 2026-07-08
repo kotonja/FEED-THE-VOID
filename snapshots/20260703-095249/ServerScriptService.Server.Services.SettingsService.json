@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:49.838Z",
+  "script": {
+    "id": "i2062",
+    "name": "SettingsService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.SettingsService"
+  },
+  "sourceHash": "sha256:74ed0c0a1d16e3ec8aeb9563b59dbedfc687907061ce5fc2382fb17a0af47575",
+  "sourceLength": 1418,
+  "lineCount": 59,
+  "backupPath": "snapshots\\20260703-095249\\ServerScriptService.Server.Services.SettingsService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 59,
+    "newLineCount": 60,
+    "changedLineCount": 53,
+    "oldLength": 1418,
+    "newLength": 1440
+  },
+  "newSourceHash": "sha256:6712528c67468f57823bd60d6c656cb6690d7b2eb2e84c7e772e6ae1796144ed"
+}

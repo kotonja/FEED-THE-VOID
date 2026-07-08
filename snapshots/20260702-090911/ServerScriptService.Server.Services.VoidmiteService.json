@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T13:09:11.073Z",
+  "script": {
+    "id": "i1929",
+    "name": "VoidmiteService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.VoidmiteService"
+  },
+  "sourceHash": "sha256:0ed07a8265c724b096983b71e3c8e0e8b94387457985de6ed8888ec453a8d950",
+  "sourceLength": 6243,
+  "lineCount": 171,
+  "backupPath": "snapshots\\20260702-090911\\ServerScriptService.Server.Services.VoidmiteService.lua",
+  "kind": "patch",
+  "summary": "Phase 6 voidmite VFX and prompt polish",
+  "diff": {
+    "oldLineCount": 171,
+    "newLineCount": 232,
+    "changedLineCount": 200,
+    "oldLength": 6243,
+    "newLength": 7884
+  },
+  "newSourceHash": "sha256:03c6757cf09488c18b511f1cc8c5d51ff471aed227157d0835403712f637840c"
+}

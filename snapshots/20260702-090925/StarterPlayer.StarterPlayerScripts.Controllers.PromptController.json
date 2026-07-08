@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T13:09:25.311Z",
+  "script": {
+    "id": "i4505",
+    "name": "PromptController",
+    "className": "ModuleScript",
+    "path": "StarterPlayer.StarterPlayerScripts.Controllers.PromptController"
+  },
+  "sourceHash": "sha256:fca7dc7273e901c97ce284fc25bab4bfa31da0bb42dc87081cc2f45890997246",
+  "sourceLength": 91,
+  "lineCount": 5,
+  "backupPath": "snapshots\\20260702-090925\\StarterPlayer.StarterPlayerScripts.Controllers.PromptController.lua",
+  "kind": "patch",
+  "summary": "Phase 6 mobile prompt tuning",
+  "diff": {
+    "oldLineCount": 5,
+    "newLineCount": 23,
+    "changedLineCount": 22,
+    "oldLength": 91,
+    "newLength": 574
+  },
+  "newSourceHash": "sha256:1b475a565b644b30ed4af681bf68071f4d159849b5095443703575b96d1e8285"
+}

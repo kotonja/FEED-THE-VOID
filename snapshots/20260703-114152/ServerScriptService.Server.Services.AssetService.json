@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T15:41:52.872Z",
+  "script": {
+    "id": "i2044",
+    "name": "AssetService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.AssetService"
+  },
+  "sourceHash": "sha256:aeb1e78962d0f9f59ac91d2a8450e686ead9769cfdbcd154a395dc7cf4c09a2f",
+  "sourceLength": 13139,
+  "lineCount": 406,
+  "backupPath": "snapshots\\20260703-114152\\ServerScriptService.Server.Services.AssetService.lua",
+  "kind": "patch",
+  "summary": "Cleanup: stop runtime-mounting TheVoid into the Studio-built map; remove unused world visual mount path.",
+  "diff": {
+    "oldLineCount": 406,
+    "newLineCount": 384,
+    "changedLineCount": 269,
+    "oldLength": 13139,
+    "newLength": 12453
+  },
+  "newSourceHash": "sha256:d2148da7524591f5b3ae146df41fcc9d643433609125b1b6e402403adc15d976"
+}

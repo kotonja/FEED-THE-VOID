@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:56:52.595Z",
+  "script": {
+    "id": "i1950",
+    "name": "HealthCheckService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.HealthCheckService"
+  },
+  "sourceHash": "sha256:625296538b06d0532f9e1861077fe940fc7c28f82160b78b8ecb9c1f1342bd28",
+  "sourceLength": 6901,
+  "lineCount": 171,
+  "backupPath": "snapshots\\20260702-135652\\ServerScriptService.Server.Services.HealthCheckService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 171,
+    "newLineCount": 157,
+    "changedLineCount": 123,
+    "oldLength": 6901,
+    "newLength": 5886
+  },
+  "newSourceHash": "sha256:b8d210241fbd1e8f3a1f8e8d46abd122b8c5127d8292a3d73e2f432bf81ff3fd"
+}

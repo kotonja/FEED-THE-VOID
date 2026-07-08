@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T16:19:02.761Z",
+  "script": {
+    "id": "i8142",
+    "name": "FeatureFlags",
+    "className": "ModuleScript",
+    "path": "ReplicatedStorage.Shared.FeatureFlags"
+  },
+  "sourceHash": "sha256:f4a81f129ab4ba2809f7561f2aef5ab736406afbd87a0d3e56ddeed41ef1d8ee",
+  "sourceLength": 509,
+  "lineCount": 25,
+  "backupPath": "snapshots\\20260703-121902\\ReplicatedStorage.Shared.FeatureFlags.lua",
+  "kind": "patch",
+  "summary": "Phase 10 feature flags source",
+  "diff": {
+    "oldLineCount": 25,
+    "newLineCount": 25,
+    "changedLineCount": 0,
+    "oldLength": 509,
+    "newLength": 509
+  },
+  "newSourceHash": "sha256:f4a81f129ab4ba2809f7561f2aef5ab736406afbd87a0d3e56ddeed41ef1d8ee"
+}

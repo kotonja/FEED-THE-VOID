@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-03T13:52:53.132Z",
+  "script": {
+    "id": "i2052",
+    "name": "HealthCheckService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.HealthCheckService"
+  },
+  "sourceHash": "sha256:b8d210241fbd1e8f3a1f8e8d46abd122b8c5127d8292a3d73e2f432bf81ff3fd",
+  "sourceLength": 5886,
+  "lineCount": 157,
+  "backupPath": "snapshots\\20260703-095253\\ServerScriptService.Server.Services.HealthCheckService.lua",
+  "kind": "patch",
+  "summary": "Phase 8 guidance private-test update",
+  "diff": {
+    "oldLineCount": 157,
+    "newLineCount": 235,
+    "changedLineCount": 183,
+    "oldLength": 5886,
+    "newLength": 9227
+  },
+  "newSourceHash": "sha256:e62ac17efbb1f8b7607fd53af007985f111b2a78d3e54cd27f783f583d17479c"
+}

@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-07T14:41:04.080Z",
+  "script": {
+    "id": "i2191",
+    "name": "DailyRewardService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.DailyRewardService"
+  },
+  "sourceHash": "sha256:84dbd47aa1b23bc0468d331df6ff25bad91f6eec880797ffb4529477f34855de",
+  "sourceLength": 5021,
+  "lineCount": 154,
+  "backupPath": "snapshots\\20260707-104104\\ServerScriptService.Server.Services.DailyRewardService.lua",
+  "kind": "blueprint-script-overwrite",
+  "summary": "Blueprint overwrite: FEED THE VOID Phase 14 Imported Assets Overlay",
+  "newSourceHash": "sha256:84dbd47aa1b23bc0468d331df6ff25bad91f6eec880797ffb4529477f34855de",
+  "diff": {
+    "oldLineCount": 154,
+    "newLineCount": 154,
+    "changedLineCount": 0,
+    "oldLength": 5021,
+    "newLength": 5021
+  }
+}

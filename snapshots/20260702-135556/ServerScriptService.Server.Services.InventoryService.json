@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-02T17:55:56.958Z",
+  "script": {
+    "id": "i1926",
+    "name": "InventoryService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.InventoryService"
+  },
+  "sourceHash": "sha256:e3fc05d56a9fae4d8e07e2cb61f4a0bcce6bae3da32119e183cfdd9234fdf9c2",
+  "sourceLength": 2348,
+  "lineCount": 83,
+  "backupPath": "snapshots\\20260702-135556\\ServerScriptService.Server.Services.InventoryService.lua",
+  "kind": "patch",
+  "summary": "Phase 7 progression source sync",
+  "diff": {
+    "oldLineCount": 83,
+    "newLineCount": 104,
+    "changedLineCount": 84,
+    "oldLength": 2348,
+    "newLength": 3158
+  },
+  "newSourceHash": "sha256:df2e5f723925d6e2beb027a1225fa5b6d0902b5861a28936a88efb8c0003720f"
+}

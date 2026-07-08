@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-07-06T22:25:00.353Z",
+  "script": {
+    "id": "i2209",
+    "name": "BugReportService",
+    "className": "ModuleScript",
+    "path": "ServerScriptService.Server.Services.BugReportService"
+  },
+  "sourceHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sourceLength": 0,
+  "lineCount": 0,
+  "backupPath": "snapshots\\20260706-182500\\ServerScriptService.Server.Services.BugReportService.lua",
+  "kind": "patch",
+  "summary": "Phase 13 bug report service source",
+  "diff": {
+    "oldLineCount": 0,
+    "newLineCount": 289,
+    "changedLineCount": 290,
+    "oldLength": 0,
+    "newLength": 13456
+  },
+  "newSourceHash": "sha256:af1473d1dddf7ca8e21b108a4995c7f01ac699232ac5dad5d86f47f02615e1ee"
+}
