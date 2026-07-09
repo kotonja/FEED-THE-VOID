@@ -19,16 +19,6 @@ local AssetReferences = {
 		TargetSize = Vector3.new(3.2, 2.4, 3.2),
 		Description = "Small enemy/cleanse creature.",
 	},
-	VoidlingPet = {
-		Path = { "ReplicatedStorage", "Assets", "Models", "Creatures", "FTW_VoidlingPet" },
-		FallbackPaths = { { "Workspace", "FTW_VoidlingPet" } },
-		SourceName = "FTW_VoidlingPet",
-		Category = "Creatures",
-		FallbackType = "Creature",
-		DefaultScale = 1,
-		TargetSize = Vector3.new(2.2, 1.8, 2.2),
-		Description = "Future pet/companion model. Safe if not imported yet.",
-	},
 	SeedCapsuleGeneric = {
 		Path = { "ReplicatedStorage", "Assets", "Models", "Seeds", "FTW_SeedCapsule_Generic" },
 		FallbackPaths = { { "Workspace", "FTW_SeedCapsule_Generic" } },
@@ -344,7 +334,6 @@ local AssetReferences = {
 AssetReferences.RequiredAssetKeys = {
 	"TheVoid",
 	"Voidmite",
-	"VoidlingPet",
 	"SeedCapsuleGeneric",
 	"SnackSproutGeneric",
 	"SnackBudGeneric",

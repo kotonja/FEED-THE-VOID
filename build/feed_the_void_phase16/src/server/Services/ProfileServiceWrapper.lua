@@ -314,7 +314,7 @@ function ProfileServiceWrapper.Start()
 		end
 	end)
 	game:BindToClose(function()
-		ProfileServiceWrapper.SaveAll()
+		ProfileServiceWrapper.SaveAll(true)
 	end)
 end
 
@@ -360,17 +360,20 @@ function ProfileServiceWrapper.MarkDirty(player)
 	end
 end
 
-function ProfileServiceWrapper.SavePlayer(player)
+function ProfileServiceWrapper.SavePlayer(player, force)
 	local profile = profiles[player]
 	if not profile then
 		return true
 	end
 	profile.Data.LastLogout = os.time()
+	if force then
+		dirty[player] = true
+	end
 	if not dataStore then
 		dirty[player] = false
 		return true
 	end
-	if not dirty[player] then
+	if not dirty[player] and force ~= true then
 		return true
 	end
 	local ok, err = pcall(function()
@@ -384,9 +387,9 @@ function ProfileServiceWrapper.SavePlayer(player)
 	return false
 end
 
-function ProfileServiceWrapper.SaveAll()
+function ProfileServiceWrapper.SaveAll(force)
 	for _, player in ipairs(Players:GetPlayers()) do
-		ProfileServiceWrapper.SavePlayer(player)
+		ProfileServiceWrapper.SavePlayer(player, force == true)
 	end
 end
 
@@ -394,11 +397,15 @@ function ProfileServiceWrapper.GetDataStoreMode()
 	return dataStore and "DataStore" or "MemoryFallback"
 end
 
+function ProfileServiceWrapper.SupportsForcedSave()
+	return true
+end
+
 function ProfileServiceWrapper.ReleasePlayer(player)
 	if ProfileServiceWrapper.Context.Services.StatsService then
 		ProfileServiceWrapper.Context.Services.StatsService.UpdatePlaytime(player)
 	end
-	ProfileServiceWrapper.SavePlayer(player)
+	ProfileServiceWrapper.SavePlayer(player, true)
 	profiles[player] = nil
 	dirty[player] = nil
 end

@@ -1,7 +1,7 @@
 local SizeConfig = {}
 
 SizeConfig.DefaultTier = "Regular"
-SizeConfig.MaxValueMultiplier = 2.8
+SizeConfig.MaxValueMultiplier = 7.6
 
 SizeConfig.Order = {
 	"Regular",
@@ -16,60 +16,63 @@ SizeConfig.Tiers = {
 	Regular = {
 		DisplayName = "Regular",
 		Order = 1,
-		Weight = 720,
-		Scale = 1,
-		WeightMultiplier = 1,
-		MinWeightMultiplier = 0.92,
-		MaxWeightMultiplier = 1.12,
+		Weight = 650,
+		ScaleMultiplier = 1,
+		ValueMultiplier = 1,
+		ServerAnnounce = false,
 	},
 	Chunky = {
 		DisplayName = "Chunky",
 		Order = 2,
-		Weight = 190,
-		Scale = 1.22,
-		WeightMultiplier = 1.35,
-		MinWeightMultiplier = 1.18,
-		MaxWeightMultiplier = 1.58,
+		Weight = 180,
+		ScaleMultiplier = 1.25,
+		ValueMultiplier = 1.3,
+		ServerAnnounce = false,
 	},
 	Huge = {
 		DisplayName = "Huge",
 		Order = 3,
-		Weight = 65,
-		Scale = 1.55,
-		WeightMultiplier = 2.05,
-		MinWeightMultiplier = 1.78,
-		MaxWeightMultiplier = 2.42,
+		Weight = 90,
+		ScaleMultiplier = 1.6,
+		ValueMultiplier = 1.9,
+		ServerAnnounce = false,
 	},
 	Massive = {
 		DisplayName = "Massive",
 		Order = 4,
-		Weight = 20,
-		Scale = 2.05,
-		WeightMultiplier = 3.4,
-		MinWeightMultiplier = 2.85,
-		MaxWeightMultiplier = 4.15,
+		Weight = 45,
+		ScaleMultiplier = 2.1,
+		ValueMultiplier = 2.8,
+		ServerAnnounce = false,
 	},
 	Colossal = {
 		DisplayName = "Colossal",
 		Order = 5,
-		Weight = 4,
-		Scale = 2.85,
-		WeightMultiplier = 6.25,
-		MinWeightMultiplier = 5.15,
-		MaxWeightMultiplier = 7.8,
-		Announce = true,
+		Weight = 18,
+		ScaleMultiplier = 2.8,
+		ValueMultiplier = 4.6,
+		ServerAnnounce = true,
 	},
 	Voidborn = {
 		DisplayName = "Voidborn",
 		Order = 6,
-		Weight = 1,
-		Scale = 3.35,
-		WeightMultiplier = 9.5,
-		MinWeightMultiplier = 8.1,
-		MaxWeightMultiplier = 12,
-		Announce = true,
+		Weight = 3,
+		ScaleMultiplier = 3.5,
+		ValueMultiplier = 7.6,
+		ServerAnnounce = true,
 	},
 }
+
+for tierId, tier in pairs(SizeConfig.Tiers) do
+	tier.Scale = tier.ScaleMultiplier
+	tier.WeightMultiplier = tier.ScaleMultiplier
+	tier.Announce = tier.ServerAnnounce
+	tier.Id = tierId
+end
+
+local function roundTenth(value)
+	return math.max(0.1, math.floor((tonumber(value) or 0) * 10 + 0.5) / 10)
+end
 
 function SizeConfig.NormalizeTier(tierId)
 	tierId = tostring(tierId or "")
@@ -84,11 +87,10 @@ function SizeConfig.GetTier(tierId)
 end
 
 function SizeConfig.GetOrder(tierId)
-	local tier = SizeConfig.GetTier(tierId)
-	return tier and tier.Order or 1
+	return SizeConfig.GetTier(tierId).Order or 1
 end
 
-function SizeConfig.RollTier(forcedTier)
+function SizeConfig.RollSizeTier(forcedTier)
 	if forcedTier and forcedTier ~= "" then
 		return SizeConfig.NormalizeTier(forcedTier)
 	end
@@ -107,40 +109,27 @@ function SizeConfig.RollTier(forcedTier)
 	return SizeConfig.DefaultTier
 end
 
-function SizeConfig.BaseWeight(snack)
-	if type(snack) ~= "table" then
-		return 1
-	end
-	local explicit = tonumber(snack.BaseWeight)
-	if explicit then
-		return explicit
-	end
-	local value = tonumber(snack.BaseSellValue) or 25
-	return math.max(0.5, math.floor((value / 28) * 10 + 0.5) / 10)
+function SizeConfig.RollTier(forcedTier)
+	return SizeConfig.RollSizeTier(forcedTier)
 end
 
-function SizeConfig.WeightForSnack(snack, tierId)
-	local tier = SizeConfig.GetTier(tierId)
-	local minMultiplier = tonumber(tier.MinWeightMultiplier) or tier.WeightMultiplier or 1
-	local maxMultiplier = tonumber(tier.MaxWeightMultiplier) or tier.WeightMultiplier or minMultiplier
-	local randomMultiplier = minMultiplier + ((maxMultiplier - minMultiplier) * math.random())
-	local weight = SizeConfig.BaseWeight(snack) * randomMultiplier
-	return math.max(0.1, math.floor(weight * 10 + 0.5) / 10)
-end
-
-function SizeConfig.GetSizeMultiplier(itemOrTier)
+function SizeConfig.GetScaleMultiplier(itemOrTier)
 	if type(itemOrTier) == "table" then
 		local explicit = tonumber(itemOrTier.SizeMultiplier)
 		if explicit then
 			return explicit
 		end
-		return SizeConfig.GetTier(itemOrTier.SizeTier).Scale
+		return SizeConfig.GetTier(itemOrTier.SizeTier).ScaleMultiplier
 	end
-	return SizeConfig.GetTier(itemOrTier).Scale
+	return SizeConfig.GetTier(itemOrTier).ScaleMultiplier
+end
+
+function SizeConfig.GetSizeMultiplier(itemOrTier)
+	return SizeConfig.GetScaleMultiplier(itemOrTier)
 end
 
 function SizeConfig.GetVisualScale(itemOrTier, cap)
-	local scale = SizeConfig.GetSizeMultiplier(itemOrTier)
+	local scale = SizeConfig.GetScaleMultiplier(itemOrTier)
 	if cap then
 		return math.clamp(scale, 0.75, tonumber(cap) or scale)
 	end
@@ -148,45 +137,65 @@ function SizeConfig.GetVisualScale(itemOrTier, cap)
 end
 
 function SizeConfig.GetValueMultiplier(itemOrTier)
-	local scale = SizeConfig.GetSizeMultiplier(itemOrTier)
-	local valueMultiplier = 1 + ((scale - 1) * 0.6)
-	return math.clamp(valueMultiplier, 0.7, SizeConfig.MaxValueMultiplier)
+	if type(itemOrTier) == "table" then
+		local explicit = tonumber(itemOrTier.SizeValueMultiplier)
+		if explicit then
+			return explicit
+		end
+		return SizeConfig.GetTier(itemOrTier.SizeTier).ValueMultiplier
+	end
+	return SizeConfig.GetTier(itemOrTier).ValueMultiplier
+end
+
+function SizeConfig.FormatWeight(weight)
+	weight = roundTenth(weight or 1)
+	if math.abs(weight - math.floor(weight)) < 0.05 then
+		return tostring(math.floor(weight)) .. " lb"
+	end
+	return string.format("%.1f lb", weight)
+end
+
+function SizeConfig.BaseWeight(snack)
+	if type(snack) ~= "table" then
+		return 1
+	end
+	return tonumber(snack.BaseWeight) or 1
+end
+
+function SizeConfig.WeightForSnack(snack, tierId, variation)
+	local tier = SizeConfig.GetTier(tierId)
+	variation = tonumber(variation)
+	if not variation then
+		variation = 0.9 + (math.random() * 0.25)
+	end
+	return roundTenth(SizeConfig.BaseWeight(snack) * (tier.ScaleMultiplier or 1) * variation)
+end
+
+local function applySizeFields(target, snack, defaultTier)
+	if type(target) ~= "table" then
+		return target
+	end
+	local tierId = SizeConfig.NormalizeTier(target.SizeTier or defaultTier or SizeConfig.DefaultTier)
+	local tier = SizeConfig.GetTier(tierId)
+	target.SizeTier = tierId
+	target.SizeMultiplier = tier.ScaleMultiplier
+	target.SizeValueMultiplier = tier.ValueMultiplier
+	target.WeightRoll = tonumber(target.WeightRoll) or (0.9 + (math.random() * 0.25))
+	target.Weight = tonumber(target.Weight) or SizeConfig.WeightForSnack(snack, tierId, target.WeightRoll)
+	target.Weight = roundTenth(target.Weight)
+	return target
 end
 
 function SizeConfig.ApplyToItem(item, snack, defaultTier)
-	if type(item) ~= "table" then
-		return item
-	end
-	local tierId = item.SizeTier
-	if not tierId or tierId == "" then
-		tierId = defaultTier or SizeConfig.DefaultTier
-	end
-	tierId = SizeConfig.NormalizeTier(tierId)
-	item.SizeTier = tierId
-	item.SizeMultiplier = tonumber(item.SizeMultiplier) or SizeConfig.GetTier(tierId).Scale
-	item.Weight = tonumber(item.Weight) or SizeConfig.WeightForSnack(snack, tierId)
-	item.SizeValueMultiplier = SizeConfig.GetValueMultiplier(item)
-	return item
+	return applySizeFields(item, snack, defaultTier)
 end
 
 function SizeConfig.ApplyToPlantedRecord(record, snack, defaultTier)
-	if type(record) ~= "table" then
-		return record
-	end
-	local tierId = record.SizeTier
-	if not tierId or tierId == "" then
-		tierId = defaultTier or SizeConfig.DefaultTier
-	end
-	tierId = SizeConfig.NormalizeTier(tierId)
-	record.SizeTier = tierId
-	record.SizeMultiplier = tonumber(record.SizeMultiplier) or SizeConfig.GetTier(tierId).Scale
-	record.Weight = tonumber(record.Weight) or SizeConfig.WeightForSnack(snack, tierId)
-	record.SizeValueMultiplier = SizeConfig.GetValueMultiplier(record)
-	return record
+	return applySizeFields(record, snack, defaultTier)
 end
 
-function SizeConfig.SizeLabel(item)
-	local tierId = type(item) == "table" and item.SizeTier or item
+function SizeConfig.SizeLabel(itemOrTier)
+	local tierId = type(itemOrTier) == "table" and itemOrTier.SizeTier or itemOrTier
 	local tier = SizeConfig.GetTier(tierId)
 	if tier.DisplayName == "Regular" then
 		return ""
@@ -195,8 +204,7 @@ function SizeConfig.SizeLabel(item)
 end
 
 function SizeConfig.IsAnnounceTier(tierId)
-	local tier = SizeConfig.GetTier(tierId)
-	return tier.Announce == true
+	return SizeConfig.GetTier(tierId).ServerAnnounce == true
 end
 
 function SizeConfig.ShouldAnnounce(item, snack, rarityConfig)
@@ -217,9 +225,12 @@ end
 
 function SizeConfig.FeedEffectKey(item, snack, rarityConfig)
 	if type(item) ~= "table" then
-		return "Void.FeedNormal"
+		return "Void.Feed"
 	end
-	if item.SizeTier == "Colossal" or item.SizeTier == "Voidborn" or SizeConfig.GetSizeMultiplier(item) >= 2.7 then
+	if item.SizeTier == "Voidborn" then
+		return "Void.FeedVoidborn"
+	end
+	if item.SizeTier == "Colossal" or SizeConfig.GetScaleMultiplier(item) >= 2.7 then
 		return "Void.FeedColossal"
 	end
 	if item.MutationId == "Golden" or item.MutationId == "Rainbow" or item.MutationId == "VoidTouched" or item.MutationId == "Glitched" then
@@ -231,7 +242,7 @@ function SizeConfig.FeedEffectKey(item, snack, rarityConfig)
 	if (tonumber(item.EstimatedVoidValue) or 0) <= 20 then
 		return "Void.FeedSmall"
 	end
-	return "Void.FeedNormal"
+	return "Void.Feed"
 end
 
 return SizeConfig

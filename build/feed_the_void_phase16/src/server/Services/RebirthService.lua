@@ -14,7 +14,12 @@ local function copyStartingSeeds(context)
 	return seeds
 end
 
-function RebirthService.TryRebirth(player)
+local function stationDistance()
+	local distances = RebirthService.Context.Config.GameConfig.InteractionDistances or {}
+	return tonumber(distances.Rebirth) or 18
+end
+
+function RebirthService.TryRebirth(player, requireStation)
 	local context = RebirthService.Context
 	if (context.Config.FeatureFlags or {}).Rebirth == false then
 		context.Services.EconomyService.Notify(player, "Rebirth is disabled for this test.")
@@ -23,6 +28,17 @@ function RebirthService.TryRebirth(player)
 	local okProfile, data = context.Services.ValidationService.ValidatePlayerProfile(player)
 	if not okProfile then
 		return false
+	end
+	if requireStation == true then
+		local station = context.Services.PlotService.GetStation(player, "RebirthStation")
+		if not station then
+			context.Services.EconomyService.Notify(player, "Rebirth station missing. Try again later.")
+			return false
+		end
+		if not context.Services.ValidationService.ValidateDistance(player, station, stationDistance()) then
+			context.Services.EconomyService.Notify(player, "Stand near your Rebirth Station.")
+			return false
+		end
 	end
 	local cost = context.Services.EconomyService.GetRebirthRequirement(player)
 	if (data.Coins or 0) < cost then

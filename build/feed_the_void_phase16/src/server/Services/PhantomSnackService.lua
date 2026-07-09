@@ -39,8 +39,11 @@ local function stylePhantom(model)
 	for _, child in ipairs(model:GetDescendants()) do
 		if child:IsA("BasePart") then
 			child.Transparency = math.max(child.Transparency, 0.34)
-			child.Material = Enum.Material.Glass
-			child.Color = Color3.fromRGB(190, 145, 255)
+			local textured = child:IsA("MeshPart") and child.TextureID and child.TextureID ~= ""
+			if not textured then
+				child.Material = Enum.Material.Glass
+				child.Color = Color3.fromRGB(190, 145, 255)
+			end
 			child.CanCollide = false
 			child.CanTouch = true
 			local light = Instance.new("PointLight")
@@ -148,7 +151,7 @@ function PhantomSnackService.SpawnForEvent(duration)
 		model:SetAttribute("RarePhantom", index == 1)
 		model.Parent = folder
 		context.Services.AssetService.SetModelCFrame(model, CFrame.new(centralWaypoint(index, count + 2)))
-		context.Services.AssetService.ScaleModelSafely(model, 0.55)
+		context.Services.AssetService.ScaleToTargetSize(model, Vector3.new(3.2, 3.2, 3.2))
 		stylePhantom(model)
 		context.Services.AssetService.AddBillboard(model, "Phantom Snack", Vector3.new(0, 2.7, 0))
 		local prompt = context.Services.AssetService.AddProximityPrompt(model, "Phantom Snack", "Catch")

@@ -437,7 +437,7 @@ local function runDebugCommand(player, commandText)
 			local parts = {}
 			for _, tierId in ipairs(sizeConfig.Order) do
 				local tier = sizeConfig.Tiers[tierId]
-				table.insert(parts, tierId .. "=" .. tostring(tier.Scale) .. "x")
+				table.insert(parts, tierId .. "=" .. tostring(tier.ScaleMultiplier or tier.Scale) .. "x/" .. tostring(tier.Weight) .. "w")
 			end
 			print("[FEED THE VOID][SizeCheck] " .. table.concat(parts, ", "))
 			context.Services.EconomyService.Notify(player, "Size tiers: " .. table.concat(parts, " | "))
@@ -457,7 +457,16 @@ local function runDebugCommand(player, commandText)
 	elseif command == "eventvisual" and a ~= "" then
 		context.Services.EventService.PlayEventVisual(a)
 	elseif command == "voidreaction" then
-		context.Services.VoidService.PlayReaction(tonumber(a) or 50, player)
+		local percent = tonumber(a) or 50
+		if percent >= 100 then
+			context.Services.VoidService.AddHunger(player, context.Services.VoidService.GetRequired(), {
+				DisplayName = "debug snack",
+				MutationId = "Normal",
+				EstimatedVoidValue = context.Services.VoidService.GetRequired(),
+			})
+		else
+			context.Services.VoidService.PlayReaction(percent, player)
+		end
 	elseif command == "eventstatus" then
 		context.Services.EventService.PrintStatus(player)
 	elseif command == "endevent" then
@@ -465,6 +474,21 @@ local function runDebugCommand(player, commandText)
 		context.Services.EconomyService.Notify(player, "Debug: event ended.")
 	elseif command == "voidmites" then
 		context.Services.VoidmiteService.PrintStatus(player)
+	elseif command == "phantoms" then
+		local active = context.Services.PhantomSnackService.CountActive()
+		if active <= 0 then
+			active = context.Services.PhantomSnackService.SpawnForEvent(context.Config.GameConfig.DebugShortEvents and 20 or 45)
+		end
+		print("[FEED THE VOID][Phantoms] active=" .. tostring(context.Services.PhantomSnackService.CountActive()))
+		context.Services.EconomyService.Notify(player, "Phantoms active: " .. tostring(context.Services.PhantomSnackService.CountActive()))
+	elseif command == "goldenhunger" then
+		if context.Services.EventService.GetActiveEventName() ~= "GoldenHunger" then
+			context.Services.EventService.StartEvent("GoldenHunger")
+		end
+		local snackId = context.Services.EventService.GetGoldenHungerSnackId()
+		local snack = snackId and context.Config.SnackConfig[snackId]
+		print("[FEED THE VOID][GoldenHunger] wanted=" .. tostring(snackId or "none"))
+		context.Services.EconomyService.Notify(player, "Golden Hunger wants: " .. tostring((snack and snack.DisplayName) or snackId or "none"))
 	elseif command == "plants" then
 		context.Services.SnackService.PrintPlantStatus(player)
 	elseif command == "assetcheck" then
@@ -514,6 +538,8 @@ local function runDebugCommand(player, commandText)
 		context.Services.SmokeTestService.Run(player, "debug-command")
 	elseif command == "spectaclecheck" then
 		context.Services.SmokeTestService.SpectacleCheck(player)
+	elseif command == "directorcheck" then
+		context.Services.SmokeTestService.DirectorCheck(player)
 	elseif command == "first10check" then
 		context.Services.SmokeTestService.First10Check(player)
 	elseif command == "snapshot" then

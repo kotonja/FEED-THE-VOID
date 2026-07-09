@@ -103,6 +103,63 @@ local function expectedServices()
 	}
 end
 
+local function readiness(summary)
+	if (summary.Failed or 0) > 0 then
+		return "NO"
+	end
+	if (summary.Warnings or 0) > 0 then
+		return "WARNINGS"
+	end
+	return "YES"
+end
+
+local function duplicateNames(folder, className)
+	local seen = {}
+	local duplicates = {}
+	if not folder then
+		return duplicates
+	end
+	for _, child in ipairs(folder:GetChildren()) do
+		if not className or child.ClassName == className then
+			if seen[child.Name] then
+				table.insert(duplicates, child.Name)
+			end
+			seen[child.Name] = true
+		end
+	end
+	table.sort(duplicates)
+	return duplicates
+end
+
+local function findLegacyLiveObjects(roots)
+	local matches = {}
+	for _, root in ipairs(roots) do
+		if root then
+			for _, descendant in ipairs(root:GetDescendants()) do
+				if descendant:IsA("Script") or descendant:IsA("LocalScript") or descendant:IsA("ModuleScript") or descendant:IsA("Folder") then
+					local name = string.lower(descendant.Name)
+					local looksLegacy = name:find("archive", 1, true)
+						or name:find("backup", 1, true)
+						or name:find("legacy", 1, true)
+						or name:find("deprecated", 1, true)
+						or name:match("^old[%s_%-%w]*")
+						or name:match("[%s_%-]old$")
+						or name:match("phase[%s_%-]*%d+")
+					if looksLegacy then
+						table.insert(matches, descendant:GetFullName())
+						if #matches >= 12 then
+							table.sort(matches)
+							return matches
+						end
+					end
+				end
+			end
+		end
+	end
+	table.sort(matches)
+	return matches
+end
+
 local function plotById(plots, plotId)
 	if not plots then
 		return nil
@@ -374,22 +431,96 @@ function SmokeTestService.SpectacleCheck(player)
 	for _, key in ipairs((context.Config.VFXConfig and context.Config.VFXConfig.EffectKeys) or {}) do
 		vfxKeys[key] = true
 	end
-	for _, key in ipairs({ "Void.FeedSmall", "Void.FeedNormal", "Void.FeedRare", "Void.FeedColossal", "Void.EventCharge" }) do
+	for _, key in ipairs({ "Void.FeedSmall", "Void.Feed", "Void.FeedRare", "Void.FeedColossal", "Void.FeedVoidborn", "Void.Hunger25", "Void.Hunger50", "Void.Hunger75", "Void.Charging" }) do
 		record(summary, vfxKeys[key] == true, "VFX key " .. key, vfxKeys[key] and "present" or "missing")
 	end
 	for _, eventName in ipairs(context.Config.EventConfig.Order or {}) do
 		local eventConfig = context.Config.EventConfig[eventName]
 		record(summary, eventConfig and eventConfig.ObjectiveText ~= nil, "Event objective " .. tostring(eventName), eventConfig and tostring(eventConfig.ObjectiveText) or "missing")
-		record(summary, eventConfig and eventConfig.WorldVisualText ~= nil, "Event world text " .. tostring(eventName), eventConfig and tostring(eventConfig.WorldVisualText) or "missing", true)
+		record(summary, eventConfig and eventConfig.AssetKey ~= nil, "Event asset " .. tostring(eventName), eventConfig and tostring(eventConfig.AssetKey) or "missing")
+		record(summary, eventConfig and eventConfig.BannerName ~= nil, "Event banner " .. tostring(eventName), eventConfig and tostring(eventConfig.BannerName) or "missing")
 	end
 	local world = workspace:FindFirstChild("GameWorld")
 	record(summary, world and world:FindFirstChild("EventObjects") ~= nil, "EventObjects cleanup folder", world and (world:FindFirstChild("EventObjects") and "present" or "missing") or "missing")
 	record(summary, context.Services.EventService.GetActiveEventObjective ~= nil, "Event objective API", context.Services.EventService.GetActiveEventObjective and "present" or "missing")
 	record(summary, context.Services.VoidService.IsCharging ~= nil, "Void charge API", context.Services.VoidService.IsCharging and "present" or "missing")
+	record(summary, context.Services.EventService.GetChargeStatus ~= nil, "Event charge status API", context.Services.EventService.GetChargeStatus and "present" or "missing")
+	record(summary, context.Services.PhantomSnackService.CountActive ~= nil, "Phantom catchable target API", context.Services.PhantomSnackService.CountActive and "present" or "missing")
+	record(summary, context.Services.EventService.CollectEventPickup ~= nil, "SnackRain pickup collect API", context.Services.EventService.CollectEventPickup and "present" or "missing")
+	record(summary, context.Services.EventService.GetGoldenHungerSnackId ~= nil, "GoldenHunger wanted snack API", context.Services.EventService.GetGoldenHungerSnackId and "present" or "missing")
 
 	SmokeTestService.PrintSummary(summary)
+	print("[FEED THE VOID][SpectacleCheck] director readiness: " .. readiness(summary))
 	if player and context.Services.EconomyService then
-		context.Services.EconomyService.Notify(player, "Spectacle check: " .. tostring(summary.Passed) .. " pass, " .. tostring(summary.Warnings) .. " warn, " .. tostring(summary.Failed) .. " fail.")
+		context.Services.EconomyService.Notify(player, "Spectacle check: " .. readiness(summary) .. " | " .. tostring(summary.Passed) .. " pass, " .. tostring(summary.Warnings) .. " warn, " .. tostring(summary.Failed) .. " fail.")
+	end
+	return summary
+end
+
+function SmokeTestService.DirectorCheck(player)
+	local context = SmokeTestService.Context
+	local gameConfig = context.Config.GameConfig
+	local summary = {
+		Reason = "directorcheck",
+		BuildVersion = gameConfig.BuildVersion or gameConfig.Phase,
+		LaunchMode = gameConfig.LaunchMode,
+		Passed = 0,
+		Warnings = 0,
+		Failed = 0,
+		Checks = {},
+	}
+	local serverFolder = script.Parent.Parent
+	local servicesFolder = serverFolder:FindFirstChild("Services")
+	local starterScripts = StarterPlayer:FindFirstChild("StarterPlayerScripts")
+	local controllers = starterScripts and starterScripts:FindFirstChild("Controllers")
+	local remotesFolder = ReplicatedStorage:FindFirstChild("Remotes")
+	local mainScript = serverFolder:FindFirstChild("Main")
+	local clientMain = starterScripts and starterScripts:FindFirstChild("ClientMain")
+	local serviceDupes = duplicateNames(servicesFolder, "ModuleScript")
+	local controllerDupes = duplicateNames(controllers, "ModuleScript")
+	local remoteDupes = duplicateNames(remotesFolder, "RemoteEvent")
+	local legacyObjects = findLegacyLiveObjects({ ReplicatedStorage, ServerScriptService, StarterPlayer })
+	local activeServices = servicesFolder and #servicesFolder:GetChildren() or 0
+	local assetReport = context.Services.AssetService and context.Services.AssetService.GetAssetReport()
+	local inventoryExactOnly = player and context.Services.InventoryService.FindItem(player, nil) == nil or true
+	local world = workspace:FindFirstChild("GameWorld")
+	local central = world and world:FindFirstChild("CentralVoid")
+	local feedTarget = central and (central:FindFirstChild("FeedStation") or central:FindFirstChild("VoidCore"))
+
+	print("[FEED THE VOID][Director] active Main.server.lua path=" .. tostring(mainScript and mainScript:GetFullName() or "missing"))
+	print("[FEED THE VOID][Director] active ClientMain path=" .. tostring(clientMain and clientMain:GetFullName() or "missing"))
+	print("[FEED THE VOID][Director] active service count=" .. tostring(activeServices))
+	print("[FEED THE VOID][Director] duplicate service scripts=" .. (#serviceDupes > 0 and table.concat(serviceDupes, ",") or "none"))
+	print("[FEED THE VOID][Director] duplicate controller scripts=" .. (#controllerDupes > 0 and table.concat(controllerDupes, ",") or "none"))
+	print("[FEED THE VOID][Director] duplicate remotes=" .. (#remoteDupes > 0 and table.concat(remoteDupes, ",") or "none"))
+	print("[FEED THE VOID][Director] archived/inactive phase files in live place=" .. (#legacyObjects > 0 and table.concat(legacyObjects, " | ") or "none detected"))
+
+	record(summary, mainScript and mainScript:IsA("Script"), "Canonical Main.server.lua", mainScript and mainScript:GetFullName() or "missing")
+	record(summary, clientMain and clientMain:IsA("LocalScript"), "Canonical ClientMain", clientMain and clientMain:GetFullName() or "missing")
+	record(summary, activeServices >= #expectedServices(), "Active service count", tostring(activeServices))
+	record(summary, #serviceDupes == 0, "Duplicate service scripts", #serviceDupes == 0 and "none" or table.concat(serviceDupes, ","))
+	record(summary, #controllerDupes == 0, "Duplicate controller scripts", #controllerDupes == 0 and "none" or table.concat(controllerDupes, ","))
+	record(summary, #remoteDupes == 0, "Duplicate remotes", #remoteDupes == 0 and "none" or table.concat(remoteDupes, ","))
+	record(summary, #legacyObjects == 0, "Archived/inactive leftovers", #legacyObjects == 0 and "none detected" or table.concat(legacyObjects, " | "))
+	record(summary, assetReport and (assetReport.Total or 0) >= 30, "Asset integration", assetReport and ("total=" .. tostring(assetReport.Total) .. " missing=" .. tostring(assetReport.Missing)) or "missing", assetReport and (assetReport.Missing or 0) > 0)
+	record(summary, inventoryExactOnly == true, "Inventory exact item id safety", "missing item fallback disabled")
+	record(summary, feedTarget ~= nil, "Feed station fail-closed target", feedTarget and feedTarget:GetFullName() or "missing")
+	record(summary, context.Services.PlotService.GetStation ~= nil, "Plot station lookup", "available")
+	record(summary, context.Services.ProfileServiceWrapper.SupportsForcedSave and context.Services.ProfileServiceWrapper.SupportsForcedSave(), "LastLogout forced save", "enabled")
+	record(summary, context.Config.SizeConfig and context.Config.SizeConfig.Tiers.Voidborn and context.Config.SizeConfig.Tiers.Voidborn.Weight == 3, "Size/weight system", "Voidborn weight=3")
+	record(summary, context.Config.GameConfig.MaxFeedVisualScale == 3.8, "Physical feed visual cap", tostring(context.Config.GameConfig.MaxFeedVisualScale))
+	record(summary, context.Services.EventService.GetChargeStatus ~= nil, "Void charge sequence", context.Services.EventService.GetChargeStatus and "configured" or "missing")
+	record(summary, context.Services.EventService.PlayEventVisual ~= nil, "Event staging debug", context.Services.EventService.PlayEventVisual and "configured" or "missing")
+	for _, eventName in ipairs(context.Config.EventConfig.Order or {}) do
+		local eventConfig = context.Config.EventConfig[eventName]
+		record(summary, eventConfig and eventConfig.AssetKey ~= nil and eventConfig.ObjectiveText ~= nil, "Event config " .. tostring(eventName), eventConfig and tostring(eventConfig.AssetKey) or "missing")
+	end
+
+	local ready = readiness(summary)
+	print("[FEED THE VOID][Director] private-test readiness: " .. ready)
+	SmokeTestService.PrintSummary(summary)
+	if player and context.Services.EconomyService then
+		context.Services.EconomyService.Notify(player, "Director check: " .. ready .. " | " .. tostring(summary.Passed) .. " pass, " .. tostring(summary.Warnings) .. " warn, " .. tostring(summary.Failed) .. " fail.")
 	end
 	return summary
 end

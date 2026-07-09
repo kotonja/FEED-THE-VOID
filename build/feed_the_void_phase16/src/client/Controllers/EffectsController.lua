@@ -1007,7 +1007,10 @@ local function playFeedSnackArc(payload, color, targetPosition)
 	if lowDetailMode then
 		return
 	end
-	local fromPosition = typeof(payload.FromPosition) == "Vector3" and payload.FromPosition
+	local fromPosition = typeof(payload.StartPosition) == "Vector3" and payload.StartPosition or nil
+	if not fromPosition and typeof(payload.FromPosition) == "Vector3" then
+		fromPosition = payload.FromPosition
+	end
 	if not fromPosition then
 		local root = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
 		fromPosition = root and (root.Position + Vector3.new(0, 2.4, 0)) or nil
@@ -1016,7 +1019,7 @@ local function playFeedSnackArc(payload, color, targetPosition)
 	if not fromPosition or not endPosition then
 		return
 	end
-	local intensity = math.clamp(tonumber(payload.Intensity) or tonumber(payload.SizeMultiplier) or 1, 0.8, 2.8)
+	local intensity = math.clamp(tonumber(payload.FeedIntensity) or tonumber(payload.Intensity) or tonumber(payload.SizeMultiplier) or 1, 0.8, 3.8)
 	local snack = Instance.new("Part")
 	snack.Name = "FTVFeedSnackArc"
 	snack.Anchored = true
@@ -1027,7 +1030,7 @@ local function playFeedSnackArc(payload, color, targetPosition)
 	snack.Material = Enum.Material.Glass
 	snack.Color = color
 	snack.Transparency = 0.08
-	snack.Size = Vector3.new(0.8, 0.8, 0.8) * math.clamp(intensity, 0.8, 2.2)
+	snack.Size = Vector3.new(0.8, 0.8, 0.8) * math.clamp(intensity, 0.8, 3)
 	snack.CFrame = CFrame.new(fromPosition)
 	snack.Parent = Workspace
 	trackTemporary(snack, 2.4)
@@ -1070,7 +1073,7 @@ end
 function handlers.FeedVoid(payload)
 	local position = getPosition(payload.Target, payload)
 	local color = mutationColor(payload.MutationId)
-	local intensity = math.clamp(tonumber(payload.Intensity) or tonumber(payload.SizeMultiplier) or 1, 0.8, 2.8)
+	local intensity = math.clamp(tonumber(payload.FeedIntensity) or tonumber(payload.Intensity) or tonumber(payload.SizeMultiplier) or 1, 0.8, 3.8)
 	local feedCount = ((VFXConfig.Particles.VoidFeed or {}).Count or 35)
 	if payload.Key == "Void.FeedSmall" then
 		feedCount = 22
@@ -1078,6 +1081,8 @@ function handlers.FeedVoid(payload)
 		feedCount = 52
 	elseif payload.Key == "Void.FeedColossal" then
 		feedCount = 76
+	elseif payload.Key == "Void.FeedVoidborn" then
+		feedCount = 92
 	end
 	playFeedSnackArc(payload, color, position)
 	localPlayerBeam(position, color)
@@ -1092,7 +1097,7 @@ function handlers.FeedVoid(payload)
 	emitBurst(position, {
 		Texture = TEXTURES.Bloom,
 		Color = colorSequence(COLORS.DeepVoid, COLORS.VoidPurple),
-		Count = math.floor((payload.Key == "Void.FeedColossal" and 22 or 12) * detailScale()),
+		Count = math.floor(((payload.Key == "Void.FeedColossal" or payload.Key == "Void.FeedVoidborn") and 22 or 12) * detailScale()),
 		Lifetime = NumberRange.new(0.9, 1.5),
 		Speed = NumberRange.new(0.3, 1.1),
 		Size = { { 0, 1 * intensity }, { 1, 5.2 * intensity } },
@@ -1236,6 +1241,7 @@ handlers["Void.FeedSmall"] = handlers.FeedVoid
 handlers["Void.FeedNormal"] = handlers.FeedVoid
 handlers["Void.FeedRare"] = handlers.FeedVoid
 handlers["Void.FeedColossal"] = handlers.FeedVoid
+handlers["Void.FeedVoidborn"] = handlers.FeedVoid
 handlers["Voidmite.Spawn"] = handlers.VoidmiteSpawn
 handlers["Voidmite.Cleanse"] = handlers.VoidmiteCleanse
 
@@ -1275,8 +1281,12 @@ handlers["Void.Rumble"] = function(payload)
 	showWorldText(payload.Text or "The Void stirs", fallbackPosition(payload), { Color = COLORS.SoftViolet, Duration = 1.2, YOffset = 3.2, Critical = true })
 end
 
+handlers["Void.Hunger25"] = handlers["Void.Rumble"]
+handlers["Void.Hunger50"] = handlers["Void.Rumble"]
+handlers["Void.Hunger75"] = handlers["Void.Rumble"]
+
 handlers["Void.EventCharge"] = function(payload)
-	eventBurst(payload, COLORS.VoidPurple, payload.Text or "The Void is choosing an event...")
+	eventBurst(payload, COLORS.VoidPurple, payload.Text or "THE VOID IS WAKING UP...")
 	local position = fallbackPosition(payload)
 	emitBurst(position + Vector3.new(0, 1.5, 0), {
 		Texture = TEXTURES.SwirlA,
@@ -1297,6 +1307,8 @@ handlers["Void.EventCharge"] = function(payload)
 		Critical = true,
 	})
 end
+
+handlers["Void.Charging"] = handlers["Void.EventCharge"]
 
 handlers["Void.EventStart"] = function(payload)
 	eventBurst(payload, COLORS.VoidPurple, payload.Text or "Void Event!")

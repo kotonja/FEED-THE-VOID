@@ -13,6 +13,9 @@ local lastEventStartedAt = os.time()
 local eventMaid = Maid.new()
 local disabledThisServer = {}
 local eventErrorCounts = {}
+local isCharging = false
+local queuedEventName = nil
+local chargeEndsAt = 0
 
 local eventFeatureFlag = {
 	SnackRain = "SnackRain",
@@ -97,7 +100,7 @@ local function clearEventObjects()
 end
 
 
-local function spawnEventVortex(labelText, color, assetKey)
+local function spawnEventProp(eventName, labelText, color, assetKey, position, targetSize)
 	local world = workspace:FindFirstChild("GameWorld")
 	local folder = world and world:FindFirstChild("EventObjects")
 	if not folder then
@@ -106,21 +109,21 @@ local function spawnEventVortex(labelText, color, assetKey)
 	local assetService = EventService.Context and EventService.Context.Services.AssetService
 	if assetKey and assetService then
 		local model = assetService.CloneModel(assetKey, { ApplyReferenceTargetSize = true })
-		model.Name = "EventVortex_" .. tostring(assetKey)
+		model.Name = "EventObject_" .. tostring(eventName or assetKey)
 		model.Parent = folder
-		assetService.ScaleToTargetSize(model, Vector3.new(12, 8, 12))
-		assetService.SetModelCFrame(model, CFrame.new(0, 21, 0))
+		assetService.ScaleToTargetSize(model, targetSize or Vector3.new(12, 8, 12))
+		assetService.SetModelCFrame(model, CFrame.new(position or Vector3.new(0, 21, 0)))
 		local primary = assetService.EnsurePrimaryPart(model)
 		if primary then
 			local light = Instance.new("PointLight")
-			light.Name = "EventVortexLight"
+			light.Name = "EventPropLight"
 			light.Color = color or Color3.fromRGB(170, 70, 255)
 			light.Brightness = 0.85
 			light.Range = 48
 			light.Parent = primary
 		end
 		assetService.AttachBillboard(model, {
-			Name = "EventVortexBillboard",
+			Name = "EventPropBillboard",
 			Text = labelText or "VOID EVENT",
 			Size = UDim2.new(0, 260, 0, 62),
 			StudsOffset = Vector3.new(0, 5.2, 0),
@@ -128,31 +131,32 @@ local function spawnEventVortex(labelText, color, assetKey)
 			BackgroundColor3 = Color3.fromRGB(25, 18, 34),
 			TextColor3 = Color3.fromRGB(255, 246, 210),
 		})
+		eventMaid:GiveTask(model)
 		return
 	end
-	local vortex = Instance.new("Part")
-	vortex.Name = "EventVortex"
-	vortex.Anchored = true
-	vortex.CanCollide = false
-	vortex.Shape = Enum.PartType.Ball
-	vortex.Material = Enum.Material.Glass
-	vortex.Color = color or Color3.fromRGB(170, 70, 255)
-	vortex.Transparency = 0.42
-	vortex.Size = Vector3.new(18, 5, 18)
-	vortex.Position = Vector3.new(0, 22, 0)
-	vortex.Parent = folder
+	local prop = Instance.new("Part")
+	prop.Name = "EventObject_" .. tostring(eventName or "Fallback")
+	prop.Anchored = true
+	prop.CanCollide = false
+	prop.Shape = Enum.PartType.Ball
+	prop.Material = Enum.Material.Glass
+	prop.Color = color or Color3.fromRGB(170, 70, 255)
+	prop.Transparency = 0.42
+	prop.Size = targetSize or Vector3.new(12, 6, 12)
+	prop.Position = position or Vector3.new(0, 22, 0)
+	prop.Parent = folder
 	local light = Instance.new("PointLight")
-	light.Name = "EventVortexLight"
-	light.Color = vortex.Color
+	light.Name = "EventPropLight"
+	light.Color = prop.Color
 	light.Brightness = 0.8
 	light.Range = 45
-	light.Parent = vortex
+	light.Parent = prop
 	local gui = Instance.new("BillboardGui")
-	gui.Name = "EventVortexBillboard"
+	gui.Name = "EventPropBillboard"
 	gui.AlwaysOnTop = true
 	gui.Size = UDim2.new(0, 260, 0, 62)
 	gui.StudsOffset = Vector3.new(0, 5, 0)
-	gui.Parent = vortex
+	gui.Parent = prop
 	local label = Instance.new("TextLabel")
 	label.Name = "Label"
 	label.BackgroundTransparency = 0.2
@@ -164,6 +168,7 @@ local function spawnEventVortex(labelText, color, assetKey)
 	label.Text = labelText or "VOID EVENT"
 	label.Size = UDim2.new(1, 0, 1, 0)
 	label.Parent = gui
+	eventMaid:GiveTask(prop)
 end
 
 local function eventObjectsFolder()
@@ -383,11 +388,15 @@ end
 
 function EventService.GetActiveEventDisplayName()
 	local config = activeEventName and EventService.Context.Config.EventConfig[activeEventName]
-	return config and (config.DisplayName or activeEventName) or nil
+	return config and (config.BannerName or config.DisplayName or activeEventName) or nil
 end
 
 function EventService.GetActiveEventObjective()
 	local config = activeEventName and EventService.Context.Config.EventConfig[activeEventName]
+	if activeEventName == "GoldenHunger" and goldenHungerSnackId then
+		local snack = EventService.Context.Config.SnackConfig[goldenHungerSnackId]
+		return snack and ("The Void wants: " .. tostring(snack.DisplayName or goldenHungerSnackId)) or config.ObjectiveText
+	end
 	return config and config.ObjectiveText or nil
 end
 
@@ -405,6 +414,24 @@ function EventService.GetPityMultiplier()
 		return 0.75
 	end
 	return 1
+end
+
+function EventService.SetChargeState(active, nextEventName, endsAt)
+	isCharging = active == true
+	queuedEventName = isCharging and nextEventName or nil
+	chargeEndsAt = isCharging and (tonumber(endsAt) or 0) or 0
+end
+
+function EventService.IsCharging()
+	return isCharging == true
+end
+
+function EventService.GetChargeStatus()
+	return {
+		IsCharging = isCharging == true,
+		QueuedEventName = queuedEventName,
+		ChargeEndsAt = chargeEndsAt,
+	}
 end
 
 function EventService.GetMutationWeightMultiplier(mutationId)
@@ -507,6 +534,10 @@ function EventService.StartEvent(eventName)
 	if not config or activeEventName then
 		return false
 	end
+	if isCharging then
+		warn("[FEED THE VOID] Event start rejected while The Void is charging", eventName)
+		return false
+	end
 	if not EventService.IsEventEnabled(eventName) then
 		warn("[FEED THE VOID] Event disabled or unavailable", eventName)
 		return false
@@ -520,7 +551,7 @@ function EventService.StartEvent(eventName)
 	participants = {}
 	goldenHungerSnackId = nil
 	context.Services.AnalyticsService.VoidEventStarted(eventName)
-	local displayName = config.DisplayName or eventName
+	local displayName = config.BannerName or config.DisplayName or eventName
 	local objectiveText = config.ObjectiveText or "Join the active Void event."
 	context.Services.EconomyService.NotifyAll(displayName .. " has started! " .. objectiveText)
 	if context.Services.AudioService then
@@ -565,33 +596,33 @@ function EventService.StartEvent(eventName)
 	clearEventObjects()
 
 	local ok, err = pcall(function()
-	if eventName == "SnackRain" then
-		spawnEventVortex(config.WorldVisualText or "SNACK RAIN", Color3.fromRGB(255, 180, 80), "EventSnackRainCloud")
-		for index = 1, math.min(config.CrumbCount or 0, config.MaxActivePickups or math.huge, limitValue("MaxEventPickups", 60), limitValue("MaxSnackRainPickups", 60)) do
-			spawnSnackRainCrumb(index)
+		if eventName == "SnackRain" then
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "SNACK RAIN", config.EventColor, config.AssetKey or "EventSnackRainCloud", Vector3.new(0, 23, 0), Vector3.new(14, 8, 14))
+			for index = 1, math.min(config.CrumbCount or 0, config.MaxActivePickups or math.huge, limitValue("MaxEventPickups", 60), limitValue("MaxSnackRainPickups", 60)) do
+				spawnSnackRainCrumb(index)
+			end
+		elseif eventName == "VoidInfestation" then
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "VOIDMITES SWARM", config.EventColor, config.AssetKey or "EventVoidmiteNest", Vector3.new(0, 6, 0), Vector3.new(12, 8, 12))
+			spawnVoidInfestationSwarm()
+			context.Services.EconomyService.NotifyAll(objectiveText)
+			for _ = 1, config.ExtraSpawnPasses or 1 do
+				context.Services.VoidmiteService.SpawnInfestation(true)
+			end
+		elseif eventName == "GoldenHunger" then
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "GOLDEN HUNGER", config.EventColor, config.AssetKey or "EventGoldenHungerIdol", Vector3.new(0, 7, 0), Vector3.new(10, 9, 10))
+			local order = context.Config.SnackConfig.Order
+			goldenHungerSnackId = order[math.random(1, math.min(#order, 6))]
+			spawnWantedSnackPreview(goldenHungerSnackId)
+			context.Services.EconomyService.NotifyAll("The Void wants " .. context.Config.SnackConfig[goldenHungerSnackId].DisplayName .. "!")
+		elseif eventName == "MutationSurge" then
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "MUTATION SURGE", config.EventColor, config.AssetKey or "EventMutationCrystal", Vector3.new(0, 7, 0), Vector3.new(9, 10, 9))
+			spawnMutationPlateAuras()
+			context.Services.EconomyService.NotifyAll(objectiveText)
+		elseif eventName == "PhantomSnackChase" then
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "PHANTOM CHASE", config.EventColor, config.AssetKey or "PhantomSnack", Vector3.new(0, 13, 0), Vector3.new(7, 7, 7))
+			context.Services.EconomyService.NotifyAll(objectiveText)
+			context.Services.PhantomSnackService.SpawnForEvent(duration)
 		end
-	elseif eventName == "VoidInfestation" then
-		spawnEventVortex(config.WorldVisualText or "VOIDMITES SWARM", Color3.fromRGB(175, 75, 255), "EventVoidmiteNest")
-		spawnVoidInfestationSwarm()
-		context.Services.EconomyService.NotifyAll(objectiveText)
-		for _ = 1, config.ExtraSpawnPasses or 1 do
-			context.Services.VoidmiteService.SpawnInfestation(true)
-		end
-	elseif eventName == "GoldenHunger" then
-		spawnEventVortex(config.WorldVisualText or "GOLDEN HUNGER", Color3.fromRGB(255, 215, 80), "EventGoldenHungerIdol")
-		local order = context.Config.SnackConfig.Order
-		goldenHungerSnackId = order[math.random(1, math.min(#order, 6))]
-		spawnWantedSnackPreview(goldenHungerSnackId)
-		context.Services.EconomyService.NotifyAll("The Void wants " .. context.Config.SnackConfig[goldenHungerSnackId].DisplayName .. "!")
-	elseif eventName == "MutationSurge" then
-		spawnEventVortex(config.WorldVisualText or "MUTATION SURGE", Color3.fromRGB(90, 255, 190), "EventMutationCrystal")
-		spawnMutationPlateAuras()
-		context.Services.EconomyService.NotifyAll(objectiveText)
-	elseif eventName == "PhantomSnackChase" then
-		spawnEventVortex(config.WorldVisualText or "PHANTOM CHASE", Color3.fromRGB(172, 116, 255), "PhantomSnack")
-		context.Services.EconomyService.NotifyAll(objectiveText)
-		context.Services.PhantomSnackService.SpawnForEvent(duration)
-	end
 	end)
 	if not ok then
 		warn("[FEED THE VOID] Event start failed", eventName, err)
@@ -633,6 +664,9 @@ function EventService.GetStatus()
 		Token = activeToken,
 		DisabledThisServer = disabledList(),
 		ErrorCounts = eventErrorCounts,
+		IsCharging = isCharging == true,
+		QueuedEventName = queuedEventName,
+		ChargeEndsAt = chargeEndsAt,
 	}
 end
 
@@ -655,6 +689,15 @@ function EventService.PrintStatus(player)
 end
 
 function EventService.StartRandomEvent()
+	local eventName = EventService.GetRandomEventName()
+	if not eventName then
+		warn("[FEED THE VOID] No enabled events available.")
+		return false
+	end
+	return EventService.StartEvent(eventName)
+end
+
+function EventService.GetRandomEventName()
 	local available = {}
 	for _, eventName in ipairs(EventService.Context.Config.EventConfig.Order or {}) do
 		if EventService.IsEventEnabled(eventName) then
@@ -662,10 +705,9 @@ function EventService.StartRandomEvent()
 		end
 	end
 	if #available == 0 then
-		warn("[FEED THE VOID] No enabled events available.")
-		return false
+		return nil
 	end
-	return EventService.StartEvent(available[math.random(1, #available)])
+	return available[math.random(1, #available)]
 end
 
 function EventService.PlayEventVisual(eventName)

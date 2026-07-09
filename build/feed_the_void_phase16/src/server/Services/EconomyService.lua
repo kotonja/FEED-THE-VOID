@@ -64,13 +64,16 @@ function EconomyService.ComputeItemValues(player, item)
 	local sellMultiplier = player and context.Services.UpgradeService.GetMultiplier(player, "SellMultiplier") or 1
 	local voidMultiplier = player and context.Services.UpgradeService.GetMultiplier(player, "VoidRewardMultiplier") or 1
 	local displayMultiplier = player and context.Services.UpgradeService.GetMultiplier(player, "DisplayIncome") or 1
+	local data = player and EconomyService.GetData(player)
+	local rebirthBoost = 1 + ((tonumber(data and data.Rebirths) or 0) * (tonumber(context.Config.GameConfig.RebirthBoostPerRebirth) or 0))
+	local displayDivisor = tonumber(context.Config.GameConfig.DisplayIncomeDivisor) or 10
 	local rarity = context.Config.RarityConfig and context.Config.RarityConfig[snack.Rarity]
 	local passiveRarityMultiplier = rarity and rarity.PassiveIncomeMultiplier or 1
 	local mutationMultiplier = item.ValueMultiplier or mutation.ValueMultiplier or 1
 	local sizeValueMultiplier = sizeConfig and sizeConfig.GetValueMultiplier(item) or 1
-	local sellValue = math.max(1, math.floor(snack.BaseSellValue * mutationMultiplier * sizeValueMultiplier * sellMultiplier))
-	local voidValue = math.max(1, math.floor(snack.BaseVoidValue * mutationMultiplier * sizeValueMultiplier * voidMultiplier))
-	local passiveIncome = math.max(1, math.floor((snack.BaseSellValue * mutationMultiplier * sizeValueMultiplier * displayMultiplier * passiveRarityMultiplier) / 10))
+	local sellValue = math.max(1, math.floor(snack.BaseSellValue * mutationMultiplier * sizeValueMultiplier * sellMultiplier * rebirthBoost))
+	local voidValue = math.max(1, math.floor(snack.BaseVoidValue * mutationMultiplier * sizeValueMultiplier * voidMultiplier * rebirthBoost))
+	local passiveIncome = math.max(1, math.floor((snack.BaseSellValue * mutationMultiplier * sizeValueMultiplier * displayMultiplier * passiveRarityMultiplier * rebirthBoost) / displayDivisor))
 	return sellValue, voidValue, passiveIncome
 end
 
@@ -139,6 +142,7 @@ function EconomyService.BuildSnapshot(player)
 	local shopSnapshot = EconomyService.Context.Services.ShopService and EconomyService.Context.Services.ShopService.Serialize(player) or {}
 	local gameConfig = EconomyService.Context.Config.GameConfig
 	local feedbackSummary = EconomyService.Context.Services.FeedbackService and EconomyService.Context.Services.FeedbackService.GetSummary() or {}
+	local eventStatus = EconomyService.Context.Services.EventService and EconomyService.Context.Services.EventService.GetStatus() or {}
 	return {
 		BuildVersion = gameConfig.BuildVersion or gameConfig.Phase,
 		BuildName = gameConfig.BuildName or "FEED THE VOID",
@@ -177,8 +181,9 @@ function EconomyService.BuildSnapshot(player)
 		ShopUnlocks = shopSnapshot.Unlocks or {},
 		VoidHunger = EconomyService.Context.Services.VoidService.GetHunger(),
 		VoidHungerRequired = EconomyService.Context.Services.VoidService.GetRequired(),
-		VoidEventCharging = EconomyService.Context.Services.VoidService.IsCharging and EconomyService.Context.Services.VoidService.IsCharging() or false,
-		VoidEventChargeEndsAt = EconomyService.Context.Services.VoidService.GetChargeEndsAt and EconomyService.Context.Services.VoidService.GetChargeEndsAt() or 0,
+		VoidEventCharging = eventStatus.IsCharging == true or (EconomyService.Context.Services.VoidService.IsCharging and EconomyService.Context.Services.VoidService.IsCharging() or false),
+		VoidEventQueuedName = eventStatus.QueuedEventName,
+		VoidEventChargeEndsAt = eventStatus.ChargeEndsAt and eventStatus.ChargeEndsAt > 0 and eventStatus.ChargeEndsAt or (EconomyService.Context.Services.VoidService.GetChargeEndsAt and EconomyService.Context.Services.VoidService.GetChargeEndsAt() or 0),
 		ActiveEventName = EconomyService.Context.Services.EventService.GetActiveEventName(),
 		ActiveEventDisplayName = EconomyService.Context.Services.EventService.GetActiveEventDisplayName(),
 		ActiveEventObjective = EconomyService.Context.Services.EventService.GetActiveEventObjective(),

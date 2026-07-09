@@ -17,7 +17,6 @@ local AssetImportGuide = {
 	RequiredPaths = {
 		"The Void: ReplicatedStorage.Assets.Models.Void.FTW_TheVoid",
 		"Voidmite: ReplicatedStorage.Assets.Models.Creatures.FTW_Voidmite",
-		"Voidling pet: ReplicatedStorage.Assets.Models.Creatures.FTW_VoidlingPet",
 		"Seed capsule: ReplicatedStorage.Assets.Models.Seeds.FTW_SeedCapsule_Generic",
 		"Sprout: ReplicatedStorage.Assets.Models.Growth.FTW_SnackSprout_Generic",
 		"Bud: ReplicatedStorage.Assets.Models.Growth.FTW_SnackBud_Generic",

@@ -51,10 +51,20 @@ local function bindPrompt(context)
 		prompt:SetAttribute("FTVBound", true)
 		prompt.Triggered:Connect(function(player)
 			if enabled() then
-				DailyRewardService.Claim(player)
+				DailyRewardService.Claim(player, true)
 			end
 		end)
 	end
+end
+
+local function dailyStation()
+	local world = workspace:FindFirstChild("GameWorld")
+	return world and world:FindFirstChild("Stations") and world.Stations:FindFirstChild("DailyRewardChest")
+end
+
+local function dailyDistance()
+	local distances = DailyRewardService.Context.Config.GameConfig.InteractionDistances or {}
+	return tonumber(distances.Daily) or 18
 end
 
 function DailyRewardService.Init(context)
@@ -88,7 +98,7 @@ function DailyRewardService.CanClaim(player)
 	return remaining <= 0, remaining
 end
 
-function DailyRewardService.Claim(player)
+function DailyRewardService.Claim(player, requireStation)
 	local context = DailyRewardService.Context
 	if not enabled() then
 		context.Services.EconomyService.Notify(player, "Daily rewards are disabled for this test.")
@@ -97,6 +107,17 @@ function DailyRewardService.Claim(player)
 	local state = DailyRewardService.Ensure(player)
 	if not state then
 		return false
+	end
+	if requireStation == true then
+		local station = dailyStation()
+		if not station then
+			context.Services.EconomyService.Notify(player, "Daily chest missing. Try again later.")
+			return false
+		end
+		if not context.Services.ValidationService.ValidateDistance(player, station, dailyDistance()) then
+			context.Services.EconomyService.Notify(player, "Stand near the Daily Chest.")
+			return false
+		end
 	end
 	local canClaim, remaining = DailyRewardService.CanClaim(player)
 	if not canClaim then

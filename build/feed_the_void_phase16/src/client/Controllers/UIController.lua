@@ -627,7 +627,9 @@ local function requestItemAction(actionName)
 			panel.Visible = true
 			local label = panel:FindFirstChild("ConfirmText")
 			if label then
-				label.Text = "Are you sure you want to " .. string.lower(actionName) .. " " .. tostring(item.DisplayName) .. "?"
+				local sizeName = tostring(item.SizeName or item.SizeTier or "")
+				local sizePrefix = sizeName ~= "" and sizeName ~= "Regular" and (sizeName .. " ") or ""
+				label.Text = "Are you sure you want to " .. string.lower(actionName) .. " " .. sizePrefix .. tostring(item.DisplayName) .. "?"
 			end
 			return
 		end
@@ -796,16 +798,15 @@ local function updateEventBanner(data)
 	if data.VoidEventCharging then
 		local remaining = math.max(0, (data.VoidEventChargeEndsAt or 0) - os.time())
 		banner.Visible = true
-		banner.EventText.Text = "The Void is choosing an event - " .. tostring(remaining) .. "s"
+		banner.EventText.Text = "THE VOID IS WAKING UP... " .. tostring(remaining) .. "s"
 		pulseGuiObject(banner.EventText, 1.02)
 	elseif activeName then
 		local remaining = math.max(0, (data.ActiveEventEndsAt or 0) - os.time())
 		banner.Visible = true
-		local goldenText = data.GoldenHungerSnackId and SnackConfig[data.GoldenHungerSnackId] and (" | Wants " .. SnackConfig[data.GoldenHungerSnackId].DisplayName) or ""
 		local displayName = data.ActiveEventDisplayName or activeName
 		local objective = data.ActiveEventObjective or (activeName == "PhantomSnackChase" and "Catch the Phantom Snacks!" or "Join the active Void event")
 		local eventText = displayName .. ": " .. objective
-		banner.EventText.Text = eventText .. " - " .. tostring(remaining) .. "s" .. goldenText
+		banner.EventText.Text = eventText .. " - " .. tostring(remaining) .. "s"
 		if lastEventName ~= activeName then
 			pulseGuiObject(banner, 1.025)
 			lastEventName = activeName
@@ -823,7 +824,7 @@ local function updateNextGoal(data)
 	local label = panel and panel:FindFirstChild("NextGoalText")
 	if label then
 		if data.VoidEventCharging then
-			label.Text = "Next Goal: Watch The Void reveal the event"
+			label.Text = "Next Goal: Watch The Void wake up"
 			return
 		end
 		if data.ActiveEventObjective then

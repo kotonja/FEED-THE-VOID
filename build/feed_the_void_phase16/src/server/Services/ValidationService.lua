@@ -19,9 +19,12 @@ function ValidationService.ValidatePlayerPlot(player)
 end
 
 function ValidationService.ValidateInventoryItem(player, uniqueId, options)
+	if uniqueId == nil or uniqueId == "" then
+		return false, nil, nil, "MissingItemId"
+	end
 	local item, index = ValidationService.Context.Services.InventoryService.FindItem(player, uniqueId)
 	if not item then
-		return false, item, index
+		return false, item, index, "Missing"
 	end
 	options = type(options) == "table" and options or {}
 	if options.AllowLocked ~= true and item.Locked == true then

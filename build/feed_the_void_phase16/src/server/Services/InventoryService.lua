@@ -95,10 +95,11 @@ function InventoryService.FindItem(player, itemId)
 		return nil, nil
 	end
 	if itemId == nil or itemId == "" then
-		return data.Inventory[1], 1
+		return nil, nil
 	end
+	itemId = tostring(itemId)
 	for index, item in ipairs(data.Inventory) do
-		if item.UniqueId == itemId then
+		if tostring(item.UniqueId) == itemId then
 			return item, index
 		end
 	end
@@ -112,7 +113,8 @@ end
 function InventoryService.ToggleItemLock(player, itemId)
 	local item = InventoryService.FindItem(player, itemId)
 	if not item then
-		InventoryService.Context.Services.EconomyService.Notify(player, "That item is no longer in your inventory.")
+		local missingId = itemId == nil or itemId == ""
+		InventoryService.Context.Services.EconomyService.Notify(player, missingId and "Select a snack first." or "That item is no longer in your inventory.")
 		return false
 	end
 	item.Locked = not (item.Locked == true)
@@ -126,7 +128,8 @@ function InventoryService.RemoveItem(player, itemId, allowLocked)
 	local data = ensureLists(InventoryService.GetData(player))
 	local item, index = InventoryService.FindItem(player, itemId)
 	if not data or not item or not index then
-		return nil
+		local missingId = itemId == nil or itemId == ""
+		return nil, missingId and "MissingItemId" or "Missing"
 	end
 	if item.Locked and allowLocked ~= true then
 		return nil, "Locked"
@@ -184,18 +187,51 @@ end
 
 function InventoryService.PrintInventoryCheck(player)
 	local counts = InventoryService.GetCounts(player)
+	local data = ensureLists(InventoryService.GetData(player))
+	local locked = 0
+	local malformed = 0
+	local missingSize = 0
+	local duplicates = 0
+	local seen = {}
+	for _, item in ipairs(data and data.Inventory or {}) do
+		local uniqueId = item and tostring(item.UniqueId or "") or ""
+		if type(item) ~= "table" or uniqueId == "" or item.SnackId == nil then
+			malformed += 1
+		end
+		if item and item.Locked == true then
+			locked += 1
+		end
+		if item and (item.SizeTier == nil or item.SizeMultiplier == nil or item.SizeValueMultiplier == nil or item.Weight == nil) then
+			missingSize += 1
+		end
+		if uniqueId ~= "" then
+			if seen[uniqueId] then
+				duplicates += 1
+			end
+			seen[uniqueId] = true
+		end
+	end
 	local line = string.format(
-		"[FEED THE VOID][Inventory] %s inventory=%d/%d displayed=%d/%d",
+		"[FEED THE VOID][Inventory] %s inventory=%d/%d displayed=%d/%d locked=%d malformed=%d duplicateUniqueId=%d missingSizeFields=%d MissingItemFallbackDisabled=true",
 		player and player.Name or "server",
 		counts.Inventory,
 		counts.InventoryCap,
 		counts.Displayed,
-		counts.DisplayedCap
+		counts.DisplayedCap,
+		locked,
+		malformed,
+		duplicates,
+		missingSize
 	)
 	print(line)
 	if player then
-		InventoryService.Context.Services.EconomyService.Notify(player, "Inventory: " .. tostring(counts.Inventory) .. "/" .. tostring(counts.InventoryCap) .. " | Displayed: " .. tostring(counts.Displayed) .. "/" .. tostring(counts.DisplayedCap))
+		InventoryService.Context.Services.EconomyService.Notify(player, "Inventory: " .. tostring(counts.Inventory) .. "/" .. tostring(counts.InventoryCap) .. " | locked " .. tostring(locked) .. " | malformed " .. tostring(malformed) .. " | exact-id only")
 	end
+	counts.Locked = locked
+	counts.Malformed = malformed
+	counts.DuplicateUniqueIds = duplicates
+	counts.MissingSizeFields = missingSize
+	counts.MissingItemFallbackDisabled = true
 	return counts
 end
 

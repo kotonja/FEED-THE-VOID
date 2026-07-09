@@ -19,9 +19,9 @@ local growthAssetByStage = {
 }
 
 local defaultStageScale = {
-	[1] = 0.34,
-	[2] = 0.62,
-	[3] = 0.92,
+	[1] = 0.40,
+	[2] = 0.70,
+	[3] = 1.00,
 }
 
 local defaultGrowthLift = {
@@ -237,7 +237,7 @@ local function rollSizeForPlant(player, snack)
 	if forcedTier == "" then
 		forcedTier = nil
 	end
-	local tierId = config.RollTier(forcedTier)
+	local tierId = config.RollSizeTier and config.RollSizeTier(forcedTier) or config.RollTier(forcedTier)
 	if player and forcedTier then
 		player:SetAttribute("ForcedSizeTier", "")
 	end
@@ -739,7 +739,7 @@ function SnackService.BindWorldPrompts()
 				prompt.MaxActivationDistance = 12
 				prompt.RequiresLineOfSight = false
 				prompt.Triggered:Connect(function(player)
-					SnackService.Context.Services.RebirthService.TryRebirth(player)
+					SnackService.Context.Services.RebirthService.TryRebirth(player, true)
 				end)
 			elseif prompt.Name == "UpgradePrompt" then
 				prompt.ActionText = "Open Upgrades"
@@ -1029,13 +1029,17 @@ end
 function SnackService.SellSnack(player, itemId)
 	local context = SnackService.Context
 	local station = context.Services.PlotService.GetStation(player, "SellStation")
-	if station and not context.Services.ValidationService.ValidateDistance(player, station, distanceValue("Shop", 18)) then
+	if not station then
+		context.Services.EconomyService.Notify(player, "Sell station missing. Try again later.")
+		return false
+	end
+	if not context.Services.ValidationService.ValidateDistance(player, station, distanceValue("Shop", 18)) then
 		context.Services.EconomyService.Notify(player, "Stand near your Sell Station to sell.")
 		return false
 	end
 	local okItem, _, _, itemError = context.Services.ValidationService.ValidateInventoryItem(player, itemId)
 	if not okItem then
-		context.Services.EconomyService.Notify(player, itemError == "Locked" and "Unlock this item before using it." or "Select a snack to sell.")
+		context.Services.EconomyService.Notify(player, itemError == "Locked" and "Unlock this item before using it." or "Select a snack first.")
 		return false
 	end
 	local item, removeError = context.Services.InventoryService.RemoveItem(player, itemId)
@@ -1060,8 +1064,14 @@ end
 function SnackService.FeedVoid(player, itemId)
 	local context = SnackService.Context
 	local world = workspace:FindFirstChild("GameWorld")
-	local feedStation = world and world:FindFirstChild("CentralVoid") and world.CentralVoid:FindFirstChild("FeedStation")
-	if feedStation and not context.Services.ValidationService.ValidateDistance(player, feedStation, distanceValue("VoidFeed", 25)) then
+	local central = world and world:FindFirstChild("CentralVoid")
+	local feedStation = central and central:FindFirstChild("FeedStation")
+	local voidTarget = central and (feedStation or central:FindFirstChild("VoidCore"))
+	if not central or not voidTarget then
+		context.Services.EconomyService.Notify(player, "The Void feed station is missing. Try again later.")
+		return false
+	end
+	if not context.Services.ValidationService.ValidateDistance(player, voidTarget, distanceValue("VoidFeed", 25)) then
 		context.Services.EconomyService.Notify(player, "Stand near THE VOID to feed it.")
 		return false
 	end
@@ -1071,7 +1081,7 @@ function SnackService.FeedVoid(player, itemId)
 	end
 	local okItem, _, _, itemError = context.Services.ValidationService.ValidateInventoryItem(player, itemId)
 	if not okItem then
-		context.Services.EconomyService.Notify(player, itemError == "Locked" and "Unlock this item before using it." or "Select a snack to feed.")
+		context.Services.EconomyService.Notify(player, itemError == "Locked" and "Unlock this item before using it." or "Select a snack first.")
 		return false
 	end
 	local item, removeError = context.Services.InventoryService.RemoveItem(player, itemId)
@@ -1109,26 +1119,33 @@ function SnackService.FeedVoid(player, itemId)
 	context.Services.BadgeAwardService.Award(player, "FirstVoidFeed")
 	context.Services.QuestService.Record(player, "FeedVoid", 1)
 	context.Services.TutorialService.RecordAction(player, "FeedVoid")
-	local voidTarget = feedStation or (world and world:FindFirstChild("CentralVoid") and world.CentralVoid:FindFirstChild("VoidCore"))
 	local fedSnackConfig = context.Config.SnackConfig[item.SnackId]
 	local isRareFeed = rareHarvestMutations[item.MutationId] == true
 		or (fedSnackConfig and context.Config.RarityConfig.IsAtLeast(fedSnackConfig.Rarity or "Common", "Rare"))
 	local root = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
 	local fromPosition = root and (root.Position + Vector3.new(0, 2.4, 0)) or (feedStation and feedStation.Position) or nil
 	local feedEffectKey = (sizeConfig() and sizeConfig().FeedEffectKey(item, fedSnackConfig, context.Config.RarityConfig)) or (isRareFeed and "Void.FeedRare" or "Void.FeedNormal")
+	local targetPos = targetPosition(voidTarget)
+	local feedIntensity = math.clamp((tonumber(item.SizeMultiplier) or 1) / 1.2, 0.85, tonumber(context.Config.GameConfig.MaxFeedVisualScale) or 3.8)
 	fireEffectAll(feedEffectKey, voidTarget, {
 		Player = player,
+		PlayerUserId = player.UserId,
 		SnackId = item.SnackId,
 		MutationId = item.MutationId,
+		DisplayName = item.DisplayName,
+		Rarity = fedSnackConfig and fedSnackConfig.Rarity or "Common",
 		IsRare = isRareFeed,
 		SizeTier = item.SizeTier,
 		SizeMultiplier = item.SizeMultiplier,
 		Weight = item.Weight,
+		StartPosition = fromPosition,
 		FromPosition = fromPosition,
-		TargetPosition = targetPosition(voidTarget),
+		TargetPosition = targetPos,
 		VoidValue = rawVoidValue,
 		HungerContribution = voidValue,
-		Intensity = math.clamp((tonumber(item.SizeMultiplier) or 1) / 1.2, 0.85, 2.8),
+		FeedIntensity = feedIntensity,
+		Intensity = feedIntensity,
+		EffectKey = feedEffectKey,
 		Text = "+" .. tostring(tokenReward) .. " Void Tokens",
 	})
 	playAudioForAll("Void.Feed", "World", voidTarget, { MinInterval = 0.25 })
@@ -1158,7 +1175,7 @@ function SnackService.DisplaySnack(player, itemId, shelf)
 	end
 	local okItem, _, _, itemError = context.Services.ValidationService.ValidateInventoryItem(player, itemId)
 	if not okItem then
-		context.Services.EconomyService.Notify(player, itemError == "Locked" and "Unlock this item before using it." or "Select a snack to display.")
+		context.Services.EconomyService.Notify(player, itemError == "Locked" and "Unlock this item before using it." or "Select a snack first.")
 		return false
 	end
 	local item, removeError = context.Services.InventoryService.RemoveItem(player, itemId)

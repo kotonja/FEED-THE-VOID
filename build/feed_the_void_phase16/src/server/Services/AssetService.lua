@@ -31,7 +31,6 @@ local fallback = {
 local fallbackByKey = {
 	TheVoid = "Void",
 	Voidmite = "Creature",
-	VoidlingPet = "Creature",
 	SeedCapsuleGeneric = "SeedCapsule",
 	SnackSproutGeneric = "GrowthSprout",
 	SnackBudGeneric = "GrowthBud",
@@ -568,6 +567,31 @@ function AssetService.GetAssetReport()
 	for _, assetKey in ipairs(AssetReferences.RequiredAssetKeys or {}) do
 		local asset, status, ref = AssetService.ResolveAsset(assetKey)
 		local category = (ref and ref.Category) or "Uncategorized"
+		local className = asset and asset.ClassName or "missing"
+		local hasPrimaryPart = false
+		local boundingSize = Vector3.new(0, 0, 0)
+		if asset then
+			if asset:IsA("BasePart") then
+				hasPrimaryPart = true
+				boundingSize = asset.Size
+			elseif asset:IsA("Model") then
+				hasPrimaryPart = AssetService.EnsurePrimaryPart(asset) ~= nil
+				local _, size = AssetService.GetBoundingBox(asset)
+				boundingSize = size
+			elseif asset:IsA("Folder") then
+				local firstPart = asset:FindFirstChildWhichIsA("BasePart", true)
+				hasPrimaryPart = firstPart ~= nil
+				if firstPart then
+					boundingSize = firstPart.Size
+				end
+			end
+		end
+		local fallbackStatus = "not-needed"
+		if not asset then
+			fallbackStatus = fallbackByKey[assetKey] and "available" or "missing"
+		elseif status ~= "organized" then
+			fallbackStatus = "loose-source"
+		end
 		report.Total += 1
 		report.ByCategory[category] = report.ByCategory[category] or { Organized = 0, Loose = 0, Missing = 0, Total = 0 }
 		report.ByCategory[category].Total += 1
@@ -586,7 +610,10 @@ function AssetService.GetAssetReport()
 			Status = asset and status or "missing",
 			Category = category,
 			Path = ref and table.concat(normalizePath(ref.Path), ".") or "?",
-			ClassName = asset and asset.ClassName or nil,
+			ClassName = className,
+			BoundingBox = boundingSize,
+			HasPrimaryPart = hasPrimaryPart,
+			FallbackStatus = fallbackStatus,
 		})
 	end
 	lastAssetReport = report
@@ -603,8 +630,22 @@ function AssetService.PrintAssetCheck(player)
 		report.Missing
 	))
 	for _, item in ipairs(report.Assets) do
+		local bounds = item.BoundingBox
+		local boundsText = typeof(bounds) == "Vector3" and string.format("%.1f x %.1f x %.1f", bounds.X, bounds.Y, bounds.Z) or "?"
+		local line = string.format(
+			"[FEED THE VOID][Assets] key=%s status=%s path=%s class=%s bounds=%s primary=%s fallback=%s",
+			tostring(item.Key),
+			tostring(item.Status),
+			tostring(item.Path),
+			tostring(item.ClassName),
+			boundsText,
+			tostring(item.HasPrimaryPart == true),
+			tostring(item.FallbackStatus)
+		)
 		if item.Status ~= "organized" then
-			warn("[FEED THE VOID][Assets] " .. item.Key .. " status=" .. item.Status .. " target=" .. item.Path)
+			warn(line)
+		else
+			print(line)
 		end
 	end
 	if player and AssetService.Context and AssetService.Context.Services.EconomyService then

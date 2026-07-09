@@ -66,10 +66,9 @@ end
 
 local function announceMilestones(context, percent)
 	local thresholds = {
-		{ Key = 25, Text = "The Void is getting hungry..." },
-		{ Key = 50, Text = "The Void is rumbling." },
-		{ Key = 75, Text = "The Void is almost awake!" },
-		{ Key = 100, Text = "The Void is full." },
+		{ Key = 25, Text = "The Void is getting hungry...", VFX = "Void.Hunger25" },
+		{ Key = 50, Text = "The Void is rumbling.", VFX = "Void.Hunger50" },
+		{ Key = 75, Text = "The Void is almost awake!", VFX = "Void.Hunger75" },
 	}
 	for _, threshold in ipairs(thresholds) do
 		if percent >= threshold.Key and not announced[threshold.Key] then
@@ -79,7 +78,7 @@ local function announceMilestones(context, percent)
 				context.Services.AudioService.PlayForAll("Void.Rumble", "World", centralVoidTarget(), { MinInterval = 0.6 })
 			end
 			if context.Services.VFXService then
-				context.Services.VFXService.PlayForAll("Void.Rumble", {
+				context.Services.VFXService.PlayForAll(threshold.VFX, {
 					Mode = "World",
 					Target = centralVoidTarget(),
 					Text = threshold.Text,
@@ -98,19 +97,23 @@ local function startEventCharge(context, player, item)
 	local config = context.Config.GameConfig
 	local duration = tonumber(config.VoidEventChargeDuration) or 4
 	if config.DebugFastVoid then
-		duration = math.min(duration, 1)
+		duration = math.min(duration, 1.5)
 	end
-	chargeEndsAt = os.time() + math.max(1, math.floor(duration))
+	chargeEndsAt = os.time() + math.max(1, math.ceil(duration))
 	local target = centralVoidTarget()
-	context.Services.EconomyService.NotifyAll("The Void is choosing an event...")
+	local queuedEventName = context.Services.EventService.GetRandomEventName and context.Services.EventService.GetRandomEventName() or nil
+	if context.Services.EventService.SetChargeState then
+		context.Services.EventService.SetChargeState(true, queuedEventName, chargeEndsAt)
+	end
+	context.Services.EconomyService.NotifyAll("THE VOID IS WAKING UP...")
 	if context.Services.AudioService then
 		context.Services.AudioService.PlayForAll("Void.Rumble", "World", target, { NoThrottle = true })
 	end
 	if context.Services.VFXService then
-		context.Services.VFXService.PlayForAll("Void.EventCharge", {
+		context.Services.VFXService.PlayForAll("Void.Charging", {
 			Mode = "World",
 			Target = target,
-			Text = "The Void is choosing an event...",
+			Text = "THE VOID IS WAKING UP...",
 			Player = player,
 			ItemName = item and item.DisplayName or nil,
 			NoThrottle = true,
@@ -125,8 +128,15 @@ local function startEventCharge(context, player, item)
 		announced = {}
 		charging = false
 		chargeEndsAt = 0
+		if context.Services.EventService.SetChargeState then
+			context.Services.EventService.SetChargeState(false, nil, 0)
+		end
 		updateBillboard()
-		context.Services.EventService.StartRandomEvent()
+		if queuedEventName then
+			context.Services.EventService.StartEvent(queuedEventName)
+		else
+			context.Services.EventService.StartRandomEvent()
+		end
 		context.Services.EconomyService.SyncAll()
 	end)
 end
@@ -158,14 +168,17 @@ function VoidService.PlayReaction(percent, player)
 	local context = VoidService.Context
 	local thresholdPercent = math.clamp(tonumber(percent) or 50, 0, 100)
 	local text = "The Void is rumbling."
+	local vfxKey = "Void.Hunger50"
 	if thresholdPercent >= 75 then
 		text = "The Void is almost awake!"
+		vfxKey = "Void.Hunger75"
 	elseif thresholdPercent >= 25 then
 		text = "The Void is getting hungry..."
+		vfxKey = "Void.Hunger25"
 	end
 	context.Services.EconomyService.NotifyAll(text)
 	if context.Services.VFXService then
-		context.Services.VFXService.PlayForAll("Void.Rumble", {
+		context.Services.VFXService.PlayForAll(vfxKey, {
 			Mode = "World",
 			Target = centralVoidTarget(),
 			Text = text,
@@ -197,9 +210,8 @@ function VoidService.AddHunger(player, amount, item)
 	end
 	if hunger >= required then
 		hunger = required
-		announceMilestones(context, 100)
+		announceMilestones(context, 99)
 		updateBillboard()
-		context.Services.EconomyService.NotifyAll("The Void is full. Something strange begins.")
 		startEventCharge(context, player, item)
 	else
 		announceMilestones(context, (hunger / required) * 100)

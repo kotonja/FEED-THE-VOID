@@ -6,7 +6,6 @@ local FTWAssetManifest = {
 	Assets = {
 		FTW_TheVoid = { Key = "TheVoid", Folder = "Void", Path = "ReplicatedStorage.Assets.Models.Void.FTW_TheVoid" },
 		FTW_Voidmite = { Key = "Voidmite", Folder = "Creatures", Path = "ReplicatedStorage.Assets.Models.Creatures.FTW_Voidmite" },
-		FTW_VoidlingPet = { Key = "VoidlingPet", Folder = "Creatures", Path = "ReplicatedStorage.Assets.Models.Creatures.FTW_VoidlingPet" },
 		FTW_SeedCapsule_Generic = { Key = "SeedCapsuleGeneric", Folder = "Seeds", Path = "ReplicatedStorage.Assets.Models.Seeds.FTW_SeedCapsule_Generic" },
 		FTW_SnackSprout_Generic = { Key = "SnackSproutGeneric", Folder = "Growth", Path = "ReplicatedStorage.Assets.Models.Growth.FTW_SnackSprout_Generic" },
 		FTW_SnackBud_Generic = { Key = "SnackBudGeneric", Folder = "Growth", Path = "ReplicatedStorage.Assets.Models.Growth.FTW_SnackBud_Generic" },
