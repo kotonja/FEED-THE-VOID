@@ -147,8 +147,19 @@ local function targetSnackMaxSize(snackId, mutationId, stage, displayScale, size
 	local mutation = getMutationConfig(mutationId)
 	local mutationScale = mutation and mutation.ScaleMultiplier or 1
 	local sizeScale = tonumber(sizeMultiplier) or (sizeConfig and sizeConfig.GetSizeMultiplier(sizeTier)) or 1
+	if sizeConfig then
+		local sizeItem = {
+			SizeTier = sizeTier,
+			SizeMultiplier = sizeScale,
+		}
+		if (displayScale or 1) < 1 then
+			sizeScale = sizeConfig.GetDisplayVisualScale(sizeItem, gameConfig.MaxDisplaySnackVisualScale)
+		else
+			sizeScale = sizeConfig.GetPlateVisualScale(sizeItem, gameConfig.MaxPlateSnackVisualScale)
+		end
+	end
 	local target = baseMax * visualScale * stageScaleFor(stage or 3) * mutationScale * sizeScale * (displayScale or 1)
-	local cap = (displayScale or 1) < 1 and (gameConfig.MaxDisplaySnackVisualScale or 2.8) or (gameConfig.MaxPlateSnackVisualScale or 3.5)
+	local cap = (displayScale or 1) < 1 and (gameConfig.MaxDisplaySnackVisualScale or 4) or (gameConfig.MaxPlateSnackVisualScale or 6)
 	return math.clamp(target, 0.85, cap)
 end
 
@@ -1126,7 +1137,13 @@ function SnackService.FeedVoid(player, itemId)
 	local fromPosition = root and (root.Position + Vector3.new(0, 2.4, 0)) or (feedStation and feedStation.Position) or nil
 	local feedEffectKey = (sizeConfig() and sizeConfig().FeedEffectKey(item, fedSnackConfig, context.Config.RarityConfig)) or (isRareFeed and "Void.FeedRare" or "Void.FeedNormal")
 	local targetPos = targetPosition(voidTarget)
-	local feedIntensity = math.clamp((tonumber(item.SizeMultiplier) or 1) / 1.2, 0.85, tonumber(context.Config.GameConfig.MaxFeedVisualScale) or 3.8)
+	local feedIntensity = sizeConfig() and sizeConfig().GetFeedVisualScale(item, context.Config.GameConfig.MaxFeedVisualScale) or math.clamp((tonumber(item.SizeMultiplier) or 1) / 1.2, 0.85, tonumber(context.Config.GameConfig.MaxFeedVisualScale) or 7)
+	if context.Services.WorldSpectacleService then
+		context.Services.WorldSpectacleService.PlayFeedSequence(player, item, fromPosition, voidTarget, {
+			Percent = math.clamp((context.Services.VoidService.GetHunger() / math.max(1, context.Services.VoidService.GetRequired())) * 100, 20, 100),
+			Lifetime = 7,
+		})
+	end
 	fireEffectAll(feedEffectKey, voidTarget, {
 		Player = player,
 		PlayerUserId = player.UserId,

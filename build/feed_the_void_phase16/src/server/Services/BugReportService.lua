@@ -309,6 +309,7 @@ function BugReportService.PrivateTestCheck(player)
 	local health = context.Services.HealthCheckService.GetLastSummary()
 	local smoke = context.Services.SmokeTestService.GetLastSummary()
 	local first10 = context.Services.SmokeTestService.GetLastFirst10Summary and context.Services.SmokeTestService.GetLastFirst10Summary() or nil
+	local spectacle = context.Services.SmokeTestService.GetLastSpectacleSummary and context.Services.SmokeTestService.GetLastSpectacleSummary() or nil
 	local audio = context.Services.AudioService.GetConfigStats()
 	local vfx = context.Services.VFXService.GetConfigStats()
 	local assetReport = context.Services.AssetService.GetLastAssetReport and context.Services.AssetService.GetLastAssetReport() or nil
@@ -333,7 +334,8 @@ function BugReportService.PrivateTestCheck(player)
 	if not spotsFolder() or #spotsFolder():GetChildren() < 5 then table.insert(warnings, "Screenshot spots incomplete") end
 	if not health then table.insert(warnings, "HealthCheck has not run yet") elseif (health.Failed or 0) > 0 then table.insert(critical, "HealthCheck has failures: " .. tostring(health.Failed)) end
 	if not smoke then table.insert(warnings, "SmokeTest has not run yet") elseif (smoke.Failed or 0) > 0 then table.insert(critical, "SmokeTest has failures: " .. tostring(smoke.Failed)) end
-	if not first10 then table.insert(warnings, "First10Check has not run yet") elseif (first10.Failed or 0) > 0 then table.insert(critical, "First10Check has failures: " .. tostring(first10.Failed)) end
+	if not first10 then table.insert(critical, "First10Check has not run yet") elseif (first10.Failed or 0) > 0 then table.insert(critical, "First10Check has failures: " .. tostring(first10.Failed)) end
+	if not spectacle then table.insert(critical, "SpectacleCheck has not run yet") elseif (spectacle.Failed or 0) > 0 then table.insert(critical, "SpectacleCheck has failures: " .. tostring(spectacle.Failed)) end
 	if audio.Valid <= 0 or audio.Malformed > 0 or audio.BadVolume > 0 then table.insert(critical, "Audio config has invalid mix data") end
 	if vfx.Configured < 20 or vfx.UnknownAliases > 0 then table.insert(critical, "VFX config has invalid keys or aliases") end
 	if not assetReport then
@@ -352,6 +354,7 @@ function BugReportService.PrivateTestCheck(player)
 	print("HealthCheck status: " .. summaryState(health))
 	print("SmokeTest status: " .. summaryState(smoke))
 	print("First10Check status: " .. summaryState(first10))
+	print("SpectacleCheck status: " .. summaryState(spectacle))
 	print("Audio valid? " .. tostring(audio.Valid) .. " valid, " .. tostring(audio.Disabled) .. " disabled, " .. tostring(audio.Malformed) .. " malformed")
 	print("VFX valid? keys=" .. tostring(vfx.Configured) .. " cap=" .. tostring(vfx.MaxTemporaryEffects) .. " badAliases=" .. tostring(vfx.UnknownAliases))
 	print("Asset status: organized=" .. tostring(assetReport and assetReport.Organized or "?") .. " loose=" .. tostring(assetReport and assetReport.Loose or "?") .. " missing=" .. tostring(assetReport and assetReport.Missing or "?") .. " total=" .. tostring(assetReport and assetReport.Total or "?"))
@@ -380,6 +383,7 @@ function BugReportService.PrivateTestCheck(player)
 		Health = health,
 		Smoke = smoke,
 		First10 = first10,
+		Spectacle = spectacle,
 		AssetReport = assetReport,
 		MobileWarnings = mobileWarnings,
 	}

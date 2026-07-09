@@ -35,7 +35,11 @@ local function centralWaypoint(index, count)
 	return Vector3.new(math.cos(angle) * radius, 5.2, math.sin(angle) * radius)
 end
 
-local function stylePhantom(model)
+local function stylePhantom(model, index)
+	if PhantomSnackService.Context.Services.WorldSpectacleService then
+		PhantomSnackService.Context.Services.WorldSpectacleService.StylePhantomModel(model, index)
+		return
+	end
 	for _, child in ipairs(model:GetDescendants()) do
 		if child:IsA("BasePart") then
 			child.Transparency = math.max(child.Transparency, 0.34)
@@ -72,11 +76,19 @@ local function moveLoop(context, model, token)
 			local target = centralWaypoint(point + math.random(1, 5), 9)
 			local distance = (part.Position - target).Magnitude
 			local duration = math.clamp(distance / 13, 1.25, 3.5)
-			local tween = TweenService:Create(part, TweenInfo.new(duration, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
-				CFrame = CFrame.new(target),
-			})
-			tween:Play()
-			tween.Completed:Wait()
+			local startPivot = model:IsA("Model") and model:GetPivot() or part.CFrame
+			local steps = math.max(18, math.floor(duration / 0.035))
+			for step = 1, steps do
+				if not model.Parent or not active[model] or eventToken ~= token then
+					return
+				end
+				local alpha = step / steps
+				local eased = TweenService:GetValue(alpha, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+				local pos = startPivot.Position:Lerp(target, eased)
+				local bob = math.sin(alpha * math.pi * 2) * 1.15
+				context.Services.AssetService.SetModelCFrame(model, CFrame.new(pos + Vector3.new(0, bob, 0)) * CFrame.Angles(0, alpha * math.pi * 2, 0))
+				task.wait(0.035)
+			end
 			task.wait(0.2)
 		end
 	end)
@@ -151,9 +163,15 @@ function PhantomSnackService.SpawnForEvent(duration)
 		model:SetAttribute("RarePhantom", index == 1)
 		model.Parent = folder
 		context.Services.AssetService.SetModelCFrame(model, CFrame.new(centralWaypoint(index, count + 2)))
-		context.Services.AssetService.ScaleToTargetSize(model, Vector3.new(3.2, 3.2, 3.2))
-		stylePhantom(model)
-		context.Services.AssetService.AddBillboard(model, "Phantom Snack", Vector3.new(0, 2.7, 0))
+		if context.Services.AssetService.ScaleToTargetMaxDimension then
+			context.Services.AssetService.ScaleToTargetMaxDimension(model, 5.2)
+		else
+			context.Services.AssetService.ScaleToTargetSize(model, Vector3.new(5.2, 5.2, 5.2))
+		end
+		stylePhantom(model, index)
+		if not context.Services.WorldSpectacleService then
+			context.Services.AssetService.AddBillboard(model, "Phantom Snack", Vector3.new(0, 2.7, 0))
+		end
 		local prompt = context.Services.AssetService.AddProximityPrompt(model, "Phantom Snack", "Catch")
 		if prompt then
 			prompt.MaxActivationDistance = distanceValue("Phantom", 14)

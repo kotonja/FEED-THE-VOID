@@ -366,6 +366,21 @@ function AssetService.ScaleToTargetSize(model, targetSize)
 	return finalSize
 end
 
+function AssetService.ScaleToTargetMaxDimension(model, targetMaxDimension)
+	targetMaxDimension = tonumber(targetMaxDimension)
+	if not targetMaxDimension or targetMaxDimension <= 0 then
+		local _, currentSize = AssetService.GetBoundingBox(model)
+		return currentSize
+	end
+	local _, size = AssetService.GetBoundingBox(model)
+	local currentMax = math.max(size.X, size.Y, size.Z)
+	if currentMax > 0.01 then
+		AssetService.ScaleModel(model, targetMaxDimension / currentMax)
+	end
+	local _, finalSize = AssetService.GetBoundingBox(model)
+	return finalSize
+end
+
 function AssetService.ApplySafeModelSetup(model, options)
 	options = type(options) == "table" and options or {}
 	local category = options.Category

@@ -79,6 +79,7 @@ local serviceOrder = {
 	"SettingsService",
 	"AudioService",
 	"VFXService",
+	"WorldSpectacleService",
 	"EconomyService",
 	"InventoryService",
 	"PlotService",
@@ -444,12 +445,86 @@ local function runDebugCommand(player, commandText)
 		else
 			context.Services.EconomyService.Notify(player, "SizeConfig missing.")
 		end
+	elseif command == "scalecheck" then
+		local sizeConfig = context.Config.SizeConfig
+		if sizeConfig then
+			local parts = {}
+			for _, tierId in ipairs(sizeConfig.Order) do
+				local tier = sizeConfig.Tiers[tierId]
+				table.insert(parts, string.format(
+					"%s=value %.2f plate %.2f display %.2f feed %.2f",
+					tierId,
+					tonumber(tier.ScaleMultiplier) or 1,
+					sizeConfig.GetPlateVisualScale(tierId, context.Config.GameConfig.MaxPlateSnackVisualScale),
+					sizeConfig.GetDisplayVisualScale(tierId, context.Config.GameConfig.MaxDisplaySnackVisualScale),
+					sizeConfig.GetFeedVisualScale(tierId, context.Config.GameConfig.MaxFeedVisualScale)
+				))
+			end
+			print("[FEED THE VOID][ScaleCheck] caps plate=" .. tostring(context.Config.GameConfig.MaxPlateSnackVisualScale) .. " display=" .. tostring(context.Config.GameConfig.MaxDisplaySnackVisualScale) .. " feed=" .. tostring(context.Config.GameConfig.MaxFeedVisualScale))
+			print("[FEED THE VOID][ScaleCheck] " .. table.concat(parts, " | "))
+			context.Services.EconomyService.Notify(player, "Scale check printed to Output.")
+		end
+	elseif command == "sizevisualcheck" then
+		local count = context.Services.WorldSpectacleService and context.Services.WorldSpectacleService.SpawnSizeVisualCheck(player) or 0
+		context.Services.EconomyService.Notify(player, "Size visual previews: " .. tostring(count))
 	elseif command == "testfeed" then
-		local snackId = a ~= "" and a or "CookieRock"
-		local mutationId = b ~= "" and b or "Normal"
-		local sizeTier = c ~= "" and c or "Huge"
-		runDebugCommand(player, "!giveitem " .. snackId .. " " .. mutationId .. " " .. sizeTier)
-		context.Services.EconomyService.Notify(player, "Debug feed item added. Stand by The Void and press FEED.")
+		local sizeConfig = context.Config.SizeConfig
+		local snackId = "CookieRock"
+		local mutationId = "Normal"
+		local sizeTier = "Voidborn"
+		if a ~= "" then
+			local normalizedTier = sizeConfig and sizeConfig.NormalizeTier(a) or "Regular"
+			if sizeConfig and sizeConfig.Tiers[normalizedTier] and not context.Config.SnackConfig[a] then
+				sizeTier = normalizedTier
+				if b ~= "" and context.Config.MutationConfig[b] then
+					mutationId = b
+				end
+			else
+				snackId = a
+				mutationId = b ~= "" and b or "Normal"
+				sizeTier = c ~= "" and (sizeConfig and sizeConfig.NormalizeTier(c) or c) or "Voidborn"
+			end
+		end
+		if not context.Config.SnackConfig[snackId] then
+			snackId = "CookieRock"
+		end
+		local snack = context.Config.SnackConfig[snackId] or context.Config.SnackConfig.CookieRock
+		local mutation = context.Config.MutationConfig[mutationId] or context.Config.MutationConfig.Normal
+		local item = {
+			UniqueId = game:GetService("HttpService"):GenerateGUID(false),
+			SnackId = snackId,
+			MutationId = mutationId,
+			DisplayName = ((mutationId ~= "Normal" and mutation.DisplayName .. " " or "") .. (snack and snack.DisplayName or snackId)),
+			ValueMultiplier = mutation.ValueMultiplier or 1,
+			SizeTier = sizeTier,
+			Locked = false,
+		}
+		if sizeConfig and snack then
+			sizeConfig.ApplyToItem(item, snack, sizeTier)
+		end
+		local _, voidValue = context.Services.EconomyService.ComputeItemValues(player, item)
+		item.EstimatedVoidValue = voidValue
+		local root = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+		local startPosition = root and (root.Position + root.CFrame.LookVector * 3 + Vector3.new(0, 2.4, 0)) or nil
+		local world = workspace:FindFirstChild("GameWorld")
+		local central = world and world:FindFirstChild("CentralVoid")
+		local voidTarget = central and (central:FindFirstChild("FeedStation") or central:FindFirstChild("VoidCore") or central)
+		if context.Services.WorldSpectacleService then
+			context.Services.WorldSpectacleService.PlayFeedSequence(player, item, startPosition, voidTarget, {
+				Percent = 75,
+				Lifetime = 7,
+			})
+		end
+		local cap = math.max(1, math.floor(context.Services.VoidService.GetRequired() * (tonumber(context.Config.GameConfig.MaxSingleFeedHungerPercent) or 0.35)))
+		item.HungerContribution = math.min(math.max(1, voidValue), cap)
+		context.Services.VoidService.AddHunger(player, item.HungerContribution, item)
+		print("[FEED THE VOID][TestFeed] snack=" .. tostring(snackId) .. " mutation=" .. tostring(mutationId) .. " size=" .. tostring(sizeTier) .. " visualFeed=" .. tostring(sizeConfig and sizeConfig.GetFeedVisualScale(item, context.Config.GameConfig.MaxFeedVisualScale) or "?") .. " hunger=" .. tostring(item.HungerContribution))
+		context.Services.EconomyService.Notify(player, "Debug feed spectacle spawned: " .. tostring(sizeTier) .. " " .. tostring(snack and snack.DisplayName or snackId) .. ".")
+	elseif command == "feedvisualdebug" then
+		if context.Services.WorldSpectacleService then
+			local evidence = context.Services.WorldSpectacleService.RunSpectacleDiagnostics(player)
+			context.Services.EconomyService.Notify(player, "Feed visual debug: feed=" .. tostring(evidence.FeedClones) .. " props=" .. tostring(evidence.EventProps))
+		end
 	elseif command == "voidfill" then
 		context.Services.VoidService.AddHunger(player, context.Services.VoidService.GetRequired(), { DisplayName = "debug snack", MutationId = "Normal" })
 	elseif command == "event" and a ~= "" then
@@ -467,6 +542,12 @@ local function runDebugCommand(player, commandText)
 		else
 			context.Services.VoidService.PlayReaction(percent, player)
 		end
+	elseif command == "voidcharge" then
+		local eventName = a ~= "" and a or (context.Services.EventService.GetRandomEventName and context.Services.EventService.GetRandomEventName()) or "Random Event"
+		if context.Services.WorldSpectacleService then
+			context.Services.WorldSpectacleService.BeginVoidCharge(tonumber(b) or context.Config.GameConfig.VoidEventChargeDuration or 4, eventName)
+		end
+		context.Services.EconomyService.Notify(player, "Debug Void charge visual spawned.")
 	elseif command == "eventstatus" then
 		context.Services.EventService.PrintStatus(player)
 	elseif command == "endevent" then

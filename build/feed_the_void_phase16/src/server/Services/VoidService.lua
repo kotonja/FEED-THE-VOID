@@ -47,21 +47,23 @@ local function updateBillboard()
 	end
 end
 
-local function pulseVoid()
+local function pulseVoid(percent)
 	local world = workspace:FindFirstChild("GameWorld")
 	local core = world and world:FindFirstChild("CentralVoid") and world.CentralVoid:FindFirstChild("VoidCore")
-	if not core or not core:IsA("BasePart") then
-		return
+	if core and core:IsA("BasePart") then
+		local originalSize = core.Size
+		local grow = TweenService:Create(core, TweenInfo.new(0.18), { Size = originalSize * 1.08 })
+		local shrink = TweenService:Create(core, TweenInfo.new(0.22), { Size = originalSize })
+		grow:Play()
+		grow.Completed:Once(function()
+			if core.Parent then
+				shrink:Play()
+			end
+		end)
 	end
-	local originalSize = core.Size
-	local grow = TweenService:Create(core, TweenInfo.new(0.18), { Size = originalSize * 1.08 })
-	local shrink = TweenService:Create(core, TweenInfo.new(0.22), { Size = originalSize })
-	grow:Play()
-	grow.Completed:Once(function()
-		if core.Parent then
-			shrink:Play()
-		end
-	end)
+	if VoidService.Context.Services.WorldSpectacleService then
+		VoidService.Context.Services.WorldSpectacleService.PulseVoid(percent or 50, "The Void rumbles.")
+	end
 end
 
 local function announceMilestones(context, percent)
@@ -84,6 +86,9 @@ local function announceMilestones(context, percent)
 					Text = threshold.Text,
 					MinInterval = 0.6,
 				})
+			end
+			if context.Services.WorldSpectacleService then
+				context.Services.WorldSpectacleService.PulseVoid(threshold.Key, threshold.Text)
 			end
 		end
 	end
@@ -118,6 +123,9 @@ local function startEventCharge(context, player, item)
 			ItemName = item and item.DisplayName or nil,
 			NoThrottle = true,
 		})
+	end
+	if context.Services.WorldSpectacleService then
+		context.Services.WorldSpectacleService.BeginVoidCharge(duration, queuedEventName)
 	end
 	context.Services.EconomyService.SyncAll()
 	task.delay(duration, function()
@@ -185,6 +193,9 @@ function VoidService.PlayReaction(percent, player)
 			NoThrottle = true,
 		})
 	end
+	if context.Services.WorldSpectacleService then
+		context.Services.WorldSpectacleService.PulseVoid(thresholdPercent, text)
+	end
 	if player then
 		context.Services.EconomyService.Notify(player, "Debug Void reaction at " .. tostring(math.floor(thresholdPercent)) .. "%.")
 	end
@@ -200,7 +211,8 @@ function VoidService.AddHunger(player, amount, item)
 	amount = math.max(0, math.floor(amount or 0))
 	hunger += amount
 	context.Services.EventService.MarkParticipation(player, "FeedVoid")
-	pulseVoid()
+	local percentAfterFeed = (hunger / required) * 100
+	pulseVoid(percentAfterFeed)
 	if item and (item.MutationId == "Glitched" or item.MutationId == "VoidTouched") then
 		context.Services.EconomyService.NotifyAll(player.Name .. " fed The Void a " .. item.DisplayName .. ". The Void is waking up...")
 	elseif item and ((item.EstimatedVoidValue or amount) >= 90 or item.MutationId ~= "Normal") then
@@ -214,7 +226,7 @@ function VoidService.AddHunger(player, amount, item)
 		updateBillboard()
 		startEventCharge(context, player, item)
 	else
-		announceMilestones(context, (hunger / required) * 100)
+		announceMilestones(context, percentAfterFeed)
 		updateBillboard()
 	end
 	context.Services.EconomyService.SyncAll()

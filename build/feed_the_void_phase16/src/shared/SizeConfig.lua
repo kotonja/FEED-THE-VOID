@@ -18,6 +18,9 @@ SizeConfig.Tiers = {
 		Order = 1,
 		Weight = 650,
 		ScaleMultiplier = 1,
+		PlateVisualScale = 1,
+		DisplayVisualScale = 1,
+		FeedVisualScale = 1,
 		ValueMultiplier = 1,
 		ServerAnnounce = false,
 	},
@@ -26,6 +29,9 @@ SizeConfig.Tiers = {
 		Order = 2,
 		Weight = 180,
 		ScaleMultiplier = 1.25,
+		PlateVisualScale = 1.45,
+		DisplayVisualScale = 1.25,
+		FeedVisualScale = 1.5,
 		ValueMultiplier = 1.3,
 		ServerAnnounce = false,
 	},
@@ -34,6 +40,9 @@ SizeConfig.Tiers = {
 		Order = 3,
 		Weight = 90,
 		ScaleMultiplier = 1.6,
+		PlateVisualScale = 2.2,
+		DisplayVisualScale = 1.7,
+		FeedVisualScale = 2.4,
 		ValueMultiplier = 1.9,
 		ServerAnnounce = false,
 	},
@@ -42,6 +51,9 @@ SizeConfig.Tiers = {
 		Order = 4,
 		Weight = 45,
 		ScaleMultiplier = 2.1,
+		PlateVisualScale = 3.1,
+		DisplayVisualScale = 2.2,
+		FeedVisualScale = 3.4,
 		ValueMultiplier = 2.8,
 		ServerAnnounce = false,
 	},
@@ -50,6 +62,9 @@ SizeConfig.Tiers = {
 		Order = 5,
 		Weight = 18,
 		ScaleMultiplier = 2.8,
+		PlateVisualScale = 4.3,
+		DisplayVisualScale = 3.0,
+		FeedVisualScale = 5.0,
 		ValueMultiplier = 4.6,
 		ServerAnnounce = true,
 	},
@@ -58,6 +73,9 @@ SizeConfig.Tiers = {
 		Order = 6,
 		Weight = 3,
 		ScaleMultiplier = 3.5,
+		PlateVisualScale = 5.5,
+		DisplayVisualScale = 3.5,
+		FeedVisualScale = 6.5,
 		ValueMultiplier = 7.6,
 		ServerAnnounce = true,
 	},
@@ -129,7 +147,37 @@ function SizeConfig.GetSizeMultiplier(itemOrTier)
 end
 
 function SizeConfig.GetVisualScale(itemOrTier, cap)
-	local scale = SizeConfig.GetScaleMultiplier(itemOrTier)
+	local scale = SizeConfig.GetPlateVisualScale(itemOrTier)
+	if cap then
+		return math.clamp(scale, 0.75, tonumber(cap) or scale)
+	end
+	return math.max(0.75, scale)
+end
+
+local function getVisualScaleField(itemOrTier, fieldName)
+	local tierId = type(itemOrTier) == "table" and itemOrTier.SizeTier or itemOrTier
+	local tier = SizeConfig.GetTier(tierId)
+	return tonumber(tier[fieldName]) or tonumber(tier.ScaleMultiplier) or 1
+end
+
+function SizeConfig.GetPlateVisualScale(itemOrTier, cap)
+	local scale = getVisualScaleField(itemOrTier, "PlateVisualScale")
+	if cap then
+		return math.clamp(scale, 0.75, tonumber(cap) or scale)
+	end
+	return math.max(0.75, scale)
+end
+
+function SizeConfig.GetDisplayVisualScale(itemOrTier, cap)
+	local scale = getVisualScaleField(itemOrTier, "DisplayVisualScale")
+	if cap then
+		return math.clamp(scale, 0.75, tonumber(cap) or scale)
+	end
+	return math.max(0.75, scale)
+end
+
+function SizeConfig.GetFeedVisualScale(itemOrTier, cap)
+	local scale = getVisualScaleField(itemOrTier, "FeedVisualScale")
 	if cap then
 		return math.clamp(scale, 0.75, tonumber(cap) or scale)
 	end

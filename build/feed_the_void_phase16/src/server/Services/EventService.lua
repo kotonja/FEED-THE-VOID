@@ -101,6 +101,24 @@ end
 
 
 local function spawnEventProp(eventName, labelText, color, assetKey, position, targetSize)
+	if EventService.Context and EventService.Context.Services.WorldSpectacleService then
+		local config = table.clone(EventService.Context.Config.EventConfig[eventName] or {})
+		config.WorldVisualText = config.WorldVisualText or labelText
+		config.ObjectiveText = config.ObjectiveText or labelText
+		config.BannerName = config.BannerName or labelText
+		config.AssetKey = assetKey or config.AssetKey
+		config.EventColor = color or config.EventColor
+		local targetMax = targetSize and math.max(targetSize.X, targetSize.Y, targetSize.Z) or nil
+		local model = EventService.Context.Services.WorldSpectacleService.SpawnEventProp(eventName, config, {
+			Position = position,
+			TargetMaxDimension = targetMax,
+			Duration = eventDuration(config),
+		})
+		if model then
+			eventMaid:GiveTask(model)
+		end
+		return model
+	end
 	local world = workspace:FindFirstChild("GameWorld")
 	local folder = world and world:FindFirstChild("EventObjects")
 	if not folder then
@@ -191,6 +209,13 @@ end
 
 local function spawnWantedSnackPreview(snackId)
 	local context = EventService.Context
+	if context.Services.WorldSpectacleService then
+		local model = context.Services.WorldSpectacleService.SpawnGoldenHungerPreview(snackId)
+		if model then
+			eventMaid:GiveTask(model)
+		end
+		return
+	end
 	local folder = eventObjectsFolder()
 	local snack = context.Config.SnackConfig[snackId]
 	if not folder or not snack then
@@ -216,6 +241,10 @@ local function spawnWantedSnackPreview(snackId)
 end
 
 local function spawnMutationPlateAuras()
+	if EventService.Context and EventService.Context.Services.WorldSpectacleService then
+		EventService.Context.Services.WorldSpectacleService.SpawnMutationPlateAuras()
+		return
+	end
 	local world = workspace:FindFirstChild("GameWorld")
 	local folder = eventObjectsFolder()
 	local plots = world and world:FindFirstChild("Plots")
@@ -250,6 +279,10 @@ local function spawnMutationPlateAuras()
 end
 
 local function spawnVoidInfestationSwarm()
+	if EventService.Context and EventService.Context.Services.WorldSpectacleService then
+		EventService.Context.Services.WorldSpectacleService.SpawnVoidInfestationSwarm()
+		return
+	end
 	local folder = eventObjectsFolder()
 	if not folder then
 		return
@@ -327,27 +360,30 @@ local function spawnSnackRainCrumb(index)
 	if not folder then
 		return
 	end
-	local angle = (index / context.Config.EventConfig.SnackRain.CrumbCount) * math.pi * 2
-	local radius = 16 + (index % 5) * 6
-	local finalPosition = Vector3.new(math.cos(angle) * radius, 2.8, math.sin(angle) * radius)
-	local model = context.Services.AssetService.CloneModel("VoidCrumbPickup")
-	model.Name = "SnackRainCrumb_" .. tostring(index)
-	model:SetAttribute("EventPickup", true)
-	model:SetAttribute("PickupKind", "SnackRainCrumb")
-	model:SetAttribute("EventToken", activeToken)
-	model.Parent = folder
-	context.Services.AssetService.SetModelCFrame(model, CFrame.new(finalPosition + Vector3.new(0, 18 + (index % 5), 0)))
-	task.spawn(function()
-		for step = 1, 16 do
-			if not model.Parent or model:GetAttribute("Collected") then
-				return
+	local model = context.Services.WorldSpectacleService and context.Services.WorldSpectacleService.SpawnSnackRainPickup(index, context.Config.EventConfig.SnackRain.CrumbCount, activeToken) or nil
+	if not model then
+		local angle = (index / context.Config.EventConfig.SnackRain.CrumbCount) * math.pi * 2
+		local radius = 16 + (index % 5) * 6
+		local finalPosition = Vector3.new(math.cos(angle) * radius, 2.8, math.sin(angle) * radius)
+		model = context.Services.AssetService.CloneModel("VoidCrumbPickup")
+		model.Name = "SnackRainCrumb_" .. tostring(index)
+		model:SetAttribute("EventPickup", true)
+		model:SetAttribute("PickupKind", "SnackRainCrumb")
+		model:SetAttribute("EventToken", activeToken)
+		model.Parent = folder
+		context.Services.AssetService.SetModelCFrame(model, CFrame.new(finalPosition + Vector3.new(0, 18 + (index % 5), 0)))
+		task.spawn(function()
+			for step = 1, 16 do
+				if not model.Parent or model:GetAttribute("Collected") then
+					return
+				end
+				local alpha = step / 16
+				local arcY = (1 - alpha) * (18 + (index % 5))
+				context.Services.AssetService.SetModelCFrame(model, CFrame.new(finalPosition + Vector3.new(0, arcY, 0)))
+				task.wait(0.045)
 			end
-			local alpha = step / 16
-			local arcY = (1 - alpha) * (18 + (index % 5))
-			context.Services.AssetService.SetModelCFrame(model, CFrame.new(finalPosition + Vector3.new(0, arcY, 0)))
-			task.wait(0.045)
-		end
-	end)
+		end)
+	end
 	local prompt = context.Services.AssetService.AddProximityPrompt(model, "Snack Rain", "Collect Crumb")
 	local collected = false
 	local function tryCollect(player)
@@ -597,29 +633,29 @@ function EventService.StartEvent(eventName)
 
 	local ok, err = pcall(function()
 		if eventName == "SnackRain" then
-			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "SNACK RAIN", config.EventColor, config.AssetKey or "EventSnackRainCloud", Vector3.new(0, 23, 0), Vector3.new(14, 8, 14))
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "SNACK RAIN", config.EventColor, config.AssetKey or "EventSnackRainCloud", Vector3.new(0, 26, 0), Vector3.new(24, 24, 24))
 			for index = 1, math.min(config.CrumbCount or 0, config.MaxActivePickups or math.huge, limitValue("MaxEventPickups", 60), limitValue("MaxSnackRainPickups", 60)) do
 				spawnSnackRainCrumb(index)
 			end
 		elseif eventName == "VoidInfestation" then
-			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "VOIDMITES SWARM", config.EventColor, config.AssetKey or "EventVoidmiteNest", Vector3.new(0, 6, 0), Vector3.new(12, 8, 12))
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "VOIDMITES SWARM", config.EventColor, config.AssetKey or "EventVoidmiteNest", Vector3.new(0, 5.5, 0), Vector3.new(10, 10, 10))
 			spawnVoidInfestationSwarm()
 			context.Services.EconomyService.NotifyAll(objectiveText)
 			for _ = 1, config.ExtraSpawnPasses or 1 do
 				context.Services.VoidmiteService.SpawnInfestation(true)
 			end
 		elseif eventName == "GoldenHunger" then
-			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "GOLDEN HUNGER", config.EventColor, config.AssetKey or "EventGoldenHungerIdol", Vector3.new(0, 7, 0), Vector3.new(10, 9, 10))
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "GOLDEN HUNGER", config.EventColor, config.AssetKey or "EventGoldenHungerIdol", Vector3.new(0, 7, 0), Vector3.new(10, 10, 10))
 			local order = context.Config.SnackConfig.Order
 			goldenHungerSnackId = order[math.random(1, math.min(#order, 6))]
 			spawnWantedSnackPreview(goldenHungerSnackId)
 			context.Services.EconomyService.NotifyAll("The Void wants " .. context.Config.SnackConfig[goldenHungerSnackId].DisplayName .. "!")
 		elseif eventName == "MutationSurge" then
-			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "MUTATION SURGE", config.EventColor, config.AssetKey or "EventMutationCrystal", Vector3.new(0, 7, 0), Vector3.new(9, 10, 9))
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "MUTATION SURGE", config.EventColor, config.AssetKey or "EventMutationCrystal", Vector3.new(0, 9, 0), Vector3.new(16, 16, 16))
 			spawnMutationPlateAuras()
 			context.Services.EconomyService.NotifyAll(objectiveText)
 		elseif eventName == "PhantomSnackChase" then
-			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "PHANTOM CHASE", config.EventColor, config.AssetKey or "PhantomSnack", Vector3.new(0, 13, 0), Vector3.new(7, 7, 7))
+			spawnEventProp(eventName, config.WorldVisualText or config.BannerName or "PHANTOM CHASE", config.EventColor, config.AssetKey or "PhantomSnack", Vector3.new(0, 11, 0), Vector3.new(5.5, 5.5, 5.5))
 			context.Services.EconomyService.NotifyAll(objectiveText)
 			context.Services.PhantomSnackService.SpawnForEvent(duration)
 		end
@@ -653,6 +689,7 @@ function EventService.GetStatus()
 	for _ in pairs(participants) do
 		participantCount += 1
 	end
+	local spectacle = EventService.Context.Services.WorldSpectacleService and EventService.Context.Services.WorldSpectacleService.GetLiveEvidence() or nil
 	return {
 		ActiveEventName = activeEventName,
 		ActiveEventDisplayName = EventService.GetActiveEventDisplayName(),
@@ -667,6 +704,7 @@ function EventService.GetStatus()
 		IsCharging = isCharging == true,
 		QueuedEventName = queuedEventName,
 		ChargeEndsAt = chargeEndsAt,
+		Spectacle = spectacle,
 	}
 end
 
@@ -715,8 +753,7 @@ function EventService.PlayEventVisual(eventName)
 		return false
 	end
 	if activeEventName then
-		EventService.Context.Services.EconomyService.NotifyAll("Event visual requested, but " .. tostring(activeEventName) .. " is already active.")
-		return false
+		EventService.EndEvent()
 	end
 	return EventService.StartEvent(eventName)
 end

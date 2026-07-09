@@ -73,6 +73,7 @@ local function expectedServices()
 		"SettingsService",
 		"AudioService",
 		"VFXService",
+		"WorldSpectacleService",
 		"EconomyService",
 		"InventoryService",
 		"PlotService",
@@ -192,7 +193,7 @@ function HealthCheckService.Run(player, reason)
 	record(summary, childCount(world and world:FindFirstChild("ScreenshotSpots")) >= 5, "GameWorld.ScreenshotSpots", tostring(childCount(world and world:FindFirstChild("ScreenshotSpots"))) .. " spots")
 	record(summary, central ~= nil, "GameWorld.CentralVoid", central and "present" or "missing")
 	record(summary, central and (central:FindFirstChild("FeedStation") or central:FindFirstChild("VoidCore")) ~= nil, "CentralVoid feed target", central and "checked" or "missing")
-	for _, folderName in ipairs({ "ActiveSnacks", "ActiveVoidmites", "EventObjects", "Stations", "SpawnPoints", "Plots" }) do
+	for _, folderName in ipairs({ "ActiveSnacks", "ActiveVoidmites", "EventObjects", "FeedEffects", "SpectacleObjects", "Stations", "SpawnPoints", "Plots" }) do
 		record(summary, world and world:FindFirstChild(folderName) ~= nil, "GameWorld." .. folderName, world and (world:FindFirstChild(folderName) and "present" or "missing") or "missing")
 	end
 
@@ -257,8 +258,9 @@ function HealthCheckService.Run(player, reason)
 	record(summary, type(gameConfig.PrivateTest) == "table" and gameConfig.PrivateTest.MaxPlayers ~= nil, "PrivateTest config", "configured")
 	record(summary, type(gameConfig.InteractionDistances) == "table" and gameConfig.InteractionDistances.Plate ~= nil, "Interaction distance config", "configured")
 	record(summary, tonumber(gameConfig.VoidEventChargeDuration) ~= nil, "VoidEventChargeDuration", tostring(gameConfig.VoidEventChargeDuration))
-	record(summary, tonumber(gameConfig.MaxPlateSnackVisualScale) == 3.5, "MaxPlateSnackVisualScale", tostring(gameConfig.MaxPlateSnackVisualScale))
-	record(summary, tonumber(gameConfig.MaxDisplaySnackVisualScale) == 2.8, "MaxDisplaySnackVisualScale", tostring(gameConfig.MaxDisplaySnackVisualScale))
+	record(summary, tonumber(gameConfig.MaxPlateSnackVisualScale) == 6, "MaxPlateSnackVisualScale", tostring(gameConfig.MaxPlateSnackVisualScale))
+	record(summary, tonumber(gameConfig.MaxDisplaySnackVisualScale) == 4, "MaxDisplaySnackVisualScale", tostring(gameConfig.MaxDisplaySnackVisualScale))
+	record(summary, tonumber(gameConfig.MaxFeedVisualScale) == 7, "MaxFeedVisualScale", tostring(gameConfig.MaxFeedVisualScale))
 	record(summary, tonumber(gameConfig.MaxSingleFeedHungerPercent) ~= nil, "MaxSingleFeedHungerPercent", tostring(gameConfig.MaxSingleFeedHungerPercent))
 	local shared = ReplicatedStorage:FindFirstChild("Shared")
 	local launchPageConfigModule = shared and shared:FindFirstChild("LaunchPageConfig")
