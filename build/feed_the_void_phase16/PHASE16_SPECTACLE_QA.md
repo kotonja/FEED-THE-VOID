@@ -1,9 +1,9 @@
-# FEED THE VOID Phase 16 Spectacle QA
+# FEED THE VOID Phase 17 Visual Acceptance QA
 
 ## Bridge apply
 - Apply `feed_the_void_phase16_spectacle_overlay.blueprint.json` as an overlay; it does not rebuild `Workspace.GameWorld`.
 - Confirm `ReplicatedStorage.Shared.GameConfig.BuildVersion` is `0.1.0-private`.
-- Confirm `ReplicatedStorage.Shared.GameConfig.Phase` is `16-spectacle`.
+- Confirm `ReplicatedStorage.Shared.GameConfig.Phase` is `17-visual-acceptance`.
 - Confirm `ReplicatedStorage.Shared.SizeConfig` exists and has Regular, Chunky, Huge, Massive, Colossal, and Voidborn tiers.
 - Confirm `ReplicatedStorage.Assets.Models.{Void,Creatures,Seeds,Growth,Snacks,Plot,Stations,Events,Pickups,Rewards}` and `ReplicatedStorage.Assets.Duplicates` exist.
 - Confirm `ServerScriptService.Server.Services.AssetOrganizerService` exists.
@@ -20,7 +20,7 @@
 - Use `!giveitem CookieRock Normal Voidborn`, feed it at The Void, and confirm the snack visibly arcs into the Void before the pulse/reward popup.
 - Fill The Void and confirm a short charge banner/effect appears before the event is revealed.
 - Start SnackRain, MutationSurge, VoidInfestation, GoldenHunger, and PhantomSnackChase with `!eventvisual <EventName>`; imported event props should appear when available and each event should show an objective.
-- Confirm missing FTW_PlaytimeRewardClock, FTW_VoidShardPickup, FTW_UpgradeStation, FTW_RebirthPortal, and FTW_VoidlingPet use fallbacks/warnings only and never crash.
+- Confirm missing FTW_PlaytimeRewardClock, FTW_VoidShardPickup, FTW_UpgradeStation, and FTW_RebirthPortal use fallbacks/warnings only and never crash.
 - Confirm the mobile contextual action button only targets the local player's grow plates and lab stations.
 
 ## Asset organization
@@ -30,4 +30,4 @@
 
 ## Guardrails
 - No paid monetization, unfinished social systems, companion systems, second world, new Meshy dependency, or client-authoritative rewards.
-- Phase 16 is spectacle, size, and event clarity polish only; it does not rebuild the user-made map.
+- Phase 17 is a visual acceptance fix only; it does not rebuild the user-made map or add gameplay systems.

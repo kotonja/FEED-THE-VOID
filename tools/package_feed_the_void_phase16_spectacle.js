@@ -13,6 +13,7 @@ const includeScriptWrites = true;
 
 const c3 = (r, g, b) => ({ __type: "Color3", mode: "rgb", r, g, b });
 const v3 = (x, y, z) => ({ __type: "Vector3", x, y, z });
+const v2 = (x, y) => ({ __type: "Vector2", x, y });
 const ud2 = (xScale, xOffset, yScale, yOffset) => ({
   __type: "UDim2",
   xScale,
@@ -525,6 +526,38 @@ function addScreenshotSpots() {
   });
 }
 
+function addPhase17VisualAcceptanceInstances() {
+  ensureFolder("Workspace.GameWorld.VisualTestObjects");
+  inst("Frame", "StarterGui.MainUI.EventBanner", {
+    Visible: false,
+    AnchorPoint: v2(0.5, 0),
+    Position: ud2(0.5, 0, 0.115, 0),
+    Size: ud2(0.56, 0, 0.125, 0),
+    BackgroundColor3: c3(70, 30, 102),
+    BackgroundTransparency: 0.08,
+    BorderSizePixel: 0,
+  });
+  inst("TextLabel", "StarterGui.MainUI.EventBanner.EventText", {
+    BackgroundTransparency: 1,
+    Position: ud2(0.03, 0, 0.05, 0),
+    Size: ud2(0.94, 0, 0.9, 0),
+    Text: "",
+    TextColor3: c3(255, 246, 210),
+    TextScaled: true,
+    TextWrapped: true,
+    Font: "GothamBlack",
+  });
+  inst("UITextSizeConstraint", "StarterGui.MainUI.EventBanner.EventText.SizeConstraint", {
+    MinTextSize: 12,
+    MaxTextSize: 26,
+  });
+  inst("UIStroke", "StarterGui.MainUI.EventBanner.BannerStroke", {
+    Thickness: 2,
+    Transparency: 0.25,
+    Color: c3(255, 210, 105),
+  });
+}
+
 function addPrivateTestBoards() {
   ensureFolder("Workspace.GameWorld.Stations.PrivateTestBoards");
   const boards = [
@@ -782,12 +815,12 @@ function walkLuaFiles(dir, prefix = "") {
 }
 
 function writeTestingDoc() {
-  fs.writeFileSync(testingPath, `# FEED THE VOID Phase 16 Spectacle QA
+  fs.writeFileSync(testingPath, `# FEED THE VOID Phase 17 Visual Acceptance QA
 
 ## Bridge apply
 - Apply \`feed_the_void_phase16_spectacle_overlay.blueprint.json\` as an overlay; it does not rebuild \`Workspace.GameWorld\`.
 - Confirm \`ReplicatedStorage.Shared.GameConfig.BuildVersion\` is \`0.1.0-private\`.
-- Confirm \`ReplicatedStorage.Shared.GameConfig.Phase\` is \`16-spectacle\`.
+- Confirm \`ReplicatedStorage.Shared.GameConfig.Phase\` is \`17-visual-acceptance\`.
 - Confirm \`ReplicatedStorage.Shared.SizeConfig\` exists and has Regular, Chunky, Huge, Massive, Colossal, and Voidborn tiers.
 - Confirm \`ReplicatedStorage.Assets.Models.{Void,Creatures,Seeds,Growth,Snacks,Plot,Stations,Events,Pickups,Rewards}\` and \`ReplicatedStorage.Assets.Duplicates\` exist.
 - Confirm \`ServerScriptService.Server.Services.AssetOrganizerService\` exists.
@@ -804,7 +837,7 @@ function writeTestingDoc() {
 - Use \`!giveitem CookieRock Normal Voidborn\`, feed it at The Void, and confirm the snack visibly arcs into the Void before the pulse/reward popup.
 - Fill The Void and confirm a short charge banner/effect appears before the event is revealed.
 - Start SnackRain, MutationSurge, VoidInfestation, GoldenHunger, and PhantomSnackChase with \`!eventvisual <EventName>\`; imported event props should appear when available and each event should show an objective.
-- Confirm missing FTW_PlaytimeRewardClock, FTW_VoidShardPickup, FTW_UpgradeStation, FTW_RebirthPortal, and FTW_VoidlingPet use fallbacks/warnings only and never crash.
+- Confirm missing FTW_PlaytimeRewardClock, FTW_VoidShardPickup, FTW_UpgradeStation, and FTW_RebirthPortal use fallbacks/warnings only and never crash.
 - Confirm the mobile contextual action button only targets the local player's grow plates and lab stations.
 
 ## Asset organization
@@ -814,7 +847,7 @@ function writeTestingDoc() {
 
 ## Guardrails
 - No paid monetization, unfinished social systems, companion systems, second world, new Meshy dependency, or client-authoritative rewards.
-- Phase 16 is spectacle, size, and event clarity polish only; it does not rebuild the user-made map.
+- Phase 17 is a visual acceptance fix only; it does not rebuild the user-made map or add gameplay systems.
 `, "utf8");
 }
 
@@ -835,6 +868,7 @@ forceSourceForPrivateTestModules();
 addLaunchReadyUi();
 addPhase10PrivateTestUi();
 addPhase7Ui();
+addPhase17VisualAcceptanceInstances();
 addScreenshotSpots();
 addPrivateTestBoards();
 writeTestingDoc();
@@ -845,12 +879,12 @@ for (const relPath of walkLuaFiles(srcDir)) {
 }
 
 const blueprint = {
-  name: "FEED THE VOID Phase 16 Spectacle Overlay",
+  name: "FEED THE VOID Phase 17 Visual Acceptance Overlay",
   mode: "supervised",
-  description: "Adds Phase 16 macro spectacle, snack size/weight progression, physical feed VFX, Void charge reveal, event objectives, and focused spectacle QA while preserving imported assets and the user-made Workspace.GameWorld.",
+  description: "Adds Phase 17 anchored feed and event visuals, authored visual-test and event-banner instances, and strict player-visible spectacle QA while preserving imported assets and the user-made Workspace.GameWorld.",
   steps,
   metadata: {
-    phase: "16-spectacle",
+    phase: "17-visual-acceptance",
     buildVersion: "0.1.0-private",
     generatedAt: new Date().toISOString(),
     writesScriptSources: includeScriptWrites,

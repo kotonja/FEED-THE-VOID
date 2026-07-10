@@ -29,10 +29,11 @@ local function distanceValue(distanceName, fallback)
 	return tonumber(distances[distanceName]) or fallback
 end
 
-local function centralWaypoint(index, count)
+local function centralWaypoint(index, count, center)
 	local angle = (index / math.max(1, count)) * math.pi * 2
 	local radius = 20 + ((index % 3) * 8)
-	return Vector3.new(math.cos(angle) * radius, 5.2, math.sin(angle) * radius)
+	center = center or Vector3.new(0, 5.2, 0)
+	return center + Vector3.new(math.cos(angle) * radius, 0, math.sin(angle) * radius)
 end
 
 local function stylePhantom(model, index)
@@ -64,7 +65,7 @@ local function primaryPart(context, model)
 	return context.Services.AssetService.EnsurePrimaryPart(model)
 end
 
-local function moveLoop(context, model, token)
+local function moveLoop(context, model, token, center)
 	task.spawn(function()
 		local point = 1
 		while model.Parent and active[model] and eventToken == token do
@@ -73,7 +74,7 @@ local function moveLoop(context, model, token)
 				break
 			end
 			point += 1
-			local target = centralWaypoint(point + math.random(1, 5), 9)
+			local target = centralWaypoint(point + math.random(1, 5), 9, center)
 			local distance = (part.Position - target).Magnitude
 			local duration = math.clamp(distance / 13, 1.25, 3.5)
 			local startPivot = model:IsA("Model") and model:GetPivot() or part.CFrame
@@ -139,12 +140,13 @@ function PhantomSnackService.Cleanup()
 	active = {}
 end
 
-function PhantomSnackService.SpawnForEvent(duration)
+function PhantomSnackService.SpawnForEvent(duration, options)
+	options = type(options) == "table" and options or {}
 	local context = PhantomSnackService.Context
 	if not enabled() then
 		return 0
 	end
-	local folder = getFolder()
+	local folder = options.ParentFolder or getFolder()
 	if not folder then
 		return 0
 	end
@@ -153,7 +155,13 @@ function PhantomSnackService.SpawnForEvent(duration)
 	PhantomSnackService.Cleanup()
 	local players = Players:GetPlayers()
 	local config = context.Config.EventConfig.PhantomSnackChase
-	local count = math.clamp(math.max(1, math.ceil(#players / 2)), 1, math.min(config.MaxActivePhantoms or 5, limitValue("MaxPhantomSnacks", 5), limitValue("MaxPhantoms", 5)))
+	local maxAllowed = math.max(3, math.min(config.MaxActivePhantoms or 5, limitValue("MaxPhantomSnacks", 5), limitValue("MaxPhantoms", 5)))
+	local count = math.clamp(tonumber(options.Count) or math.max(3, math.ceil(#players / 2)), 3, maxAllowed)
+	local center = options.Center
+	if not center and context.Services.WorldSpectacleService then
+		center = context.Services.WorldSpectacleService.GetArenaOrigin() + Vector3.new(0, 7, 0)
+	end
+	center = center or Vector3.new(0, 7, 0)
 	for index = 1, count do
 		local maid = Maid.new()
 		local assetKey = context.Services.AssetService.HasAsset("PhantomSnack") and "PhantomSnack" or "SnackRoundBase"
@@ -161,8 +169,9 @@ function PhantomSnackService.SpawnForEvent(duration)
 		model.Name = "PhantomSnack_" .. tostring(index) .. "_" .. tostring(os.clock()):gsub("%.", "_")
 		model:SetAttribute("PhantomSnack", true)
 		model:SetAttribute("RarePhantom", index == 1)
+		model:SetAttribute("ChaseCenter", center)
 		model.Parent = folder
-		context.Services.AssetService.SetModelCFrame(model, CFrame.new(centralWaypoint(index, count + 2)))
+		context.Services.AssetService.SetModelCFrame(model, CFrame.new(centralWaypoint(index, count + 2, center)))
 		if context.Services.AssetService.ScaleToTargetMaxDimension then
 			context.Services.AssetService.ScaleToTargetMaxDimension(model, 5.2)
 		else
@@ -197,7 +206,7 @@ function PhantomSnackService.SpawnForEvent(duration)
 				MinInterval = 0.12,
 			})
 		end
-		moveLoop(context, model, token)
+		moveLoop(context, model, token, center)
 	end
 	task.delay(duration or 45, function()
 		if eventToken == token then

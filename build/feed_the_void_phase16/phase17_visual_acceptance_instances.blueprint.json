@@ -1,0 +1,170 @@
+{
+  "name": "FEED THE VOID Phase 17 Visual Acceptance Instances",
+  "mode": "supervised",
+  "description": "Creates the real visual-test workspace folder and makes the authored event banner readable as a three-line objective on desktop and mobile.",
+  "steps": [
+    {
+      "type": "ensureFolder",
+      "path": "Workspace.GameWorld.VisualTestObjects"
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.EventBanner",
+      "className": "Frame",
+      "properties": {
+        "Visible": false,
+        "AnchorPoint": {
+          "__type": "Vector2",
+          "x": 0.5,
+          "y": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 0,
+          "yScale": 0.115,
+          "yOffset": 0
+        },
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.56,
+          "xOffset": 0,
+          "yScale": 0.125,
+          "yOffset": 0
+        },
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 30,
+          "b": 102
+        },
+        "BackgroundTransparency": 0.08,
+        "BorderSizePixel": 0
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.EventBanner",
+      "properties": {
+        "Visible": false,
+        "AnchorPoint": {
+          "__type": "Vector2",
+          "x": 0.5,
+          "y": 0
+        },
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.5,
+          "xOffset": 0,
+          "yScale": 0.115,
+          "yOffset": 0
+        },
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.56,
+          "xOffset": 0,
+          "yScale": 0.125,
+          "yOffset": 0
+        },
+        "BackgroundColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 70,
+          "g": 30,
+          "b": 102
+        },
+        "BackgroundTransparency": 0.08,
+        "BorderSizePixel": 0
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.EventBanner.EventText",
+      "className": "TextLabel",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.03,
+          "xOffset": 0,
+          "yScale": 0.05,
+          "yOffset": 0
+        },
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.94,
+          "xOffset": 0,
+          "yScale": 0.9,
+          "yOffset": 0
+        },
+        "Text": "",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 246,
+          "b": 210
+        },
+        "TextScaled": true,
+        "TextWrapped": true
+      }
+    },
+    {
+      "type": "setProperties",
+      "path": "StarterGui.MainUI.EventBanner.EventText",
+      "properties": {
+        "BackgroundTransparency": 1,
+        "Position": {
+          "__type": "UDim2",
+          "xScale": 0.03,
+          "xOffset": 0,
+          "yScale": 0.05,
+          "yOffset": 0
+        },
+        "Size": {
+          "__type": "UDim2",
+          "xScale": 0.94,
+          "xOffset": 0,
+          "yScale": 0.9,
+          "yOffset": 0
+        },
+        "Text": "",
+        "TextColor3": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 246,
+          "b": 210
+        },
+        "TextScaled": true,
+        "TextWrapped": true
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.EventBanner.EventText.SizeConstraint",
+      "className": "UITextSizeConstraint",
+      "properties": {
+        "MinTextSize": 12,
+        "MaxTextSize": 26
+      }
+    },
+    {
+      "type": "ensureInstance",
+      "path": "StarterGui.MainUI.EventBanner.BannerStroke",
+      "className": "UIStroke",
+      "properties": {
+        "Thickness": 2,
+        "Transparency": 0.25,
+        "Color": {
+          "__type": "Color3",
+          "mode": "rgb",
+          "r": 255,
+          "g": 210,
+          "b": 105
+        }
+      }
+    }
+  ]
+}

@@ -59,13 +59,18 @@ function UpgradeService.GetMultiplier(player, upgradeId)
 	return rebirthBoost * (1 + (level * (definition.PerLevel or 0)))
 end
 
-function UpgradeService.GetCost(player, upgradeId)
+function UpgradeService.GetCostForLevel(upgradeId, level)
 	local definition = UpgradeService.GetDefinition(upgradeId)
 	if not definition then
 		return 0
 	end
-	local level = UpgradeService.GetLevel(player, upgradeId)
+	level = math.max(0, math.floor(tonumber(level) or 0))
 	return math.floor(definition.BaseCost * ((level + 1) ^ 2))
+end
+
+function UpgradeService.GetCost(player, upgradeId)
+	local level = UpgradeService.GetLevel(player, upgradeId)
+	return UpgradeService.GetCostForLevel(upgradeId, level)
 end
 
 function UpgradeService.Serialize(player)

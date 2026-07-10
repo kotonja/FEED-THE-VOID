@@ -1,6 +1,6 @@
 local FTWAssetManifest = {
-	Phase = "16-spectacle",
-	Note = "Phase 16 spectacle asset mapping for imported FEED THE VOID models. Runtime code should use AssetReferences keys, not raw paths.",
+	Phase = "17-visual-acceptance",
+	Note = "Phase 17 visual acceptance asset mapping for imported FEED THE VOID models. Runtime code should use AssetReferences keys, not raw paths.",
 	LibraryRoot = "ReplicatedStorage.Assets.Models",
 	DuplicatesRoot = "ReplicatedStorage.Assets.Duplicates",
 	Assets = {

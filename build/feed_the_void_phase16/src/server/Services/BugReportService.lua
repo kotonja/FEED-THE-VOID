@@ -142,7 +142,7 @@ local function collectMobileUiWarnings(player)
 		table.insert(warnings, "NextGoalPanel height is large")
 	end
 	local eventBanner = main:FindFirstChild("EventBanner")
-	if eventBanner and eventBanner.Size.Y.Offset > 46 then
+	if eventBanner and (eventBanner.Size.Y.Scale > 0.16 or eventBanner.Size.Y.Offset > 110) then
 		table.insert(warnings, "EventBanner height is large")
 	end
 	local feedbackButton = main:FindFirstChild("FeedbackButton")
@@ -322,6 +322,11 @@ function BugReportService.PrivateTestCheck(player)
 	local loading = mainUi and mainUi:FindFirstChild("LoadingPanel")
 	local textHits = collectDisallowedUiText(player)
 	local mobileWarnings = collectMobileUiWarnings(player)
+	local firstUpgradeCost = context.Services.UpgradeService.GetCostForLevel and context.Services.UpgradeService.GetCostForLevel("GrowSpeed", 0) or math.huge
+	if spectacle and context.Services.WorldSpectacleService then
+		context.Services.WorldSpectacleService.RunSpectacleDiagnostics(player)
+	end
+	local liveSpectacle = context.Services.WorldSpectacleService and context.Services.WorldSpectacleService.GetLiveEvidence() or nil
 
 	if gameConfig.LaunchMode ~= "PrivateTest" then table.insert(critical, "LaunchMode is " .. tostring(gameConfig.LaunchMode)) end
 	if gameConfig.BuildVersion ~= "0.1.0-private" then table.insert(critical, "BuildVersion is " .. tostring(gameConfig.BuildVersion)) end
@@ -336,6 +341,17 @@ function BugReportService.PrivateTestCheck(player)
 	if not smoke then table.insert(warnings, "SmokeTest has not run yet") elseif (smoke.Failed or 0) > 0 then table.insert(critical, "SmokeTest has failures: " .. tostring(smoke.Failed)) end
 	if not first10 then table.insert(critical, "First10Check has not run yet") elseif (first10.Failed or 0) > 0 then table.insert(critical, "First10Check has failures: " .. tostring(first10.Failed)) end
 	if not spectacle then table.insert(critical, "SpectacleCheck has not run yet") elseif (spectacle.Failed or 0) > 0 then table.insert(critical, "SpectacleCheck has failures: " .. tostring(spectacle.Failed)) end
+	if firstUpgradeCost > 250 then table.insert(critical, "First upgrade cost is too high: " .. tostring(firstUpgradeCost)) end
+	if spectacle and not liveSpectacle then
+		table.insert(critical, "Live spectacle evidence is missing")
+	elseif spectacle and liveSpectacle then
+		if (liveSpectacle.SnackRainClouds or 0) < 1 then table.insert(critical, "SnackRain cloud is not visibly spawned") end
+		if (liveSpectacle.SnackRainFallingPickups or 0) < 10 then table.insert(critical, "SnackRain has fewer than 10 visible falling pickups") end
+		if (liveSpectacle.MutationCrystals or 0) < 1 then table.insert(critical, "MutationCrystal is not visibly spawned") end
+		if (liveSpectacle.VoidmiteNests or 0) < 1 or (liveSpectacle.InfestationVoidmites or 0) < 3 then table.insert(critical, "VoidInfestation nest or visible swarm is missing") end
+		if (liveSpectacle.GoldenHungerIdols or 0) < 1 or (liveSpectacle.GoldenHungerHolograms or 0) < 1 then table.insert(critical, "GoldenHunger idol or wanted snack hologram is missing") end
+		if (liveSpectacle.Phantoms or 0) < 1 then table.insert(critical, "PhantomSnackChase has no visible targets") end
+	end
 	if audio.Valid <= 0 or audio.Malformed > 0 or audio.BadVolume > 0 then table.insert(critical, "Audio config has invalid mix data") end
 	if vfx.Configured < 20 or vfx.UnknownAliases > 0 then table.insert(critical, "VFX config has invalid keys or aliases") end
 	if not assetReport then
@@ -355,6 +371,9 @@ function BugReportService.PrivateTestCheck(player)
 	print("SmokeTest status: " .. summaryState(smoke))
 	print("First10Check status: " .. summaryState(first10))
 	print("SpectacleCheck status: " .. summaryState(spectacle))
+	print("First upgrade cost: " .. tostring(firstUpgradeCost))
+	print("Live spectacle: cloud=" .. tostring(liveSpectacle and liveSpectacle.SnackRainClouds or 0) .. " pickups=" .. tostring(liveSpectacle and liveSpectacle.SnackRainFallingPickups or 0) .. " crystal=" .. tostring(liveSpectacle and liveSpectacle.MutationCrystals or 0) .. " nest=" .. tostring(liveSpectacle and liveSpectacle.VoidmiteNests or 0) .. " swarm=" .. tostring(liveSpectacle and liveSpectacle.InfestationVoidmites or 0) .. " idol=" .. tostring(liveSpectacle and liveSpectacle.GoldenHungerIdols or 0) .. " hologram=" .. tostring(liveSpectacle and liveSpectacle.GoldenHungerHolograms or 0) .. " phantoms=" .. tostring(liveSpectacle and liveSpectacle.Phantoms or 0))
+	print("Private test blocker count: " .. tostring(#critical))
 	print("Audio valid? " .. tostring(audio.Valid) .. " valid, " .. tostring(audio.Disabled) .. " disabled, " .. tostring(audio.Malformed) .. " malformed")
 	print("VFX valid? keys=" .. tostring(vfx.Configured) .. " cap=" .. tostring(vfx.MaxTemporaryEffects) .. " badAliases=" .. tostring(vfx.UnknownAliases))
 	print("Asset status: organized=" .. tostring(assetReport and assetReport.Organized or "?") .. " loose=" .. tostring(assetReport and assetReport.Loose or "?") .. " missing=" .. tostring(assetReport and assetReport.Missing or "?") .. " total=" .. tostring(assetReport and assetReport.Total or "?"))
@@ -384,6 +403,8 @@ function BugReportService.PrivateTestCheck(player)
 		Smoke = smoke,
 		First10 = first10,
 		Spectacle = spectacle,
+		FirstUpgradeCost = firstUpgradeCost,
+		LiveSpectacle = liveSpectacle,
 		AssetReport = assetReport,
 		MobileWarnings = mobileWarnings,
 	}

@@ -193,7 +193,7 @@ function HealthCheckService.Run(player, reason)
 	record(summary, childCount(world and world:FindFirstChild("ScreenshotSpots")) >= 5, "GameWorld.ScreenshotSpots", tostring(childCount(world and world:FindFirstChild("ScreenshotSpots"))) .. " spots")
 	record(summary, central ~= nil, "GameWorld.CentralVoid", central and "present" or "missing")
 	record(summary, central and (central:FindFirstChild("FeedStation") or central:FindFirstChild("VoidCore")) ~= nil, "CentralVoid feed target", central and "checked" or "missing")
-	for _, folderName in ipairs({ "ActiveSnacks", "ActiveVoidmites", "EventObjects", "FeedEffects", "SpectacleObjects", "Stations", "SpawnPoints", "Plots" }) do
+	for _, folderName in ipairs({ "ActiveSnacks", "ActiveVoidmites", "EventObjects", "FeedEffects", "SpectacleObjects", "VisualTestObjects", "Stations", "SpawnPoints", "Plots" }) do
 		record(summary, world and world:FindFirstChild(folderName) ~= nil, "GameWorld." .. folderName, world and (world:FindFirstChild(folderName) and "present" or "missing") or "missing")
 	end
 

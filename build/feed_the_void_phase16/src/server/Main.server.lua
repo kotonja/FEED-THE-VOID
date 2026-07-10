@@ -465,9 +465,11 @@ local function runDebugCommand(player, commandText)
 			context.Services.EconomyService.Notify(player, "Scale check printed to Output.")
 		end
 	elseif command == "sizevisualcheck" then
+		context.Services.EventService.ClearVisualTests()
 		local count = context.Services.WorldSpectacleService and context.Services.WorldSpectacleService.SpawnSizeVisualCheck(player) or 0
 		context.Services.EconomyService.Notify(player, "Size visual previews: " .. tostring(count))
 	elseif command == "testfeed" then
+		context.Services.EventService.ClearVisualTests()
 		local sizeConfig = context.Config.SizeConfig
 		local snackId = "CookieRock"
 		local mutationId = "Normal"
@@ -512,16 +514,19 @@ local function runDebugCommand(player, commandText)
 		if context.Services.WorldSpectacleService then
 			context.Services.WorldSpectacleService.PlayFeedSequence(player, item, startPosition, voidTarget, {
 				Percent = 75,
-				Lifetime = 7,
+				Lifetime = 9,
+				DebugVisual = true,
+				ParentFolder = context.Services.WorldSpectacleService.GetVisualTestFolder(),
+				RewardText = "+" .. tostring(voidValue) .. " VOID VALUE",
 			})
 		end
 		local cap = math.max(1, math.floor(context.Services.VoidService.GetRequired() * (tonumber(context.Config.GameConfig.MaxSingleFeedHungerPercent) or 0.35)))
 		item.HungerContribution = math.min(math.max(1, voidValue), cap)
-		context.Services.VoidService.AddHunger(player, item.HungerContribution, item)
-		print("[FEED THE VOID][TestFeed] snack=" .. tostring(snackId) .. " mutation=" .. tostring(mutationId) .. " size=" .. tostring(sizeTier) .. " visualFeed=" .. tostring(sizeConfig and sizeConfig.GetFeedVisualScale(item, context.Config.GameConfig.MaxFeedVisualScale) or "?") .. " hunger=" .. tostring(item.HungerContribution))
+		print("[FEED THE VOID][TestFeed] snack=" .. tostring(snackId) .. " mutation=" .. tostring(mutationId) .. " size=" .. tostring(sizeTier) .. " simulatedHunger=" .. tostring(item.HungerContribution))
 		context.Services.EconomyService.Notify(player, "Debug feed spectacle spawned: " .. tostring(sizeTier) .. " " .. tostring(snack and snack.DisplayName or snackId) .. ".")
 	elseif command == "feedvisualdebug" then
 		if context.Services.WorldSpectacleService then
+			context.Services.EventService.ClearVisualTests()
 			local evidence = context.Services.WorldSpectacleService.RunSpectacleDiagnostics(player)
 			context.Services.EconomyService.Notify(player, "Feed visual debug: feed=" .. tostring(evidence.FeedClones) .. " props=" .. tostring(evidence.EventProps))
 		end
@@ -530,7 +535,10 @@ local function runDebugCommand(player, commandText)
 	elseif command == "event" and a ~= "" then
 		context.Services.EventService.StartEvent(a)
 	elseif command == "eventvisual" and a ~= "" then
-		context.Services.EventService.PlayEventVisual(a)
+		context.Services.EventService.PlayEventVisual(a, player)
+	elseif command == "clearvisualtests" then
+		context.Services.EventService.ClearVisualTests()
+		context.Services.EconomyService.Notify(player, "Visual test objects cleared.")
 	elseif command == "voidreaction" then
 		local percent = tonumber(a) or 50
 		if percent >= 100 then
@@ -866,4 +874,4 @@ for _, player in ipairs(Players:GetPlayers()) do
 	task.spawn(setupPlayer, player)
 end
 
-print("[FEED THE VOID] Phase 16 spectacle server loaded.")
+print("[FEED THE VOID] Phase 17 visual acceptance server loaded.")

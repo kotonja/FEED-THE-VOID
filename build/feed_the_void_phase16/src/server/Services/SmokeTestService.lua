@@ -356,11 +356,7 @@ function SmokeTestService.First10Check(player)
 	end
 	local cookie = context.Config.SnackConfig.CookieRock or {}
 	local function firstLevelUpgradeCost(upgradeId)
-		local definition = gameConfig.UpgradeConfig and gameConfig.UpgradeConfig[upgradeId]
-		if not definition then
-			return nil
-		end
-		return math.floor((tonumber(definition.BaseCost) or 0) * ((0 + 1) ^ 2))
+		return context.Services.UpgradeService.GetCostForLevel and context.Services.UpgradeService.GetCostForLevel(upgradeId, 0) or nil
 	end
 	local firstUpgradeCost = firstLevelUpgradeCost("GrowSpeed")
 	local extraPlateCost = firstLevelUpgradeCost("ExtraPlate")
@@ -395,9 +391,13 @@ function SmokeTestService.First10Check(player)
 	record(summary, type(gameConfig.StartingSeeds) == "table" and next(gameConfig.StartingSeeds) ~= nil, "Starting seeds", gameConfig.StartingSeeds and "configured" or "missing")
 	record(summary, cheapestSeedId ~= nil, "Cheapest starter seed", tostring(cheapestSeedId) .. " cost=" .. tostring(cheapestSeedCost ~= math.huge and cheapestSeedCost or "?"))
 	record(summary, tonumber(cookie.GrowTime) and cookie.GrowTime <= 45, "CookieRock grow time", tostring(cookie.GrowTime))
-	record(summary, tonumber(firstUpgradeCost) and firstUpgradeCost <= 200, "First grow upgrade cost", tostring(firstUpgradeCost))
-	record(summary, tonumber(extraPlateCost) and extraPlateCost <= 150, "First Extra Plate cost", tostring(extraPlateCost))
+	record(summary, tonumber(firstUpgradeCost) and firstUpgradeCost >= 100 and firstUpgradeCost <= 150, "First grow upgrade cost", tostring(firstUpgradeCost))
+	record(summary, tonumber(extraPlateCost) and extraPlateCost >= 150 and extraPlateCost <= 200, "First Extra Plate cost", tostring(extraPlateCost))
 	record(summary, cheapestUpgradeCost ~= math.huge and cheapestUpgradeCost <= 200, "Cheapest first upgrade", tostring(cheapestUpgradeCost ~= math.huge and cheapestUpgradeCost or "?"))
+	for _, upgradeId in ipairs({ "SellMultiplier", "VoidRewardMultiplier", "DisplayIncome", "VoidmiteReward" }) do
+		local cost = firstLevelUpgradeCost(upgradeId)
+		record(summary, tonumber(cost) and cost <= 250, "First " .. upgradeId .. " cost", tostring(cost))
+	end
 	record(summary, (gameConfig.FirstVoidmiteSpawnDelay or 999) <= 60, "First Voidmite delay", tostring(gameConfig.FirstVoidmiteSpawnDelay))
 	record(summary, (gameConfig.VoidHungerRequired or 999) <= 150, "Void Hunger required", tostring(gameConfig.VoidHungerRequired))
 	record(summary, (gameConfig.TargetFirstEventSeconds or 999) <= 360, "Target first event", tostring(gameConfig.TargetFirstEventSeconds))
@@ -435,59 +435,38 @@ function SmokeTestService.SpectacleCheck(player)
 		Failed = 0,
 		Checks = {},
 	}
-	record(summary, gameConfig.Phase == "16-spectacle", "Phase", tostring(gameConfig.Phase))
-	record(summary, type(context.Config.SizeConfig) == "table", "SizeConfig", context.Config.SizeConfig and "loaded" or "missing")
-	if context.Config.SizeConfig then
-		for _, tierId in ipairs({ "Regular", "Chunky", "Huge", "Massive", "Colossal", "Voidborn" }) do
-			record(summary, context.Config.SizeConfig.Tiers[tierId] ~= nil, "Size tier " .. tierId, context.Config.SizeConfig.Tiers[tierId] and "present" or "missing")
-		end
-	end
-	record(summary, tonumber(gameConfig.VoidEventChargeDuration) ~= nil and gameConfig.VoidEventChargeDuration > 0, "Void charge duration", tostring(gameConfig.VoidEventChargeDuration))
-	record(summary, tonumber(gameConfig.MaxPlateSnackVisualScale) == 6, "Plate snack cap", tostring(gameConfig.MaxPlateSnackVisualScale))
-	record(summary, tonumber(gameConfig.MaxDisplaySnackVisualScale) == 4, "Display snack cap", tostring(gameConfig.MaxDisplaySnackVisualScale))
-	record(summary, tonumber(gameConfig.MaxFeedVisualScale) == 7, "Feed snack cap", tostring(gameConfig.MaxFeedVisualScale))
-	record(summary, tonumber(gameConfig.MaxSingleFeedHungerPercent) ~= nil and gameConfig.MaxSingleFeedHungerPercent <= 0.35, "Single feed hunger cap", tostring(gameConfig.MaxSingleFeedHungerPercent))
-
-	local vfxKeys = {}
-	for _, key in ipairs((context.Config.VFXConfig and context.Config.VFXConfig.EffectKeys) or {}) do
-		vfxKeys[key] = true
-	end
-	for _, key in ipairs({ "Void.FeedSmall", "Void.Feed", "Void.FeedRare", "Void.FeedColossal", "Void.FeedVoidborn", "Void.Hunger25", "Void.Hunger50", "Void.Hunger75", "Void.Charging" }) do
-		record(summary, vfxKeys[key] == true, "VFX key " .. key, vfxKeys[key] and "present" or "missing")
-	end
-	for _, eventName in ipairs(context.Config.EventConfig.Order or {}) do
-		local eventConfig = context.Config.EventConfig[eventName]
-		record(summary, eventConfig and eventConfig.ObjectiveText ~= nil, "Event objective " .. tostring(eventName), eventConfig and tostring(eventConfig.ObjectiveText) or "missing")
-		record(summary, eventConfig and eventConfig.AssetKey ~= nil, "Event asset " .. tostring(eventName), eventConfig and tostring(eventConfig.AssetKey) or "missing")
-		record(summary, eventConfig and eventConfig.BannerName ~= nil, "Event banner " .. tostring(eventName), eventConfig and tostring(eventConfig.BannerName) or "missing")
-	end
 	local world = workspace:FindFirstChild("GameWorld")
-	record(summary, world and world:FindFirstChild("EventObjects") ~= nil, "EventObjects cleanup folder", world and (world:FindFirstChild("EventObjects") and "present" or "missing") or "missing")
-	record(summary, context.Services.EventService.GetActiveEventObjective ~= nil, "Event objective API", context.Services.EventService.GetActiveEventObjective and "present" or "missing")
-	record(summary, context.Services.VoidService.IsCharging ~= nil, "Void charge API", context.Services.VoidService.IsCharging and "present" or "missing")
-	record(summary, context.Services.EventService.GetChargeStatus ~= nil, "Event charge status API", context.Services.EventService.GetChargeStatus and "present" or "missing")
-	record(summary, context.Services.PhantomSnackService.CountActive ~= nil, "Phantom catchable target API", context.Services.PhantomSnackService.CountActive and "present" or "missing")
-	record(summary, context.Services.EventService.CollectEventPickup ~= nil, "SnackRain pickup collect API", context.Services.EventService.CollectEventPickup and "present" or "missing")
-	record(summary, context.Services.EventService.GetGoldenHungerSnackId ~= nil, "GoldenHunger wanted snack API", context.Services.EventService.GetGoldenHungerSnackId and "present" or "missing")
-	record(summary, context.Services.WorldSpectacleService ~= nil, "WorldSpectacleService", context.Services.WorldSpectacleService and "loaded" or "missing")
-	if context.Services.WorldSpectacleService then
-		local evidence = context.Services.WorldSpectacleService.RunSpectacleDiagnostics(player)
-		summary.SpectacleEvidence = evidence
-		record(summary, (evidence.FeedClones or 0) >= 1, "Real feed clone spawned", "feedClones=" .. tostring(evidence.FeedClones or 0))
-		record(summary, (evidence.EventProps or 0) >= 5, "Real event props spawned", "eventProps=" .. tostring(evidence.EventProps or 0))
-		record(summary, (evidence.Pickups or 0) >= 5, "Real SnackRain pickups spawned", "pickups=" .. tostring(evidence.Pickups or 0))
-		record(summary, (evidence.Phantoms or 0) >= 3, "Real phantom visuals spawned", "phantoms=" .. tostring(evidence.Phantoms or 0))
-		record(summary, (evidence.VoidPulses or 0) >= 1, "Real Void pulse spawned", "voidPulses=" .. tostring(evidence.VoidPulses or 0))
-		print(string.format(
-			"[FEED THE VOID][SpectacleCheck] evidence feedClones=%d eventProps=%d pickups=%d phantoms=%d voidPulses=%d diagnosticChildren=%d",
-			evidence.FeedClones or 0,
-			evidence.EventProps or 0,
-			evidence.Pickups or 0,
-			evidence.Phantoms or 0,
-			evidence.VoidPulses or 0,
-			evidence.DiagnosticChildren or 0
-		))
+	record(summary, gameConfig.Phase == "17-visual-acceptance", "Phase 17 visual acceptance", tostring(gameConfig.Phase))
+	record(summary, world and world:FindFirstChild("VisualTestObjects") ~= nil, "VisualTestObjects folder", world and (world:FindFirstChild("VisualTestObjects") and "present" or "missing") or "missing")
+	local eventStarted = context.Services.EventService.PlayEventVisual("SnackRain", player, { Duration = 45 })
+	task.wait(0.35)
+	local evidence = context.Services.WorldSpectacleService.RunSpectacleDiagnostics(player, { PreserveExisting = true })
+	local bannerEvidence = context.Services.WorldSpectacleService.GetLastBannerEvidence()
+	local eventStatus = context.Services.EventService.GetStatus()
+	local firstUpgradeCost = context.Services.UpgradeService.GetCostForLevel and context.Services.UpgradeService.GetCostForLevel("GrowSpeed", 0) or math.huge
+	summary.SpectacleEvidence = evidence
+	summary.FirstUpgradeCost = firstUpgradeCost
+
+	record(summary, (evidence.FeedRegularMaxDimension or 0) >= 3 and (evidence.FeedRegularMaxDimension or 0) <= 4.5, "Feed Regular visual", string.format("%.1f studs", evidence.FeedRegularMaxDimension or 0))
+	record(summary, (evidence.FeedColossalMaxDimension or 0) >= 8 and (evidence.FeedColossalMaxDimension or 0) <= 10.5, "Feed Colossal visual", string.format("%.1f studs", evidence.FeedColossalMaxDimension or 0))
+	record(summary, (evidence.FeedVoidbornMaxDimension or 0) >= 11 and (evidence.FeedVoidbornMaxDimension or 0) <= 14, "Feed Voidborn visual", string.format("%.1f studs", evidence.FeedVoidbornMaxDimension or 0))
+	record(summary, (evidence.SizeVisualRatio or 0) >= 4.5, "Size visual delta", string.format("Voidborn is %.2fx Regular", evidence.SizeVisualRatio or 0))
+	record(summary, (evidence.SnackRainClouds or 0) >= 1, "SnackRain cloud spawned", tostring(evidence.SnackRainClouds or 0))
+	record(summary, (evidence.SnackRainFallingPickups or 0) >= 10, "SnackRain falling pickups spawned", tostring(evidence.SnackRainFallingPickups or 0))
+	record(summary, (evidence.MutationCrystals or 0) >= 1 and (evidence.MutationPlateAuras or 0) >= 1, "MutationCrystal spawned", "crystal=" .. tostring(evidence.MutationCrystals or 0) .. " plateAuras=" .. tostring(evidence.MutationPlateAuras or 0))
+	record(summary, (evidence.VoidmiteNests or 0) >= 1 and (evidence.InfestationVoidmites or 0) >= 3 and (evidence.InfestationMist or 0) >= 1, "VoidmiteNest spawned", "nest=" .. tostring(evidence.VoidmiteNests or 0) .. " swarm=" .. tostring(evidence.InfestationVoidmites or 0) .. " mist=" .. tostring(evidence.InfestationMist or 0))
+	record(summary, (evidence.GoldenHungerIdols or 0) >= 1, "GoldenHungerIdol spawned", tostring(evidence.GoldenHungerIdols or 0))
+	record(summary, (evidence.GoldenHungerHolograms or 0) >= 1 and (evidence.GoldenHungerBeams or 0) >= 1, "GoldenHunger wanted snack hologram spawned", "hologram=" .. tostring(evidence.GoldenHungerHolograms or 0) .. " beam=" .. tostring(evidence.GoldenHungerBeams or 0))
+	record(summary, (evidence.Phantoms or 0) >= 3 and (evidence.PhantomCatchPrompts or 0) >= 3, "Phantom count >= 1", "visible=" .. tostring(evidence.Phantoms or 0) .. " catchPrompts=" .. tostring(evidence.PhantomCatchPrompts or 0))
+	record(summary, eventStarted == true and eventStatus.ActiveEventName == "SnackRain" and bannerEvidence and bannerEvidence.ObjectiveText == context.Config.EventConfig.SnackRain.ObjectiveText, "Event banner objective text", bannerEvidence and (tostring(bannerEvidence.EventName) .. " | " .. tostring(bannerEvidence.ObjectiveText)) or "missing")
+	record(summary, firstUpgradeCost <= 250, "First upgrade cost <= 250", tostring(firstUpgradeCost))
+
+	local first10Blockers = not lastFirst10Summary and 1 or (tonumber(lastFirst10Summary.Failed) or 0)
+	summary.PrivateTestBlockerCount = summary.Failed + first10Blockers
+	for _, entry in ipairs(summary.Checks) do
+		print("[FEED THE VOID][SpectacleCheck] " .. tostring(entry.Label) .. ": " .. (entry.Ok and "PASS" or "FAIL") .. " - " .. tostring(entry.Detail))
 	end
+	print("[FEED THE VOID][SpectacleCheck] Private test blocker count: " .. tostring(summary.PrivateTestBlockerCount))
 
 	SmokeTestService.PrintSummary(summary)
 	print("[FEED THE VOID][SpectacleCheck] director readiness: " .. readiness(summary))

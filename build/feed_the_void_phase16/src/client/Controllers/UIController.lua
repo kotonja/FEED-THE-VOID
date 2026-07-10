@@ -798,15 +798,14 @@ local function updateEventBanner(data)
 	if data.VoidEventCharging then
 		local remaining = math.max(0, (data.VoidEventChargeEndsAt or 0) - os.time())
 		banner.Visible = true
-		banner.EventText.Text = "THE VOID IS WAKING UP... " .. tostring(remaining) .. "s"
+		banner.EventText.Text = "THE VOID IS WAKING\n" .. tostring(data.VoidEventQueuedName or "VOID EVENT") .. "\n" .. tostring(remaining) .. "s"
 		pulseGuiObject(banner.EventText, 1.02)
 	elseif activeName then
 		local remaining = math.max(0, (data.ActiveEventEndsAt or 0) - os.time())
 		banner.Visible = true
 		local displayName = data.ActiveEventDisplayName or activeName
 		local objective = data.ActiveEventObjective or (activeName == "PhantomSnackChase" and "Catch the Phantom Snacks!" or "Join the active Void event")
-		local eventText = displayName .. ": " .. objective
-		banner.EventText.Text = eventText .. " - " .. tostring(remaining) .. "s"
+		banner.EventText.Text = string.upper(displayName) .. "\n" .. objective .. "\n" .. tostring(remaining) .. "s"
 		if lastEventName ~= activeName then
 			pulseGuiObject(banner, 1.025)
 			lastEventName = activeName
@@ -1065,7 +1064,7 @@ function UIController.Init(ui, notifications, guidance, sounds)
 	local watermark = mainUi:FindFirstChild("PrivateTestWatermark")
 	if watermark then
 		watermark.Visible = false
-		watermark.Text = "PRIVATE TEST | " .. tostring(GameConfig.BuildVersion or GameConfig.Phase or "Phase 16")
+		watermark.Text = "PRIVATE TEST | " .. tostring(GameConfig.BuildVersion or GameConfig.Phase or "Private")
 	end
 	bindRemotes()
 	bindFeedbackControls()
